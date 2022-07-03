@@ -1,0 +1,976 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp1041295pxb;
+        Fri, 15 Apr 2022 19:35:58 -0700 (PDT)
+X-Received: by 2002:a7b:cd10:0:b0:38e:b3c5:bc68 with SMTP id f16-20020a7bcd10000000b0038eb3c5bc68mr5354200wmj.47.1650076558381;
+        Fri, 15 Apr 2022 19:35:58 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1650076558; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=Ut8iH/Cvcfrho8hWOKq8WmQgfRwg0efUqopgdto30AhAXZYiUcvucZi8BFIZIhm5e9
+         IZwpVHBkCOrlh+RzGo8m9sThfQQ49+53Qd3GcWpndBOZPbEocDgzrQ/eTizakqd3D2pB
+         /JKGFTEUNoK0pFY1IMi9r8RKik1lOfh9FX3j7sDHlkCQaablE8f++yJWZjC4nNWfDPZ6
+         nISCsiDYGA+0E6E/57o+0yWJacKboJ3Ezowv+/RSHs9P37pa6IJPYQKogIejS0vMGkv9
+         SjQHQhOwclgdVpFnsFnd8Q4r7xNJ29f7lvCd+6RTjQJBOvTSQ68V94AK+JU+0++hG92D
+         yW6Q==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :cc:from:dkim-signature:dkim-signature:delivered-to;
+        bh=DC/LX147st7winDQE+wNHVzFqerJEszv6l7rRF+ZYZA=;
+        b=w4nlinZLrZMO5+70eq/C6riDOAOgN91+I54fuvsTdFqbRkFXO7SlOuQ2br+lMoqv4B
+         Xd7dCFez5KsxU2BqMM7d4UxLZdNN30tAirQWQg548UIrPGi4/UrAfiDCTK+orT2jzKQg
+         5KqX2xOgz80jTy5exaF/rQyj70N+zfWNdoHDnz8UFqRbLnzj8XPiyN6XhW5hxygWzuFC
+         /J2BQWn7uZ5OH2JRWe/iGeWHFrxfzLCKNdrhEqMh0wpNIOBenjw0E8FjjnMuWoBJ/ZHJ
+         kyntP6Am7WUqVin8/PhrJ4bQNI64P2LQbbdf++WfrwPs5uu0xq7Bi0/T929Z+nkckrN3
+         XhjA==
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=ZrqOWfl5;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=mSzNFo+J;
+       arc=pass (i=2 dkim=pass dkdomain=allianzbulk.onmicrosoft.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info";
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id i9-20020a0560001ac900b0020797284e1bsor1348489wry.65.2022.04.15.19.35.57
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 19:35:58 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=ZrqOWfl5;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=mSzNFo+J;
+       arc=pass (i=2 dkim=pass dkdomain=allianzbulk.onmicrosoft.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info";
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Authentication-Results: spf=pass (sender IP is 209.85.214.174)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:delivered-to:dkim-signature:dkim-signature:from
+         :cc:subject:date:message-id:mime-version:thread-index
+         :content-language;
+        bh=DC/LX147st7winDQE+wNHVzFqerJEszv6l7rRF+ZYZA=;
+        b=CQUb8YMoctyY/PVx2h1fCqz2b1fhSuud4au/y6LsMHqXKXTzt+jYvxrpe0y3jc2xNM
+         jano2nwf/9VuloE6yXQxjlfJk5428EowhoZ+miyi2t16iQzkeyXJ0S/bbMwCdxBYaYEz
+         0EVJY+4upAXtu2BpnR5krngnUVkqHbV5vmUMLybPgv+6vikVlY5G6ljQfKPXdHP9B55y
+         m6EnbREIXa2GCFby0WEA/6qgjvMtXPfBjHMHVBhXADe241LHiMzQ2z8Rqrak6cBQKmLu
+         h09bK1y7WIfvxE8fna8FFa+0Pumamh7ZHksOs7PTDW4e0q/7m3uqHfP9WIZjL6wDi2Um
+         vbfQ==
+X-Gm-Message-State: AOAM530Jt04QqLlNrtOagEcSkexw44ZqLJA7J9kaKGwanBq3JW+Lx0z5
+	0kLkiGs4chuL/BtlhUkaYI6mlME825ud2//FLCcVHFu0egw9VbuqpSUV9dI=
+X-Received: by 2002:a5d:47cc:0:b0:204:1c9d:2157 with SMTP id o12-20020a5d47cc000000b002041c9d2157mr1097893wrc.294.1650076556927;
+        Fri, 15 Apr 2022 19:35:56 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:adf:fe8c:0:0:0:0:0 with SMTP id l12csp2751wrr;
+        Fri, 15 Apr 2022 19:35:53 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyHPrPcmhfZgOJDe4Z5R822+f1aSX13i5m5oFZKYhRd/D+Mpl8M+9MlYor3fZCQq3JbAKJG
+X-Received: by 2002:a05:6402:530b:b0:41d:6f3c:d8dc with SMTP id eo11-20020a056402530b00b0041d6f3cd8dcmr1868169edb.291.1650076553375;
+        Fri, 15 Apr 2022 19:35:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1650076553; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=xoP0ClBrEnetW/Dp6xlI430hNpOwopZ3t0YxPKkGpzDNHCY3z7/XaQCx3Y9ObV53od
+         lir9kDpB/rLCP/KbmX8F5u0s27HipZxCK50YhYwCX7hWvBltqz6eI1+yrIZAlzmWyFyV
+         BDFPBIk2imRlORVcy7Kk9Ucrpso3V04f5IAF4r91tXmlHZU40K2m1tJQcDdzddKJdAbA
+         Vjqi7qYTLyqE0nK/nbGm2KKawxGuUzvr9TLN0e5hG+q7LmehwNC1X65mO9FFSj+G9xt1
+         6WPZy2bSymCpWIYqR0Pb5zFOpE1Gat5LN1LCHWWuxGqirx3QpasgiJ+egT6V7ExrdkZu
+         2wJA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :cc:from:dkim-signature:dkim-signature;
+        bh=DC/LX147st7winDQE+wNHVzFqerJEszv6l7rRF+ZYZA=;
+        b=BLxkuYAQoPvtam+XZ7kisJ4OIaycZ5CDf1uUhGnA+QXXfTYIXX/9F5cWQCyASvFMAm
+         iplXEp0gvham3/4vN3DZiANKrAaC9vqoBSl+TS0cjMEhfCy+TzTRm801AAPrvHyF7YPe
+         GHURxYun9BzWBFoyu6W+Xk5Git/HI1YDV6i3O94MyZXhr8g/SC098F/vTobUOiGuxzX5
+         elHUYj0zOs+QM0CwgaWm+oW9mA8Hm45eeJcAeWrjXR7/ayZkzm3ic38KF3AUGIutG6FL
+         t0ivkyS4yLsyh4hJm1Mu6nDwoccaWAuSu8lekhXHjiBAPox2dMhbwh8ba9AdqbFd/dNy
+         s3jg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=ZrqOWfl5;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=mSzNFo+J;
+       arc=pass (i=1 spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=softfail (google.com: domain of transitioning bulkjuggernaut@gmail.com does not designate 2a01:111:f400:fe0c::722 as permitted sender) smtp.mailfrom=bulkjuggernaut@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <bulkjuggernaut@gmail.com>
+Received: from EUR04-DB3-obe.outbound.protection.outlook.com (mail-db3eur04on0722.outbound.protection.outlook.com. [2a01:111:f400:fe0c::722])
+        by mx.google.com with ESMTPS id f6-20020a056402354600b00423709edc7esi779102edd.529.2022.04.15.19.35.52
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 19:35:53 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning bulkjuggernaut@gmail.com does not designate 2a01:111:f400:fe0c::722 as permitted sender) client-ip=2a01:111:f400:fe0c::722;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=f40rd1jT5dQ/Yvskh0LcYPNpBzIzmOBZxnLTbvyHPpwi4/P5KiV0F6CZWQXx3Nw/Q1Hvt69LDnUQOcr5cCis7Wt+FcX/+T/yVhqLkp2hPti19BHwsi3tRLDVHd+gBc8dfjJDGN/d/krRrpUQ6e6GWAD7OGu6H5ftlTuX+sQrKQkXInRkaMLrmeVscLCexNrOFuo7Zyv26aQyOiVZlwF43YLFxxK4Rt/bOZPkQIYp3MKx7xxveOr79eSJaJJpqnHAZYsWagF1de+ZJlWSp0fMnUl/XclC0oSVYbcCpz+Nh/LT+V8mqkKh2CoxoGMwI1VZI7EonPBjVXXnHObEdyfeWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DC/LX147st7winDQE+wNHVzFqerJEszv6l7rRF+ZYZA=;
+ b=MuKOQyEAcRdNFa35NlVClCK8doleqdKI//kEUVdy3dWi31uh4xjLHFG3HK0SNHGj1s/sDDmHAVHYqtOCoEoGTR6twuJSJU3BxIRSPXjdTcD5JojZYBO2vhbNIc47kcS3rDK5Wa6kaXX4hX2lHpPcCrsStYe3wAcdC72fO3GCCXYdX2GQEI3hBxnasEuIodSkL6e2JV2NGGfT32N0k1m1b5eTVtrvRPv8FGZIOog1j+/bqrF2p1rIl+RrMWHFsYnu25VFYIAib96gFEcQFl7ngdqdG7BEt7piEf2lK3Y7tkrv01Ga2e99fzmGpaf/YwHODILD4/jPWv+O/G3mfXPX1w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 209.85.214.174) smtp.rcpttodomain=allianzbulk.com smtp.mailfrom=gmail.com;
+ dmarc=pass (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
+ dkim=pass (signature was verified) header.d=gmail.com; arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=allianzbulk.onmicrosoft.com; s=selector2-allianzbulk-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DC/LX147st7winDQE+wNHVzFqerJEszv6l7rRF+ZYZA=;
+ b=ZrqOWfl5VxXk9qYghQSBXRH1LZbNhj/96mVkXavJQlpDLWh7rq9RIuW3eqwLTNS5k/kGcstUeMuu75NQ5DA4UfNh8r0ZLBnFrwb+HhIxqRalf832GTCinAErwiK8Zt4TTlNX0hzVtOixL5qE2j0iCKFHmoqUS1mcnlbasrj2stk=
+Received: from OL1P279CA0039.NORP279.PROD.OUTLOOK.COM (2603:10a6:e10:14::8) by
+ VI1PR05MB5312.eurprd05.prod.outlook.com (2603:10a6:803:a9::20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.20; Sat, 16 Apr 2022 02:35:51 +0000
+Received: from HE1EUR01FT023.eop-EUR01.prod.protection.outlook.com
+ (2603:10a6:e10:14:cafe::bf) by OL1P279CA0039.outlook.office365.com
+ (2603:10a6:e10:14::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20 via Frontend
+ Transport; Sat, 16 Apr 2022 02:35:50 +0000
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.214.174 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.214.174; helo=mail-pl1-f174.google.com;
+Received: from mail-pl1-f174.google.com (209.85.214.174) by
+ HE1EUR01FT023.mail.protection.outlook.com (10.152.0.162) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19 via Frontend Transport; Sat, 16 Apr 2022 02:35:50 +0000
+Received: by mail-pl1-f174.google.com with SMTP id n18so8360232plg.5
+        for <projects@allianzbulk.com>; Fri, 15 Apr 2022 19:35:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=from:cc:subject:date:message-id:mime-version:thread-index
+         :content-language;
+        bh=DC/LX147st7winDQE+wNHVzFqerJEszv6l7rRF+ZYZA=;
+        b=mSzNFo+Jql5yOJG3dx2sbNMjdMytRCm98ySmHDRJUehJ3d6ooJ3xSqGmO08UHULKml
+         Y6PmXUF5r7VGXTpLSjJZJEXO/1FN25KIrwggCMOAbTjsHkB+9XhebLBcPPviCHTRj3Zk
+         cDDDLGsoXvpOx2nZCeBeJxoNbZLN7VvJqaenvEcIvuFvbCUf0n3T/XEHcOT4J7+h6f2k
+         FUgQGUoRVbxL3L5mdq1t7us+3y1BACJw3FjVQRkRr5s+VySJ70nY4t5oSV86d36jphSI
+         BRIoM/5LBi4XOD/o2S5TGoiTJ/XgSmoiRKxiaDJVU0U60mTQ4HgaG73VMAtJirZqcS1/
+         aOSQ==
+X-Received: by 2002:a17:902:9b95:b0:151:533b:9197 with SMTP id y21-20020a1709029b9500b00151533b9197mr1867924plp.66.1650076548326;
+        Fri, 15 Apr 2022 19:35:48 -0700 (PDT)
+Return-Path: bulkjuggernaut@gmail.com
+Received: from JuggernautPC ([223.230.84.18])
+        by smtp.gmail.com with ESMTPSA id t15-20020a63b70f000000b00381510608e9sm5485471pgf.14.2022.04.15.19.35.38
+        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Fri, 15 Apr 2022 19:35:47 -0700 (PDT)
+From: "Bulk Juggernaut" <bulkjuggernaut@gmail.com>
+Cc: "'capt.s.r.sharma'" <capt.s.r.sharma@gmail.com>
+Subject: FW: Mundra / Dammam - 10,000 MT Bagged FlyAsh+++OTHERS
+Date: Sat, 16 Apr 2022 08:06:02 +0530
+Message-ID: <005e01d8513a$bd1eb950$375c2bf0$@com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_005F_01D85168.D6D6F550"
+X-Mailer: Microsoft Office Outlook 12.0
+Thread-Index: AdhQzlIz20T6HO9iSVic/NRiRbHMZgAGq7HwABOGKPA=
+Content-Language: en-us
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 58cb896f-7967-4de0-aa38-db684b7974dd:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 48ef64e0-0159-4199-0662-08da1f51d20b
+X-MS-TrafficTypeDiagnostic: VI1PR05MB5312:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Transport-Rules-Loop: 1
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	sURqSiCgZ/9r4Kax1IbttOHvDXiN9IOePI86AS5ZdXaawy8cOwja1sf9fXNCjqtbKEML6IVXhOpn+uwsaM/B9uh4q2gmT4lGy5yoYwqZf9kszoIlTDbaWl7OtclcMwqY5yEYVT11jBzC9h5bCievKrPsHDFY7O4ArBeMiiHTwK9N/NuIXC7eysJEzZSeqcmEVIoxTti+H8uD6au7+qR26J+N4FdlBMB9VfeSbTBK7dRFdboIOc9L6Nvy8M+nWYB/CJWpSAkQXXxJmT2nOJqcJBvc6gR8+ytPv8CCZS0cUo1M43GvWnYCQA06CKhrVaE/J9Nk1hitLVKfD422ZLMGkWy/Sx+mPQ5iU+patJXMw40xe3ZauaIDraSnWz99SGO9mOhWtN3mbBTI4NiIWnktoCTzualrQrULOHl1oE237C13jlNrChjYp6YlcYY1oNtJOD8kIkWSXJH/O9pzzJ2LHEvf8u89dmgLsVk3+vUENvXOrLSxQ9bf+c8OjEE9/raA7NQe/u/MIUuNj9wHM/718Iksq/TjYaO7WSrG3IAb5c17GFoMfgOvMht4gRiloLFOPb44ozPUc/HRVVot78buWWtnxmpiVngCgFnFgcNUCSs4SLXVosuQYmhVlb6iqzRDJXK3iyDXFT3gPf2UlDLf1g==
+X-Forefront-Antispam-Report:
+	CIP:209.85.214.174;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail-pl1-f174.google.com;PTR:mail-pl1-f174.google.com;CAT:NONE;SFS:(13230001)(4636009)(7916004)(84050400002)(356005)(426003)(336012)(956004)(70586007)(8676002)(68406010)(6666004)(508600001)(4326008)(82202003)(107886003)(109986005)(1420700001)(33716001)(2906002)(26005)(73392003)(5660300002)(9686003)(44736005)(86362001)(83380400001)(316002)(7636003)(7596003)(76482006);DIR:OUT;SFP:1102;
+X-ExternalRecipientOutboundConnectors: 58cb896f-7967-4de0-aa38-db684b7974dd
+X-OriginatorOrg: allianzbulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2022 02:35:50.2158
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48ef64e0-0159-4199-0662-08da1f51d20b
+X-MS-Exchange-CrossTenant-Id: 58cb896f-7967-4de0-aa38-db684b7974dd
+X-MS-Exchange-CrossTenant-AuthSource: HE1EUR01FT023.eop-EUR01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR05MB5312
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_005F_01D85168.D6D6F550
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Dear Sir
+
+ 
+
+PLEASE OFFER FOR BELOW PRACELS:
+
+ 
+
+9/10,000 MT FLY ASH IN JUMBO BAGS (1.4 MT EACH)
+
+POL: MUNDRA, WC INDIA
+
+POD: DAMMAM OR JEDDAH, S.ARABIA
+
+LAYCAN: PROMPT (TRY VSL DATES) 
+
+L.RATE: 750 MT PWWD SSHEX UU PER HOOK
+
+D RATE: LINER OUT
+
+PART CARGO OK
+
+FILO - 1/1
+
+3.75% TTL
+
+ 
+
++++
+
+ 
+
+20,000 MT 5% STEEL ROUND BARS
+
+DIA: 270mm / APPROX 4.6 MT EACH
+
+LENGTH: 8.55 - 11.15 m 
+
+ 
+
+POL: CONSTANTA, ROMANIA 
+
+POD: FREEPORT, TX, MEXICO (36' MAX / LOA 610')
+
+ 
+
+LOAD RATE: 2,250 PER GANG, PER DAY SSHINC
+
+DISCH RATE: CQD
+
+LAYCAN: 2/8 MAY'22
+
+-UNDER DECK
+
+-IACS, 25yr MAX
+
+3.75% TTL
+
+ 
+
++++
+
+ 
+
+-40.000/60.000 mt bulk clinker
+
+-load port assaluyah iran
+
+-dscharge port shuaiba kuwait
+
+-Laycan spot
+
+-ld 7000/10.000 p.day
+
+-gearless ok
+
+-3.75 %
+
+ 
+
++++
+
+ 
+
+propose suitable Live stock carrier for below cargo.
+
+FCC: SINGAPORE
+
+CARGO: 3000 Goat (Domba) Shipment
+
+QUANTITY:3000 HEADS
+
+LOADING PORT:Tanjung Balai (Medan)
+
+DISCHARGE PORT:Mersing Johor.
+
+LAYCAN:JULY DATE 2022
+
+COMMISSION:3.75%
+
+ 
+
++++
+
+ 
+
+TOTAL QUANTITY: 300,000MT
+
+= CARGO DESCRIPTION: 50,000 Mt Palletized Urea Crystalline.
+
+= QUANTITY: 50,000MT
+
+= NUMBER OF VESSEL: 3 ,50,000MT VESSEL
+
+= LOADING PORT : Qingdao, Shandong, China.
+
+= DISCHARGING PORT : Santos, Brazil.
+
+= LOADING RATES :No info. However, we are requesting Charterers to advise on
+it.
+
+= UNLOADING RATES :No info. However, we are requesting Charterers to advise
+on it.
+
+=LAYCAN : May 1-10, 2022 (could be extended if required).
+
+= LAYTIME : According to Charterers there is no port congestion.
+
+=COMMISSION: 3.75%
+
+ 
+
++++
+
+ 
+
+= CARGO DESCRIPTION: FERTILIZER, 50KG BAGS,
+
+= QUANTITY: 17,000MT
+
+= STOWAGE FACTOR: 1.64M3/TON
+
+= LOADING PORT : DAKAR
+
+= DISCHARGING PORT : LOME
+
+= LOADING RATES :1500MT PWWD OF 24 CONSECUTIVE HRS SHINC
+
+= UNLOADING RATES :2000MT PWWD OF 24 CONSECUTIVE HRS SHINC
+
+=LAYCAN : PROMPT
+
+= FREIGHT : USD 40 PMT FIOS L/S/D
+
+= PORT D/A BOTH ENDS TO BE PAID BY CHARTERERS.
+
+=COMMISSION: 3.75%
+
+ 
+
++++
+
+ 
+
+PART CARGO ALLOW
+
+1) CARGO:   400 , 20ft containers loaded with semi processed wood
+
+                      Weight 27/28 MT per container
+
+2) PORT OF LOADING:  Banjul, draft maxi 9.50 m
+
+3) PORT OF DISCHARGE:  Shanghai
+
+4) LOADING / DISCHARGE RATE:  2 days SHINC
+
+5) FREIGHT RATE: Owners most competitive freight rate to prevail.
+
+7) COMMISSION: 3.75%
+
+8) LAYCAN:     Prompt
+
+ 
+
++++
+
+ 
+
+PART CARGO OK
+
+CARGO : Sawn and veneer ,Plywood
+
+QUANTITY: 8000M3 OR 4500MT
+
+LOADING PORT: Owendo
+
+DISCHARGE PORT:
+
+A) Jebel ali/ Port Rashid ( 3000 M3 )
+
+B) Umm Qasar   (  5000 M3 )
+
+DIMENSION:3 X 1 X1MTR
+
+WEIGHT: 2 MT PER BUNDLE
+
+STOWAGE FACTOR: 0.6T/M3
+
+LOADING RATE:2000 M3 per day IAGW WP
+
+DISCHARGE: 2000 M3 per day IAGW WP
+
+LAYCAN: 18 - 25 April
+
+COMMISSION: 3.75%
+
+It's for 2 H/H
+
+ 
+
++++
+
+ 
+
+25,000-55000 MTS BULK CLINKER 
+
+SHARJAH HAMRIYAH / CHITTAGONG 
+
+15000 SHINC / 5000 FHINC 
+
+LIGHTERING AT KUTUBDIA CHARTER ACCT 
+
+18-27 APRIL TRY VSL DATES 
+
+3.75% TTL HERE
+
+ 
+
++++
+
+ 
+
+W.C.U.O? FRESH 
+
+ 
+
+POTI / PLOCE 
+
+6000 MTS % 5 IN OO WHEAT 
+
+30 APRIL / ONW
+
+24/48 HOURS C 
+
+3.75 PCT 
+
+ 
+
+BEST OFFER INVITED
+
+FULL TERMS+ BG + REFERANCES  + DETAILS HERE AGAINST FIRM INTEREST 
+
+NAMED/ DETAILED/ DATED TONNAGES WILL BE RESPONDED 
+
+ 
+
+ 
+
++++
+
+ 
+
+++ NO SUBS ++
+
+ 
+
+ANY SIZE BETWEEN 20.000-55.000 MT DWT, GRD, OA OK
+
+FOR STEELS/MNRLS
+
+1-2 SP CHINA / 1-2 SP EMED
+
+SPOT/PPT/30 APRIL
+
+TTL DAYS DEP SIZE
+
+FRT BSS LPSUM FIOS WITH FREE D/A BENDS
+
+GCN 3.75%
+
+ 
+
++++
+
+ 
+
+JOSE  (VENEZUELA) / 1 SP TURKEY
+
+15/ 60 .000  MT , PETCOKE  IN BULK  (ABT STW 52)  
+
+L/C   SPOT   (TRY VSL DATE )  
+
+L/D  TTL DYS SHINC BSS  or  depend of  vsl tng
+
+FREE DA BENDS,CHABE ,PRE -PAYMENT  OK 
+
+stem ready,
+
+GCN 3.75 %
+
+ 
+
+P.S. : LOADING AT ANCHORAGE FROM BARGES, USING THE VESSEL'S CRANES .
+
+ 
+
+ 
+
++++
+
+ 
+
+Our Charterer is looking for a vessel that can take my balance cargo in
+Lagos :
+
+- quantity : 5kmt (I can consider small vessel for partial shipments)
+
+- product : wheat bran in powder 50kg
+
+- stowage factor : 1,6 to 1,8
+
+- load rate Lagos : 800mtpd
+
+- discharge rate Dakar : 700mtpd
+
+- laycan : as soon as possible (cargo ready)
+
+- freight target : 70$ FIOS is vessel geared / 50$ FIOS if vessel not geared
+(shorecranes on charterer's account)
+
+- Commission: 3.75%
+
+ 
+
++++
+
+ 
+
+-40000 mt 10 pct alfalfapellets  59 cbft
+
+-tarragona /damman
+
+-shipment 1-15 may
+
+-10000/6000
+
+-3.75% ttl
+
+ 
+
+ 
+
+Pls to hear
+
+ 
+
+ 
+
+IMPERATIVE TO SEND  YOUR  REPLY ALONG WITH  OUR MSG ENABLE TO CONNECT  
+
+(PLS ALWAYS INCLUDE OUR EMAIL ID IN YOUR CARGO, VESSEL & AIRCRAFT CIRCULAR)
+
+ 
+
+Regards
+
+Ganesh Sethuraman
+
+ 
+
+JUGGERNAUT SHIPPING & TRADING SERVICES
+
+(As Ship Managers / Charterers - Sea & Air / Brokers/SNP)
+
+Telangana. (Earlier Known as Andhra Pradesh)
+
+India.
+
+Cell/Whats App No:- +91 9000985922
+
+ 
+
+please always reply to EMail ID : ganesh.juggernautsts@gmail.com
+
+ 
+
+SKYPE ID: ganesh_sethuraman
+
+ 
+
+LIFT, SHIFT, SHIP OR TRADE:- WE ARRANGE TO DO ALL OF IT
+
+ 
+
+ 
+
+ 
+
+
+------=_NextPart_000_005F_01D85168.D6D6F550
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><META =
+HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 12 =
+(filtered medium)"><title>HTML Message</title><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Microsoft JhengHei";
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@Microsoft JhengHei";
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+h1
+	{mso-style-priority:9;
+	mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-priority:99;
+	mso-style-link:"Plain Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.5pt;
+	font-family:Consolas;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.EmailStyle17
+	{mso-style-type:personal;
+	font-family:"Microsoft JhengHei","sans-serif";
+	color:black;}
+span.EmailStyle18
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-priority:99;
+	mso-style-link:"Plain Text";
+	font-family:Consolas;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-link:"Heading 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.26222
+	{mso-style-name:"&\#26222\,&\#36890\,\(&\#32593\,&\#31449\,\) =
+Char\,\(Web\) Char";
+	mso-style-priority:99;
+	mso-style-link:wordsection1;
+	font-family:"Calibri","sans-serif";}
+p.wordsection1, li.wordsection1, div.wordsection1
+	{mso-style-name:wordsection1;
+	mso-style-priority:99;
+	mso-style-link:"&\#26222\,&\#36890\,\(&\#32593\,&\#31449\,\) =
+Char\,\(Web\) Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US link=3Dblue =
+vlink=3Dpurple><div class=3DWordSection1><p class=3DMsoPlainText>Dear =
+Sir<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>PLEASE OFFER FOR BELOW PRACELS:<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>9/10,000 MT FLY ASH IN JUMBO BAGS (1.4 MT =
+EACH)<o:p></o:p></p><p class=3DMsoPlainText>POL: MUNDRA, WC =
+INDIA<o:p></o:p></p><p class=3DMsoPlainText>POD: DAMMAM OR JEDDAH, =
+S.ARABIA<o:p></o:p></p><p class=3DMsoPlainText>LAYCAN: PROMPT (TRY VSL =
+DATES) <o:p></o:p></p><p class=3DMsoPlainText>L.RATE: 750 MT PWWD SSHEX =
+UU PER HOOK<o:p></o:p></p><p class=3DMsoPlainText>D RATE: LINER =
+OUT<o:p></o:p></p><p class=3DMsoPlainText>PART CARGO OK<o:p></o:p></p><p =
+class=3DMsoPlainText>FILO - 1/1<o:p></o:p></p><p =
+class=3DMsoPlainText>3.75% TTL<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>20,000 =
+MT 5% STEEL ROUND BARS<o:p></o:p></p><p class=3DMsoPlainText>DIA: 270mm =
+/ APPROX 4.6 MT EACH<o:p></o:p></p><p class=3DMsoPlainText>LENGTH: 8.55 =
+- 11.15 m <o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>POL: CONSTANTA, ROMANIA <o:p></o:p></p><p =
+class=3DMsoPlainText>POD: FREEPORT, TX, MEXICO (36' MAX / LOA =
+610')<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>LOAD RATE: 2,250 PER GANG, PER DAY =
+SSHINC<o:p></o:p></p><p class=3DMsoPlainText>DISCH RATE: =
+CQD<o:p></o:p></p><p class=3DMsoPlainText>LAYCAN: 2/8 =
+MAY'22<o:p></o:p></p><p class=3DMsoPlainText>-UNDER =
+DECK<o:p></o:p></p><p class=3DMsoPlainText>-IACS, 25yr =
+MAX<o:p></o:p></p><p class=3DMsoPlainText>3.75% TTL<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>-40.000/60.000 mt bulk clinker<o:p></o:p></p><p =
+class=3DMsoPlainText>-load port assaluyah iran<o:p></o:p></p><p =
+class=3DMsoPlainText>-dscharge port shuaiba kuwait<o:p></o:p></p><p =
+class=3DMsoPlainText>-Laycan spot<o:p></o:p></p><p =
+class=3DMsoPlainText>-ld 7000/10.000 p.day<o:p></o:p></p><p =
+class=3DMsoPlainText>-gearless ok<o:p></o:p></p><p =
+class=3DMsoPlainText>-3.75 %<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>propose suitable Live stock carrier for below =
+cargo.<o:p></o:p></p><p class=3DMsoPlainText>FCC: =
+SINGAPORE<o:p></o:p></p><p class=3DMsoPlainText>CARGO: 3000 Goat (Domba) =
+Shipment<o:p></o:p></p><p class=3DMsoPlainText>QUANTITY:3000 =
+HEADS<o:p></o:p></p><p class=3DMsoPlainText>LOADING PORT:Tanjung Balai =
+(Medan)<o:p></o:p></p><p class=3DMsoPlainText>DISCHARGE PORT:Mersing =
+Johor.<o:p></o:p></p><p class=3DMsoPlainText>LAYCAN:JULY DATE =
+2022<o:p></o:p></p><p =
+class=3DMsoPlainText>COMMISSION:3.75%<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>TOTAL =
+QUANTITY: 300,000MT<o:p></o:p></p><p class=3DMsoPlainText>=3D CARGO =
+DESCRIPTION: 50,000 Mt Palletized Urea Crystalline.<o:p></o:p></p><p =
+class=3DMsoPlainText>=3D QUANTITY: 50,000MT<o:p></o:p></p><p =
+class=3DMsoPlainText>=3D NUMBER OF VESSEL: 3 ,50,000MT =
+VESSEL<o:p></o:p></p><p class=3DMsoPlainText>=3D LOADING PORT : Qingdao, =
+Shandong, China.<o:p></o:p></p><p class=3DMsoPlainText>=3D DISCHARGING =
+PORT : Santos, Brazil.<o:p></o:p></p><p class=3DMsoPlainText>=3D LOADING =
+RATES :No info. However, we are requesting Charterers to advise on =
+it.<o:p></o:p></p><p class=3DMsoPlainText>=3D UNLOADING RATES :No info. =
+However, we are requesting Charterers to advise on it.<o:p></o:p></p><p =
+class=3DMsoPlainText>=3DLAYCAN : May 1-10, 2022 (could be extended if =
+required).<o:p></o:p></p><p class=3DMsoPlainText>=3D LAYTIME : According =
+to Charterers there is no port congestion.<o:p></o:p></p><p =
+class=3DMsoPlainText>=3DCOMMISSION: 3.75%<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>=3D =
+CARGO DESCRIPTION: FERTILIZER, 50KG BAGS,<o:p></o:p></p><p =
+class=3DMsoPlainText>=3D QUANTITY: 17,000MT<o:p></o:p></p><p =
+class=3DMsoPlainText>=3D STOWAGE FACTOR: 1.64M3/TON<o:p></o:p></p><p =
+class=3DMsoPlainText>=3D LOADING PORT : DAKAR<o:p></o:p></p><p =
+class=3DMsoPlainText>=3D DISCHARGING PORT : LOME<o:p></o:p></p><p =
+class=3DMsoPlainText>=3D LOADING RATES :1500MT PWWD OF 24 CONSECUTIVE =
+HRS SHINC<o:p></o:p></p><p class=3DMsoPlainText>=3D UNLOADING RATES =
+:2000MT PWWD OF 24 CONSECUTIVE HRS SHINC<o:p></o:p></p><p =
+class=3DMsoPlainText>=3DLAYCAN : PROMPT<o:p></o:p></p><p =
+class=3DMsoPlainText>=3D FREIGHT : USD 40 PMT FIOS =
+L/S/D<o:p></o:p></p><p class=3DMsoPlainText>=3D PORT D/A BOTH ENDS TO BE =
+PAID BY CHARTERERS.<o:p></o:p></p><p class=3DMsoPlainText>=3DCOMMISSION: =
+3.75%<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>PART =
+CARGO ALLOW<o:p></o:p></p><p class=3DMsoPlainText>1) CARGO:&nbsp;&nbsp; =
+400 , 20ft containers loaded with semi processed wood<o:p></o:p></p><p =
+class=3DMsoPlainText>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; Weight 27/28 MT per container<o:p></o:p></p><p class=3DMsoPlainText>2) =
+PORT OF LOADING:&nbsp; Banjul, draft maxi 9.50 m<o:p></o:p></p><p =
+class=3DMsoPlainText>3) PORT OF DISCHARGE:&nbsp; =
+Shanghai<o:p></o:p></p><p class=3DMsoPlainText>4) LOADING / DISCHARGE =
+RATE:&nbsp; 2 days SHINC<o:p></o:p></p><p class=3DMsoPlainText>5) =
+FREIGHT RATE: Owners most competitive freight rate to =
+prevail.<o:p></o:p></p><p class=3DMsoPlainText>7) COMMISSION: =
+3.75%<o:p></o:p></p><p class=3DMsoPlainText>8) =
+LAYCAN:&nbsp;&nbsp;&nbsp;&nbsp; Prompt<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>PART =
+CARGO OK<o:p></o:p></p><p class=3DMsoPlainText>CARGO : Sawn and veneer =
+,Plywood<o:p></o:p></p><p class=3DMsoPlainText>QUANTITY: 8000M3 OR =
+4500MT<o:p></o:p></p><p class=3DMsoPlainText>LOADING PORT: =
+Owendo<o:p></o:p></p><p class=3DMsoPlainText>DISCHARGE =
+PORT:<o:p></o:p></p><p class=3DMsoPlainText>A) Jebel ali/ Port Rashid ( =
+3000 M3 )<o:p></o:p></p><p class=3DMsoPlainText>B) Umm Qasar&nbsp;&nbsp; =
+(&nbsp; 5000 M3 )<o:p></o:p></p><p class=3DMsoPlainText>DIMENSION:3 X 1 =
+X1MTR<o:p></o:p></p><p class=3DMsoPlainText>WEIGHT: 2 MT PER =
+BUNDLE<o:p></o:p></p><p class=3DMsoPlainText>STOWAGE FACTOR: =
+0.6T/M3<o:p></o:p></p><p class=3DMsoPlainText>LOADING RATE:2000 M3 per =
+day IAGW WP<o:p></o:p></p><p class=3DMsoPlainText>DISCHARGE: 2000 M3 per =
+day IAGW WP<o:p></o:p></p><p class=3DMsoPlainText>LAYCAN: 18 - 25 =
+April<o:p></o:p></p><p class=3DMsoPlainText>COMMISSION: =
+3.75%<o:p></o:p></p><p class=3DMsoPlainText>It's for 2 =
+H/H<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>25,000-55000 MTS BULK CLINKER <o:p></o:p></p><p =
+class=3DMsoPlainText>SHARJAH&nbsp;HAMRIYAH / CHITTAGONG =
+<o:p></o:p></p><p class=3DMsoPlainText>15000 SHINC / 5000 FHINC =
+<o:p></o:p></p><p class=3DMsoPlainText>LIGHTERING AT KUTUBDIA CHARTER =
+ACCT <o:p></o:p></p><p class=3DMsoPlainText>18-27 APRIL TRY VSL DATES =
+<o:p></o:p></p><p class=3DMsoPlainText>3.75% TTL HERE<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>W.C.U.O? FRESH <o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>POTI / =
+PLOCE <o:p></o:p></p><p class=3DMsoPlainText>6000 MTS % 5 IN OO WHEAT =
+<o:p></o:p></p><p class=3DMsoPlainText>30 APRIL / ONW<o:p></o:p></p><p =
+class=3DMsoPlainText>24/48 HOURS C <o:p></o:p></p><p =
+class=3DMsoPlainText>3.75 PCT <o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>BEST =
+OFFER INVITED<o:p></o:p></p><p class=3DMsoPlainText>FULL TERMS+ BG + =
+REFERANCES &nbsp;+ DETAILS HERE AGAINST FIRM INTEREST <o:p></o:p></p><p =
+class=3DMsoPlainText>NAMED/ DETAILED/ DATED TONNAGES WILL BE RESPONDED =
+<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>++ NO =
+SUBS ++<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>ANY SIZE BETWEEN 20.000-55.000 MT DWT, GRD, OA =
+OK<o:p></o:p></p><p class=3DMsoPlainText>FOR =
+STEELS/MNRLS<o:p></o:p></p><p class=3DMsoPlainText>1-2 SP CHINA / 1-2 SP =
+EMED<o:p></o:p></p><p class=3DMsoPlainText>SPOT/PPT/30 =
+APRIL<o:p></o:p></p><p class=3DMsoPlainText>TTL DAYS DEP =
+SIZE<o:p></o:p></p><p class=3DMsoPlainText>FRT BSS LPSUM FIOS WITH FREE =
+D/A BENDS<o:p></o:p></p><p class=3DMsoPlainText>GCN =
+3.75%<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>JOSE&nbsp; (VENEZUELA) / 1 SP =
+TURKEY<o:p></o:p></p><p class=3DMsoPlainText>15/ 60 .000&nbsp; MT , =
+PETCOKE&nbsp; IN BULK&nbsp; (ABT STW 52)&nbsp; <o:p></o:p></p><p =
+class=3DMsoPlainText>L/C&nbsp;&nbsp; SPOT&nbsp;&nbsp; (TRY VSL DATE =
+)&nbsp; <o:p></o:p></p><p class=3DMsoPlainText>L/D&nbsp; TTL DYS SHINC =
+BSS&nbsp; or&nbsp; depend of&nbsp; vsl tng<o:p></o:p></p><p =
+class=3DMsoPlainText>FREE DA BENDS,CHABE ,PRE -PAYMENT&nbsp; OK =
+<o:p></o:p></p><p class=3DMsoPlainText>stem ready,<o:p></o:p></p><p =
+class=3DMsoPlainText>GCN 3.75 %<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>P.S. : =
+LOADING AT ANCHORAGE FROM BARGES, USING THE VESSEL&#8217;S CRANES =
+.<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>Our =
+Charterer is looking for a vessel that can take my balance cargo in =
+Lagos :<o:p></o:p></p><p class=3DMsoPlainText> - quantity : 5kmt (I can =
+consider small vessel for partial shipments)<o:p></o:p></p><p =
+class=3DMsoPlainText> - product : wheat bran in powder =
+50kg<o:p></o:p></p><p class=3DMsoPlainText> - stowage factor : 1,6 to =
+1,8<o:p></o:p></p><p class=3DMsoPlainText> - load rate Lagos : =
+800mtpd<o:p></o:p></p><p class=3DMsoPlainText> - discharge rate Dakar : =
+700mtpd<o:p></o:p></p><p class=3DMsoPlainText> - laycan : as soon as =
+possible (cargo ready)<o:p></o:p></p><p class=3DMsoPlainText> - freight =
+target : 70$ FIOS is vessel geared / 50$ FIOS if vessel not geared =
+(shorecranes on charterer&#8217;s account)<o:p></o:p></p><p =
+class=3DMsoPlainText>- Commission: 3.75%<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText>+++<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>-40000 =
+mt 10 pct alfalfapellets&nbsp; 59 cbft<o:p></o:p></p><p =
+class=3DMsoPlainText>-tarragona /damman<o:p></o:p></p><p =
+class=3DMsoPlainText>-shipment 1-15 may<o:p></o:p></p><p =
+class=3DMsoPlainText>-10000/6000<o:p></o:p></p><p =
+class=3DMsoPlainText>-3.75% ttl<o:p></o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p class=3DMsoPlainText>Pls to =
+hear<o:p></o:p></p><p class=3DMsoPlainText><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><u><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#4F622=
+8'>IMPERATIVE TO SEND&nbsp; YOUR&nbsp; REPLY ALONG WITH&nbsp; OUR MSG =
+ENABLE TO CONNECT</span></u><u><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif"'>&nbsp; =
+<o:p></o:p></span></u></p><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";background:y=
+ellow;mso-highlight:yellow'>(PLS ALWAYS INCLUDE OUR EMAIL ID IN YOUR =
+CARGO, VESSEL &amp; AIRCRAFT CIRCULAR)</span><span =
+style=3D'font-size:10.0pt;font-family:"Arial =
+Narrow","sans-serif";color:red'><o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:10.0pt;font-family:"Arial =
+Narrow","sans-serif";color:#632423'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:10.0pt;font-family:"Arial =
+Narrow","sans-serif"'>Regards<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:10.0pt;font-family:"Arial =
+Narrow","sans-serif"'>Ganesh Sethuraman<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:11.0pt;font-family:"Arial =
+Narrow","sans-serif"'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><b><span =
+style=3D'font-size:11.0pt;font-family:"Arial","sans-serif"'>JUGGERNAUT =
+SHIPPING &amp; TRADING SERVICES<o:p></o:p></span></b></p><p =
+class=3DMsoNormal><b><span lang=3DEN-IN =
+style=3D'font-size:10.0pt;font-family:"Arial","sans-serif"'>(As Ship =
+Managers / Charterers - Sea &amp; Air / Brokers/SNP)</span></b><span =
+style=3D'font-size:11.0pt;font-family:"Arial","sans-serif"'><o:p></o:p></=
+span></p><p class=3DMsoNormal><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif"'>Telangana. =
+(Earlier Known as Andhra Pradesh)<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif"'>India.<o:p></o=
+:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif"'>Cell/Whats =
+App No:- +91 9000985922<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif";color:#632423'>=
+<o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><b><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#7030A=
+0'>please always reply to</span></b><b><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif";color:#632423'>=
+ </span></b><b><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif";color:#C00000'>=
+EMail ID : <a =
+href=3D"mailto:ganesh.juggernautsts@gmail.com">ganesh.juggernautsts@gmail=
+.com</a></span></b><b><u><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><o:p></o:p></span></u></b></p><p class=3DMsoNormal><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif";color:#632423'>=
+<o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif"'>SKYPE ID: =
+ganesh_sethuraman<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:8.0pt;font-family:"Arial","sans-serif"'><o:p>&nbsp;</o=
+:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Verdana","sans-serif"'>LIFT, =
+SHIFT, SHIP OR TRADE:- WE ARRANGE TO DO ALL OF IT</span><span =
+style=3D'font-size:11.0pt;font-family:"Verdana","sans-serif"'><o:p></o:p>=
+</span></p><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoPlainText><o:p>&nbsp;</o:p></p></div></body></html>
+------=_NextPart_000_005F_01D85168.D6D6F550--

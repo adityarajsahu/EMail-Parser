@@ -1,0 +1,316 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp1132961pxb;
+        Fri, 15 Apr 2022 23:02:09 -0700 (PDT)
+X-Received: by 2002:a1c:f30b:0:b0:37b:b5de:c804 with SMTP id q11-20020a1cf30b000000b0037bb5dec804mr5930836wmq.166.1650088928554;
+        Fri, 15 Apr 2022 23:02:08 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1650088928; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=K6b6/bJsEM2kO67qjzZSOa8d2Hc5tyfccGm/2r/shzmNtUZ4y5asP0DI6q61eH361F
+         0OS9bNcQhy+5qUX6RA1jUlh81EiwE9pd4ZnymFQrIRHXrj5o16NTPhgDsQlLUvOYBBD3
+         ZWo/iX6VAr/EzzPLgJ9s8FP2rZM24L/sllki7ha6jPxTUUeGHXtvtXMxt3yieiBrVks/
+         e8OOHMRCc9DHGcBF0aQvBY4OZfXUrB2VS8Np+I7kCLI6/3j3TAZTzKnHsPIcCE66/pNt
+         9wKb2BSJnfDjd00ux336bBuVdlEGPpXZymZtNXHMHt8T8f2v4/pDkfAZGvAxNnYBd7+b
+         NU7g==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :cc:to:from:delivered-to;
+        bh=WEzJyTpvHJeXBRzUzgQi9XvRoZfsOgetVlYVpdDKX74=;
+        b=RomqzCzVO58nqV8nI1++wV0HEN8EaAPAgwOMADLZpC4ILwQmRcUG6GFA9M8ajFYhHO
+         vkRG8CyN/DV62CPFZwNPR+V79wEx7KikNGxW9NuoSeV3P5c8yc43u22xjQ/JmTkoxWNz
+         PKQ+eKt7YoKxEDXI08R3976WK4dD0ZHGE7KeppisJcQ60Cf2ev4btZpBt8E6b8JdC8Mf
+         WDAOAhkyfxPXh8+QGaUF+TmbJ+4zPDSwTM8EtIwOX32x+1kTxNAlXeMKFQ+EMO8V2YHA
+         E/w0iOHNp0e2wpBYl/QrNmK5usroIyNMlkFrd4NwEGHzZJDY8S2FZsO+iNHQk+/Xu87d
+         HC0Q==
+ARC-Authentication-Results: i=3; mx.google.com;
+       arc=pass (i=2);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id i4-20020a05600c480400b0038113e131c3sor1065515wmo.18.2022.04.15.23.02.08
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 23:02:08 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       arc=pass (i=2);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Authentication-Results: spf=pass (sender IP is 93.188.232.252)
+ smtp.mailfrom=thomefleet.net; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=thomefleet.net;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-original-authentication-results:x-gm-message-state:delivered-to
+         :from:to:cc:subject:date:message-id:mime-version:thread-index
+         :content-language;
+        bh=WEzJyTpvHJeXBRzUzgQi9XvRoZfsOgetVlYVpdDKX74=;
+        b=VfZQZDf22ctoz5RLMFOg56y3fe8VPpw63CTT0XphhQHryrQmVU0KU/aXDrAG3e3auL
+         an9Atdvm2PqmfnWPQEM5xbYjDqTn88jP5YUj/c2xveydQpBqo8i2W4DygMcXMLw3ey+J
+         d5gRpBC7ah/zXwSeCcdJ86HWgU1bsrrGMqoOdV0IEMKLySGIh4FWzVVtaWl7b/HdhJBk
+         i/ItMlpIvQitoAKX8fwXUV+R/E7KtemoQtRRruXf57DIV54Gf9a6bJvxWgYMtY+9Az/W
+         6XvatvDJQPlVmPOVisU/7IOXCuowDT9uTRJIEYG66VeD8oOChG/GZI0oepmOjY/D/m7Y
+         vlZg==
+X-Original-Authentication-Results: mx.google.com;       arc=pass (i=1 spf=pass spfdomain=thomefleet.net);       spf=fail (google.com: domain of vega.falktind@thomefleet.net does not designate 2a01:111:f400:7ea6::614 as permitted sender) smtp.mailfrom=vega.falktind@thomefleet.net
+X-Gm-Message-State: AOAM532JY2W7NKPPOJro9eowmmFfXyeMhXjNAUuvn98uZyq94I4ihoSb
+	rKvmkyHmPlK0GK60AsfUm1C7yGlV2WW4c6CvJyw0BVzBadgxIssutjFfaEo=
+X-Received: by 2002:a05:600c:3493:b0:38e:bbbb:26f7 with SMTP id a19-20020a05600c349300b0038ebbbb26f7mr1910398wmq.114.1650088928222;
+        Fri, 15 Apr 2022 23:02:08 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:adf:fe8c:0:0:0:0:0 with SMTP id l12csp21140wrr;
+        Fri, 15 Apr 2022 23:02:05 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJz90ES7GPBLY2+cyrE8Swu1F+RmOyWQvNy+ojh5S+FWANuAijW2KFd3ROtNjpXgTdqKl84t
+X-Received: by 2002:a17:907:72c5:b0:6d6:e749:da41 with SMTP id du5-20020a17090772c500b006d6e749da41mr1765456ejc.591.1650088925706;
+        Fri, 15 Apr 2022 23:02:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1650088925; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=JbysAHUx8SDFQAYLM/k3GgNDvzI0BHJBz48EV4+zQJFi9gtgmEQWT1rBiJ6CiaQU3A
+         OTVSx2900ocFcMweEIxUbRagmXWKjgafpOz9ttSUSLWyPnsHtGKs3+SeIV+RXVmkLjj6
+         bT6kk0uq2oWWfo7RxjTBJPvmQmIvVBVJ0TeJbD2zo9IlyyDcCidb1lZ/MwoI3JsfAKn2
+         8lwD7y+9fGSyJ2R5bo+MCIehwc7lHXZCNmf5l4xCMXZkHjpqpI56wTSIkRJZJYQF0scO
+         Z+4m+scRGam7jweu7IK8LpEi5KMuccGAGSYmXXBclQo5GaMWrtRdF1QPMIMUNeVOP7D2
+         sO0g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :cc:to:from;
+        bh=WEzJyTpvHJeXBRzUzgQi9XvRoZfsOgetVlYVpdDKX74=;
+        b=dtIyEKU6qd/srv63oEjyom94aetW48BuEXnBWTPXm3xOuOlqq03VoYUdCa3MZPgi9E
+         ajDrEaT6tCnqbNAxUFgUsa4qfBFh6nCB+X0zAwjdQEN/96flct2QvbKNrHIPcoCZTIBa
+         KHfpdqCDSpITCqYnPc3y72yEAT7f0JKRLWMJhSay9PiFw7Gch1lv/OcaNdFkab200YAn
+         H/rbFkTZtE6QRtf/pFo62mbR0EJTm78wcy70R9UXAafBD5QNIRABhbFX7uweHhwsaxmH
+         0n4KqA65hP4pHSFJUfi7brD9J0XxPb8/Hc77bvrF6y3P4/baBcycpmaeaFzgBNWHbZW7
+         FQXQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       arc=pass (i=1 spf=pass spfdomain=thomefleet.net);
+       spf=fail (google.com: domain of vega.falktind@thomefleet.net does not designate 2a01:111:f400:7ea6::614 as permitted sender) smtp.mailfrom=vega.falktind@thomefleet.net
+Return-Path: <vega.falktind@thomefleet.net>
+Received: from ARE01-AU2-obe.outbound.protection.outlook.com (mail-au2are01on20614.outbound.protection.outlook.com. [2a01:111:f400:7ea6::614])
+        by mx.google.com with ESMTPS id y14-20020a056402440e00b0041d96f8d4c8si2755623eda.432.2022.04.15.23.02.04
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 23:02:05 -0700 (PDT)
+Received-SPF: fail (google.com: domain of vega.falktind@thomefleet.net does not designate 2a01:111:f400:7ea6::614 as permitted sender) client-ip=2a01:111:f400:7ea6::614;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=KUs8/46czSxaod4MWdnc3jWbGqW/pW7pEZC8vt+jEGgOAS1PqPWdGAFWP+rySmC0cWg/CSp6Eg02ap9arE+tBNXib/P8pJZS4jmcjNnmPswpOsn0rtrfdOjwvkxedeNpaVL/QBMlG6ydbodIRPuB+ZOq7+qB/MtJ/Q9LR6kiAUYhP0ov80YzlZC8yF5hwmi6OMJ6nGOlivoBXs+gEPeCW+Iy+fJbGHDd59egPc0r3B00K20MXtNok9QOyXW/AzF9AZjN8FxxOQQ1mGRoQWhG5egSmjQIqOw9SgkRRQZr5Las0UNb8KbCq211khUDmwZXOl1N/U3ymke3ezz6dzKdVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WEzJyTpvHJeXBRzUzgQi9XvRoZfsOgetVlYVpdDKX74=;
+ b=g2BsAYO4+HlIha/jIPaYcfBEuhTDDqvi+S6HSEXQzKoA8oCIaN/F1yNflM5b7nyLVjrqqqcE3ZiSpx9Li7WOUUMDzBIwC9ACpAnab/g7+BNtq/AhaEMixIlwK5+tdOds1zaB69QhrX8a7OOA5dD6bQpZjs7uboWceBUXfNClEB5tX4ypOE2ra4CkY2jtjb65GamrwxyttLBu3HRYw6VaeL6N7bicRbsmwqzulSArrjRvYh20ueZ93ZJkZfcRG4m2rnwXcOstKRCIdSw/F/eUzWZfBE67iNPbNTUoL786OxvTNPlxp54cuN7UbwGpSbVnP4Qd/QDSb2sZGnpz6jP4/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 93.188.232.252) smtp.rcpttodomain=vegabulk.com smtp.mailfrom=thomefleet.net;
+ dmarc=bestguesspass action=none header.from=thomefleet.net; dkim=none
+ (message not signed); arc=none (0)
+Received: from DX1P273MB0871.AREP273.PROD.OUTLOOK.COM (2603:1086:300:36::6) by
+ AU2P273MB0498.AREP273.PROD.OUTLOOK.COM (2603:1086:200:1f::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.20; Sat, 16 Apr 2022 06:02:02 +0000
+Received: from DXXP273CA0021.AREP273.PROD.OUTLOOK.COM (2603:1086:300:2::33) by
+ DX1P273MB0871.AREP273.PROD.OUTLOOK.COM (2603:1086:300:36::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.18; Sat, 16 Apr 2022 06:02:01 +0000
+Received: from AU2ARE01FT006.eop-are01.prod.protection.outlook.com
+ (2603:1086:300:2:cafe::19) by DXXP273CA0021.outlook.office365.com
+ (2603:1086:300:2::33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20 via Frontend
+ Transport; Sat, 16 Apr 2022 06:02:01 +0000
+Received-SPF: Pass (protection.outlook.com: domain of thomefleet.net
+ designates 93.188.232.252 as permitted sender)
+ receiver=protection.outlook.com; client-ip=93.188.232.252;
+ helo=MX1.dualog.no;
+Received: from MX1.dualog.no (93.188.232.252) by
+ AU2ARE01FT006.mail.protection.outlook.com (10.233.246.132) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA) id
+ 15.20.5164.19 via Frontend Transport; Sat, 16 Apr 2022 06:01:59 +0000
+Received: from TASK01.dualog.net ([192.168.220.40])
+	by MX1.dualog.no  with ESMTP id 23G61adH016680-23G61adI016680;
+	Sat, 16 Apr 2022 06:01:36 GMT
+Received: from 9497426Master(<ukjent>) by 9497426-dotcom.dciaserv with  SMTP (Dualog SMTP); Sat, 16 Apr 2022 05:58:17 +0000
+From: "Vega Falktind" <vega.falktind@thomefleet.net>
+To: "'Paul Maguire'" <paul@secureaship.com>, <Operations@secureaship.com>,
+        <info@secureaship.com>, <Fujairahopl.ops@palmcharters.es>,
+        <whitepalm.captain@palmcharters.es>, <ops@norvicshipping.com>,
+        <gsharma@norvicshipping.com>
+Cc: "'Bulk Operations'" <operations@norden.com>, <ops@vegabulk.com>,
+        <oslo@vegabulk.com>, "'Shravan Jha'" <shravan.jha@thome.com.sg>,
+        <siddhartha.dhawan@thome.com.sg>,
+        "'Aksel Nadir'" <aksel.nadir@thome.com.sg>,
+        "'Security Unit'" <Security.Unit@thome.com.sg>,
+        "'Marine Bulk, SG'" <marinebulk.sg@thome.com>,
+        "'Harry Wee'" <Harry.Wee@thome.com.sg>,
+        "'Balaji Krishnamurthy'" <balaji.krishnamurthy@thome.com.sg>,
+        "'Fleet Group 10'" <FleetGroup10@thome.com.sg>,
+        "'Benny Low'" <benny.low@thome.com.sg>
+Subject: Vega Falktind : ETA Fujairah Platform @25 04 N, 056 52 E - 18 Apr 2022 / 0600 UTC
+Date: Sat, 16 Apr 2022 13:56:43 +0800
+Message-ID: <006301d85156$bfc389d0$3f4a9d70$@thomefleet.net>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0064_01D85199.CDE93AD0"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdhRVoSrqFKm76TgR9q5SXdmQeUgBQ==
+Content-Language: en-ph
+Return-Path: vega.falktind@thomefleet.net
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 991c2946-9ecc-4fa9-b2af-7a0b64b41833:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: d86c2dd2-369f-4624-fdf7-08da1f6e9f09
+X-MS-TrafficTypeDiagnostic: DX1P273MB0871:EE_|AU2P273MB0498:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	7QTwmettfG4qgQQrz2QAoTkF2mTVFp6DfFABFFwdgPEAHl0cwCYUyMVB4SdfHpsHMbiS+aoDZYOyVLd0D/OT/w3bCkqhYurJ88lvAqvCRF9Sy+fGNBHqwkwrK3ayyP1mjtKB5sPg+ZXrL8VXcZfUIFlBZpOoxdfbsxfNndUt/1mHwpNUjKYig6/iRQI/sBgd6IdHazZ2P8jPGoP/YNVA/cvDXObcFJajpWySUbA+gU2xeyE1VWmKgoiNLMx+NYLeOX+mGFpgKWdVtdkqL6GsAMWGsTn4uq6e2Tr3ygoJDpSW3kzDWqkjDugqJ57fdF1S73AAj2u63tDKBmC3MCFS0bT4IC7Gk6R1dXgyWF9WbUEBOwAS0ovJ3sxSWUj5/TOWnr3rRJTc1LcujZ7J/pBi62FaodfMTI2OKNmZDwTVnMyjxKdMjJdYWW0Fq6/qIAGbIN5L8vaB9ULhJ2J98NHL9lZIOUW8U7bFYXS3hEkL63wL14oJVWbwTqe4s4zkK9HAAJdyiXG4Sqy4I6zPeqWRGINcpFCbH8qaQPW/V5XwebbFBsSSlfSzUKm/4TmuYIkFwIhsds+JcGfxoiSKMbS78HdMzzMNhz3/iq5DgB9jyYld1yYjJ9KSF2qNni815XXZlShMKubW9CnFNl7VuW17hA==
+X-Forefront-Antispam-Report:
+	CIP:93.188.232.252;CTRY:NO;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MX1.dualog.no;PTR:mx1.dualog.no;CAT:NONE;SFS:(13230001)(4636009)(336012)(316002)(54906003)(110136005)(2906002)(36756003)(1420700001)(86362001)(83380400001)(356005)(107886003)(26005)(2616005)(7636003)(8676002)(44736005)(508600001)(70586007)(4326008)(5660300002)(68406010)(6666004);DIR:OUT;SFP:1101;
+X-ExternalRecipientOutboundConnectors: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-OriginatorOrg: vegabulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2022 06:01:59.6442
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d86c2dd2-369f-4624-fdf7-08da1f6e9f09
+X-MS-Exchange-CrossTenant-Id: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-AuthSource: AU2ARE01FT006.eop-are01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AU2P273MB0498
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0064_01D85199.CDE93AD0
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+ 
+
+Dear sir,
+
+Good day.
+
+ 
+
+Kindly note that ETA  to  Fujairah platform @ 25 04 N, 056 52 E is 18 Apr
+2022 / 0600 UTC, if AGW WP.
+
+ 
+
+Please inform all concerned parties accordingly and acknowledge safe receipt
+of this message.
+
+ 
+
+ 
+
+Thanks and Best Regards,
+
+Capt. Soumen Sen.
+
+M.V. Vega Falktind
+
+IMO NO: 9497426 | Call Sign: V7A5267
+
+MMSI:  |  OFFICIAL NO: 
+
+FBB#: +870773244547
+
+Inm C Telex 1 #: 
+
+Inm. Fax: 
+
+E-mail:  <mailto:vega.falktind@thomefleet.net> vega.falktind@thomefleet.net
+
+ 
+
+
+------=_NextPart_000_0064_01D85199.CDE93AD0
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 15 =
+(filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+span.EmailStyle20
+	{mso-style-type:personal-compose;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-PH =
+link=3D"#0563C1" vlink=3D"#954F72" style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal><span lang=3DEN-US>Dear sir,</span><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'><o:p></o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US>Good day.<o:p></o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US>Kindly note that ETA &nbsp;to =
+&nbsp;Fujairah </span><span lang=3DEN-GB style=3D'color:black'>platform =
+@ 25 04 N, 056 52 E is </span><span lang=3DEN-GB>18<span =
+style=3D'color:black'> </span>Apr<span style=3D'color:black'> 2022 / =
+0600 UTC, if AGW WP.<o:p></o:p></span></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB =
+style=3D'color:black'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-GB style=3D'color:black'>Please inform =
+all concerned parties accordingly and acknowledge safe receipt of this =
+message.</span><span lang=3DEN-US><o:p></o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>Thanks and Best =
+Regards,<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>Capt. Soumen =
+Sen.<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>M.V. Vega =
+Falktind<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>IMO NO: 9497426 | Call Sign: =
+V7A5267<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>MMSI:&nbsp; |&nbsp; OFFICIAL NO: =
+<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>FBB#: =
++870773244547<o:p></o:p></span></p><p class=3DMsoNormal><span =
+lang=3DEN-US style=3D'mso-fareast-language:EN-PH'>Inm C Telex 1 #: =
+<o:p></o:p></span></p><p class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>Inm. Fax: <o:p></o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>E-mail: </span><a =
+href=3D"mailto:vega.falktind@thomefleet.net"><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'>vega.falktind@thomefleet.net</span><=
+/a><span lang=3DEN-US =
+style=3D'mso-fareast-language:EN-PH'><o:p></o:p></span></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div></body></html>
+------=_NextPart_000_0064_01D85199.CDE93AD0--

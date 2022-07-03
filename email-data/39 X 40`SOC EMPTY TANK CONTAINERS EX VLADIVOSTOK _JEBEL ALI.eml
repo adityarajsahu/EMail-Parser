@@ -1,0 +1,339 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp1576777pxb;
+        Thu, 14 Apr 2022 07:27:35 -0700 (PDT)
+X-Received: by 2002:adf:f3cf:0:b0:207:a249:f5f1 with SMTP id g15-20020adff3cf000000b00207a249f5f1mr2283168wrp.19.1649946455326;
+        Thu, 14 Apr 2022 07:27:35 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1649946455; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=f6qx/x5rtJq5m6qYTQ3LNly/hDtzbK/mvs47pVDq7puV/pJ89S9iNvyDq90O1fn9hY
+         DG2S7b4+A+4JJ9CJYOrXRrWULc8yfMSs3kdALpUWHgadpAsqyKdnOBf2LQa9o6WxTVCX
+         m+JWfba6ZkzWKezZmSBAjrXIshfUzkhbQIcEw7jj4dwceBJixOl10zt7tfS97MhdrZFG
+         rTraS7AQPsvi0CQdA22vVQKspKBpK3EM/i/60zGkTe/CEdgIxVjSimn0FzEm4hU7+cy+
+         9tXGWzlD6sSw/qPnzNkgGQmBU0cN4h8/a62ByIBm9/QSmpSpoUtOfrAfikHiJvmnBLl8
+         JCcQ==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature:delivered-to;
+        bh=spZIW5m3tGpMF0wg9tdAx0Sueu2UFmp5nB616ZkHdHE=;
+        b=HEAhzQnjWqPngOmMi8Nrt8OBbnqe6Xoq4tUoOfobvD40i2Rn6NUDBc7aNARIxhr9js
+         EPRSWgs621OIXU1K0LXikjXAF9JWrcYVUd0g8N7JhLb6+t4xPmBcGJnm+ayKWmD0RT/h
+         WJASm45QtvZtF+zQQGHw7mZfu3kd3vO4ceK6vCg9V6dK1qMDL3H1Pz+fqvXUBfVqwZQJ
+         itvNadqYSODAKP5jVkUPgynKSp7QgmjC3jAII9FQqnoJxB4lsmI1cf3+5xJIsXXSBSR0
+         ZHFbZX5aZ8Cq8k102ZRrIVCj3ZI3dNSKoKMYRIwbBZXsLA7/ibNaK+TIq4XNW5Tx0yW0
+         M9MA==
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@hailangtraco-com.20210112.gappssmtp.com header.s=20210112 header.b=GSONlK7i;
+       arc=pass (i=2 dkim=pass dkdomain=hailangtraco-com.20210112.gappssmtp.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id t23-20020a05600c2f9700b0038ed583033bsor707022wmn.41.2022.04.14.07.27.35
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Thu, 14 Apr 2022 07:27:35 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hailangtraco-com.20210112.gappssmtp.com header.s=20210112 header.b=GSONlK7i;
+       arc=pass (i=2 dkim=pass dkdomain=hailangtraco-com.20210112.gappssmtp.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Authentication-Results: spf=pass (sender IP is 209.85.219.174)
+ smtp.mailfrom=hailangtraco.com; dkim=pass (signature was verified)
+ header.d=hailangtraco-com.20210112.gappssmtp.com;dmarc=bestguesspass
+ action=none header.from=hailangtraco.com;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:delivered-to:dkim-signature:mime-version
+         :references:in-reply-to:from:date:message-id:subject:to;
+        bh=spZIW5m3tGpMF0wg9tdAx0Sueu2UFmp5nB616ZkHdHE=;
+        b=bKiOTKZIWrSwLdldVlGIjoSmk67Tcn+WbZJxoPnHzpv79yqBcUkaUdxCZn6yGsg+P9
+         Qpa/+Vad3GMgghj9oXpUrNk0vYCooJlc8mPV0p+tj1DC7fhcq1TABLy/zjHuG6x/9Dqm
+         n0+lBJvkZlM2Zb5SHXU915SYpoAn6HVP+KWZH+bcVI9S3jwnkgGCbuvOT40a7yH41O0L
+         Nq/GbW3CkTZ0C+mQKZxs1F4LWyRdpOgEBr85U3W/CUlysm8/lE0FvpbKxqFooAIfQmSW
+         hQZbn7t2w68EmCWdo9MeYeiakqSfkK/NRlrbpbKBifvyn2qn451407KOtmPt80ZRdnFm
+         iApQ==
+X-Gm-Message-State: AOAM531+NqoB3W0UuZFLaMI9+CmeZer9qF/0WHWwhtvnex4xJRjBqR1o
+	SeKx7VF9CJHNWpmM7rH0c+W1IJ6KFb1j6mw8JiOs6oLvvKd0GNyD0c7A6RQ=
+X-Received: by 2002:a1c:f018:0:b0:37b:c13c:3128 with SMTP id a24-20020a1cf018000000b0037bc13c3128mr3874512wmb.157.1649946455012;
+        Thu, 14 Apr 2022 07:27:35 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:a5d:620f:0:0:0:0:0 with SMTP id y15csp541909wru;
+        Thu, 14 Apr 2022 07:27:33 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJy7IChvQBxYxO1pIDKRZup8lhDyzt0WcLEWiC7Xiq4CPlK6Z8HVaE9zlBEgJ3AyiJhNjGB2
+X-Received: by 2002:a17:907:7f24:b0:6e8:b5a9:3434 with SMTP id qf36-20020a1709077f2400b006e8b5a93434mr2543231ejc.254.1649946453015;
+        Thu, 14 Apr 2022 07:27:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1649946453; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=U5dXsrqVBF6cfPry1ITMGR6XJ5uqksDPxj/YcU9lC4qmZI5oEFK8fioi6TPx5BhMvA
+         TEULm1lq3m08D5zsSJx9rfiq8rF8/pDMxS4l1+bvbwBLuz13tdEgm6K4tpTSFYoHmPKj
+         /9RY1FbQ9lmp0JDd9aZ30kbpfT6aYZIAFzBrmuK2aU49U5m4FQ87g0X/hyhFGx19UaN3
+         teniCCRD5u2mksVNnbWPgtda73ZDCBdBHDV6o7WpeYKcmqp9QSFhpl/U3WxRJho+95Yv
+         w+UqOOZBp/cyu/2qGpGVqI9oUhxjlKrVNwt4jjwDnv93lg0/ZYm5FOuioNbUKY7rPV/w
+         RehA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=spZIW5m3tGpMF0wg9tdAx0Sueu2UFmp5nB616ZkHdHE=;
+        b=lcrVnbc1fIqJp4CYSzy6nTcSxY2Up3EBkK2guJSbCyQzB+CD8dVVYv8cSX0QlgegPX
+         T+sjsFrh7gnmxQR+Vw1xG5QFp637A26xh9T9JQ1iq+0e2430Bts91msNFdUioJHy+lW7
+         00cbqp+7h537lCRltcSHL83ELIrDrTX6OefjUxHUKQ0dYhqhjxHe9KOysYpXKqO+yfsh
+         4cGBxw/YqGCZMqrY+AkNYJcpQoXRULGw66OoQOH2ik14wddRCQwxIkyT7bQOOYG27aij
+         elCb8ICOrlJxne8y1PpfnUGeKj7PZI+ebZTjtpbcY63H4rak8G6XuTKpo4siuKDIjEhw
+         xzEA==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@hailangtraco-com.20210112.gappssmtp.com header.s=20210112 header.b=GSONlK7i;
+       arc=pass (i=1 spf=pass spfdomain=hailangtraco.com dkim=pass dkdomain=hailangtraco-com.20210112.gappssmtp.com);
+       spf=softfail (google.com: domain of transitioning charter@hailangtraco.com does not designate 2a01:111:f400:7ea6::624 as permitted sender) smtp.mailfrom=charter@hailangtraco.com
+Return-Path: <charter@hailangtraco.com>
+Received: from ARE01-AU2-obe.outbound.protection.outlook.com (mail-au2are01on20624.outbound.protection.outlook.com. [2a01:111:f400:7ea6::624])
+        by mx.google.com with ESMTPS id hs34-20020a1709073ea200b006df76385eb8si2439176ejc.856.2022.04.14.07.27.32
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 14 Apr 2022 07:27:32 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning charter@hailangtraco.com does not designate 2a01:111:f400:7ea6::624 as permitted sender) client-ip=2a01:111:f400:7ea6::624;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=OYv5oSa3LpuBc0v3udgZBKILpTKg7q/GNp4nWY7k2EIFH2IHidT8JCE3LNYXtIlnLLNzeIrSSNqYwvWc6ukOeUDY6J3HJnTyoXTjax4ZGuUMSeCeQnu3A5xhFQrWbAbUXjnUeKTILwi8lXsHcCSv38MWmq5IyOEk8T2PSWL+JltY80WynIr02Y7Hw++jdlHAH+HuEaYZUtP2SAvZd+BSrWSBQwI4ykcNj5VJw53eSPnaMxXPHZGZqT6dz6CJT+iOAQ4ciialRGWr0Z8/KmiRkfVQEwvlktrMrAlgiLVHG9cu4+3mOweCxX7bzpI0LDcQ8HGaaebEHv0XRC1B7iWSdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=spZIW5m3tGpMF0wg9tdAx0Sueu2UFmp5nB616ZkHdHE=;
+ b=Ejwr25z0hKE/UxoZsY6TG9Y0luJS9c77obwO+Bs4zPdhdL8niRJsuMLRoFe+mx9yBmJfpUcbAf1d1xNF3g5+Vo+G3rQa+Op4vr+jkBrX1/JV1gk+ogVRoVvME2TIqF35hx0jdZSWqVopPgoCXa4LI/8GB1MDzONLyKktHMRbKg3B18w9ziHBFlFSiAOrMxc/wqPF5E5WjFnqmptNrAtvAjp6m7D/drjfm0BEBMuW0cPWlTwaBsmtV0gwhMBtyxlhQwPBC0lFpVVCd0yVgY6/+hQMFlGEkSwi07bYrn+QOxNpwItUbaSFRGNPMsO0sZzI/TgGxqguno/Sy4rPDu9zhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 209.85.219.174) smtp.rcpttodomain=vegabulk.com
+ smtp.mailfrom=hailangtraco.com; dmarc=bestguesspass action=none
+ header.from=hailangtraco.com; dkim=pass (signature was verified)
+ header.d=hailangtraco-com.20210112.gappssmtp.com; arc=none (0)
+Received: from AU2P273CA0026.AREP273.PROD.OUTLOOK.COM (2603:1086:200:18::9) by
+ AUXP273MB0877.AREP273.PROD.OUTLOOK.COM (2603:1086:200:38::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5144.30; Thu, 14 Apr 2022 14:27:29 +0000
+Received: from AU2ARE01FT012.eop-are01.prod.protection.outlook.com
+ (2603:1086:200:18:cafe::4e) by AU2P273CA0026.outlook.office365.com
+ (2603:1086:200:18::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20 via Frontend
+ Transport; Thu, 14 Apr 2022 14:27:29 +0000
+Received-SPF: Pass (protection.outlook.com: domain of hailangtraco.com
+ designates 209.85.219.174 as permitted sender)
+ receiver=protection.outlook.com; client-ip=209.85.219.174;
+ helo=mail-yb1-f174.google.com;
+Received: from mail-yb1-f174.google.com (209.85.219.174) by
+ AU2ARE01FT012.mail.protection.outlook.com (10.233.246.118) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19 via Frontend Transport; Thu, 14 Apr 2022 14:27:28 +0000
+Received: by mail-yb1-f174.google.com with SMTP id f17so9687637ybj.10
+        for <oslo@vegabulk.com>; Thu, 14 Apr 2022 07:27:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hailangtraco-com.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=spZIW5m3tGpMF0wg9tdAx0Sueu2UFmp5nB616ZkHdHE=;
+        b=GSONlK7i2Gi5QGn6ZLBK3n7jeD0ByewWATZpVhhSB4jf2aj/Fpi+Gd1BwIXu7oVrmS
+         HiehfBVLCPrOnocGqbJG6KRfuVF504Jcv+qEVLyL692HW9Jqc9xEy/tcVmbKL7z12NMz
+         ie0ByeXcWvpjRLslrT/Q0B4TdaU9qJCXID7MlH1anTUjGmX5qYBQ2HLZ3oFpQ57H1QWN
+         sYWNPB8GwB66KqCJOdXGifIBh9NaqRU2Z1vs+vkVfLIHLLuoMpUdxAn+k0ipfcICTkTR
+         KAuWqCljIaKk9R41EWiwWvjHpW4jdaoLpDZoSHqjdzZtGkiC1ELui/EeE5nQ2shsP3OO
+         GUVw==
+X-Received: by 2002:a25:8a12:0:b0:633:7b6a:565e with SMTP id
+ g18-20020a258a12000000b006337b6a565emr1901427ybl.93.1649946445540; Thu, 14
+ Apr 2022 07:27:25 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAP1CyjsmFsmm22po1sviq9D-hP=mOFGYACbwzLwtU3U-1WG7HQ@mail.gmail.com>
+In-Reply-To: <CAP1CyjsmFsmm22po1sviq9D-hP=mOFGYACbwzLwtU3U-1WG7HQ@mail.gmail.com>
+From: "HLC/FRANK" <charter@hailangtraco.com>
+Date: Thu, 14 Apr 2022 21:26:49 +0700
+Message-ID: <CAP1CyjtpyFHYm4YnkF0mJ4AxBboWbU+H7YTHisQSJHtZdhk3XA@mail.gmail.com>
+Subject: 39 X 40`SOC EMPTY TANK CONTAINERS EX VLADIVOSTOK /JEBEL ALI
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000c90ac305dc9e1798"
+Bcc: oslo@vegabulk.com
+Return-Path: charter@hailangtraco.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 991c2946-9ecc-4fa9-b2af-7a0b64b41833:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 3361c5e2-b527-461b-0ec6-08da1e22e719
+X-MS-TrafficTypeDiagnostic: AUXP273MB0877:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Transport-Rules-Loop: 1
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	H5cFlu0pPQosL2ZoEmtzzY79aEwwNNM2EDdUpmnYSsMDo2vQQF/SO9m7VkPQ0wA5+Et8Lr9URGLHXSHCkiK12ZRjH0NOiNja4x4a5HJqhIffQ3xgJ+qwrTgHhWk+M21aQtxbcptiw24k3FhUWPtLzsO50ckMmfkw5ubwtDuJMvRaeyTOkdvfDGUr8oOxBNR508dZL3OrR4Z7jwqZAOcyn1Ysk7dvVwb+wCBDdaQayk80yjESAypi3eymt0L5SJuMNRgMNDesUQJgogWuQfnJZQOvOgKbLGNmefdxSIRNe3KUsjH6nM0UmNYBir28BuAE3Z1N8ODq3GtlrXOdSf6fwFdKncazxn62RIh80xK3lGE9wRfVYR+qFrlcrOr1E2twwjPH2fXRruSGUGBzaJjz8R908JwAWmMmPojlZKAlWmioKj9nDWWcrE4h7yXFEQ8zoDhp0Wb1faCTy6SB8zEJfnCdzxEI56TnTzfIVr0qJlWZgGstaBcQnfPx/XZDTAxNSmyf1IbgR6u5ttz+UlzEGPqsP7sUtGQ4+w0yAYPDJalrFyEHe0F7xB6WENjHGSSStkzP1aaEreCQ7xazok8ORGjNrgpG9OzVXtVkpEmxXzdoFLt32t6wJqASgj2DtUJRmiShNJkL0Mt9ayIsWeWDPvoNrtooSS1U2SWGWB7q3ghFCpAZErELBobaOX2B4Y/IVieG9XLT7egqLvKp39Bw0IxKoL5wYyRFjxlU6uwf5irtaGzepmx3Q3hGALqnEpCdfwuFmp9tR2SmSKye6+jHGyCysPsygdAEQ5nCrYxpTSG7WucibQhEmCn3r45Fg5gM
+X-Forefront-Antispam-Report:
+	CIP:209.85.219.174;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail-yb1-f174.google.com;PTR:mail-yb1-f174.google.com;CAT:NONE;SFS:(13230001)(4636009)(55446002)(508600001)(83380400001)(9686003)(6666004)(26005)(7636003)(7596003)(166002)(109986005)(86362001)(336012)(356005)(33964004)(70586007)(68406010)(8676002)(2906002)(42186006)(316002)(5660300002)(15974865002)(81973001)(67856001);DIR:OUT;SFP:1101;
+X-ExternalRecipientOutboundConnectors: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-OriginatorOrg: vegabulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Apr 2022 14:27:28.1246
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3361c5e2-b527-461b-0ec6-08da1e22e719
+X-MS-Exchange-CrossTenant-Id: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-MS-Exchange-CrossTenant-AuthSource: AU2ARE01FT012.eop-are01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AUXP273MB0877
+
+--000000000000c90ac305dc9e1798
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear SIR,
+
+
+
+Pls propose suitable vsl for below our cgo:
+
+
+
+CARGO: 39 X 40`SOC EMPTY TANK CONTAINERS WITH RESIDUE INSIDE
+
+RESIDUE: AROUND 300KG PER CONTAINER. DG 2.2, UN 1963, HELIUM REFRIGERATED.
+MSDS ATTACHED.
+
+CONTAINER WEIGHT: 17000KG
+
+VLADIVOSTOK COMMERCIAL PORT, RUSSIA =E2=80=93 JEBEL ALI,UAE
+
+FREE TIME 48HRS IN TOTAL FULLY REVERSIBLE
+
+SPOT CARGO, PLEASE OFFER A FIRM VESSEL
+
+FRT INVITE OWNER BEST OFFER FIOS TERMS BSS 1/1
+
+COMM: 2.5% TTL
+
+
+
+***RUSSIAN FLAG VESSELS ARE NOT ACCEPTABLE DUE TO INSURANCE ISSUES
+
+
+
+Awaiting yours
+
+
+Kind regards/*Mr Frank*
+
+MOB: +84 933 123 923
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+*HAI LANG TRADING AND TRANSPORT CO.,LTD*
+
+Head office: 14/23C Van Chung Str, Ward 13, Tan Binh Dist, HCMC, Vietnam
+
+Tel/Fax: +84 28 2212 3232
+
+Website: www.hailangtraco.com
+
+Email: charter@hailangtraco.com ( For chartering only)
+
+--000000000000c90ac305dc9e1798
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><p class=3D"Ms=
+oNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font-family:Calibr=
+i,sans-serif"><span style=3D"font-size:12pt">Dear
+SIR,</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">=C2=A0</span></p=
+>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">Pls
+propose suitable vsl for below our cgo:</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">=C2=A0</span></p=
+>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">CARGO:
+39 X 40`SOC EMPTY TANK CONTAINERS WITH RESIDUE INSIDE</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">RESIDUE:
+AROUND 300KG PER CONTAINER.=C2=A0DG 2.2, UN 1963, HELIUM REFRIGERATED. MSDS
+ATTACHED.</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">CONTAINER
+WEIGHT: 17000KG</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">VLADIVOSTOK
+COMMERCIAL PORT, RUSSIA =E2=80=93 JEBEL ALI,UAE</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">FREE
+TIME 48HRS IN TOTAL FULLY REVERSIBLE</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">SPOT
+CARGO, PLEASE OFFER A FIRM VESSEL</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">FRT INVITE OWNER=
+ BEST OFFER FIOS
+TERMS BSS 1/1</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">COMM:
+2.5% TTL</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">=C2=A0</span></p=
+>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">***RUSSIAN
+FLAG VESSELS ARE NOT ACCEPTABLE DUE TO INSURANCE ISSUES</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">=C2=A0</span></p=
+>
+
+<p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;font-size:11pt;font=
+-family:Calibri,sans-serif"><span style=3D"font-size:12pt">Awaiting
+yours</span></p><p class=3D"MsoNormal" style=3D"margin:0in 0in 0.0001pt;fon=
+t-size:11pt;font-family:Calibri,sans-serif"><span style=3D"font-size:12pt">=
+<br></span></p><div><div dir=3D"ltr" data-smartmail=3D"gmail_signature"><di=
+v dir=3D"ltr"><p class=3D"MsoNormal"><a name=3D"m_-839962663467806010_Signa=
+tureSanitizer__MailAutoSig"><span style=3D"color:#002060">Kind regards/<b>M=
+r
+Frank</b></span></a><span style=3D"color:black"></span></p><p class=3D"MsoN=
+ormal"><span style=3D"color:#2f5496">MOB: +84 933 123 923</span><span style=
+=3D"color:black"></span></p><p class=3D"MsoNormal"><span style=3D"color:#2f=
+5496">=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D</span=
+><span style=3D"color:black"></span></p><p class=3D"MsoNormal"><b><span sty=
+le=3D"color:red">HAI LANG TRADING AND TRANSPORT CO.,LTD</span></b></p><p cl=
+ass=3D"MsoNormal"><span style=3D"color:#2f5496">Head office: 14/23C Van Chu=
+ng Str, Ward 13, Tan Binh Dist,
+HCMC, Vietnam</span></p><p class=3D"MsoNormal"><span style=3D"color:#2f5496=
+">Tel/Fax: +84 28 2212 3232</span><span style=3D"color:black"></span></p><p=
+ class=3D"MsoNormal"><span style=3D"color:#002060">Website: </span><a href=
+=3D"http://www.hailangtraco.com/" target=3D"_blank"><span style=3D"color:#0=
+563c1">www.hailangtraco.com</span></a><span style=3D"color:#002060"> </span=
+><span style=3D"color:black"></span></p><p class=3D"MsoNormal">
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p><p class=3D"MsoNormal"><span style=3D"color:#2f5496">Email: </span><a h=
+ref=3D"mailto:charter@hailangtraco.com" target=3D"_blank"><span style=3D"co=
+lor:#0563c1">charter@hailangtraco.com</span></a><span style=3D"color:black"=
+> ( For chartering only)</span></p></div></div></div></div>
+</div></div>
+
+--000000000000c90ac305dc9e1798--

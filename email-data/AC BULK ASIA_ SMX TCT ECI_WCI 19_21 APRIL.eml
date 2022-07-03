@@ -1,0 +1,256 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp636264pxb;
+        Fri, 15 Apr 2022 07:56:20 -0700 (PDT)
+X-Received: by 2002:a5d:47a1:0:b0:204:9f5:e72f with SMTP id 1-20020a5d47a1000000b0020409f5e72fmr6017066wrb.656.1650034579980;
+        Fri, 15 Apr 2022 07:56:19 -0700 (PDT)
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 2-20020a056000154200b001ede4df6f07sor884583wry.27.2022.04.15.07.56.19
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 07:56:19 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       arc=fail (body hash mismatch);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Authentication-Results: spf=pass (sender IP is 178.63.196.36)
+ smtp.mailfrom=unitedseascorp.gr; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=unitedseascorp.gr;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-original-authentication-results:x-gm-message-state:delivered-to
+         :from:to:date:subject:message-id:mime-version
+         :content-transfer-encoding:custom-id;
+        bh=K/c/DogbRciBso4UeyHOmGWySx6lXx2cFySoyPX+oJU=;
+        b=e/nBLfWoIZHa2R1WOWT/iAVlEf3y6bPyQ2Ybssy5zWmzbn7dnUgQ8yf8NEe7H2HM6a
+         xSzfO4LjIEtbxg1mjavqCkgw9uh/zJn322uo4BqIAHDdCFzbimvt1vSYCO7xuhtVCfwC
+         0DdKibA7pLBqnkhsbCBLKBppKC7X9hz82gSeIR4N1d0KD1a3XdpF1b+xKDOleYLNRJiL
+         2AgJZEAEIVonTU78M5o/4tu5l/13KsdOKVoYXSs/qDmFD+zFFlmoaOPPoOC7dfBVP94Y
+         o/mg1urV4ZU3OOg4Re3D+xjQqEesS3uHHjL2u+I0whpAODZSuCMLjizVK3QMKWG663G5
+         9j+w==
+X-Original-Authentication-Results: mx.google.com;       arc=fail (body hash mismatch);       spf=fail (google.com: domain of chartering@unitedseascorp.gr does not designate 2a01:111:f400:7ea7::60f as permitted sender) smtp.mailfrom=chartering@unitedseascorp.gr
+X-Gm-Message-State: AOAM530u/g7A0u6jiIi4ARNd+G9kxTBMSLZOpL9NGSCbddHCqedKkBVb
+	S7cwuyZH6qZFZ0d/G9Te5p9fqfdh7gVCDolrctM9jhxr4YfrEevGSe20U9g=
+X-Received: by 2002:a05:6000:178f:b0:20a:8009:7cd3 with SMTP id e15-20020a056000178f00b0020a80097cd3mr1819164wrg.532.1650034579649;
+        Fri, 15 Apr 2022 07:56:19 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:a5d:620f:0:0:0:0:0 with SMTP id y15csp149011wru;
+        Fri, 15 Apr 2022 07:56:17 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxknKoghaYiktkKXax8ffTOAaC/v/fDcBREKYfrlOXpy7L1OVSRmFnXLDJu1sN/kRA2sjEn
+X-Received: by 2002:a05:6402:1691:b0:41d:6b0a:657d with SMTP id a17-20020a056402169100b0041d6b0a657dmr8646676edv.192.1650034577771;
+        Fri, 15 Apr 2022 07:56:17 -0700 (PDT)
+Return-Path: <chartering@unitedseascorp.gr>
+Received: from ARE01-DX2-obe.outbound.protection.outlook.com (mail-dx2are01on2060f.outbound.protection.outlook.com. [2a01:111:f400:7ea7::60f])
+        by mx.google.com with ESMTPS id s18-20020a170906169200b006df76385bc2si1329781ejd.98.2022.04.15.07.56.17
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 07:56:17 -0700 (PDT)
+Received-SPF: fail (google.com: domain of chartering@unitedseascorp.gr does not designate 2a01:111:f400:7ea7::60f as permitted sender) client-ip=2a01:111:f400:7ea7::60f;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=bkhLTfnKC4DJVnPJfnblLf5BTlSUksnLQqBS6hZBVwSOz5AjAqai+XoEx7KrDrg7iDyoDstmQhGJAZ8HVPwXF5pQDWP12pJZD+06lqv8rkM+OCJL1kdjVmagesAWnaF+u1Hh5HLTV4stpYKJbGb5Pk/epVGlqKkwF0u4g1VtnSrM5WNYsqD5/YeqzHHWKbKhmzXDHmRomMMpas9oQnCoTs1d7uuBcw2IHkX5oHdyvXePvHGfhFRrhUEQW0mta56QeDtAq+ZT5dsJFz2SpjPRo0rEF/TgR/ny84lf/wukpzSjqikb8pHLdgCdVLfjE9EO5AgK6ria/DhE/Cd05QFvbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yAHW+wX3hMLTDGghnOkV4p0QVXiwTX4R1cFVJUHb8m0=;
+ b=iRseVYgNgrcfgUy4PU8vZeWra+ekiUIv+mvzETmSpaIO1Q7bH65LaglJXCdRfqls6hQO74bhM0QkHn0+61i/O29Nt1lJKPXUuvwZjJRLQxqU0x7VH9j4yc7dqMAqs0YhCKsNHdhfq/EVzKLCTKNo4fLd3puEBgg8I+3hyuVz3JhREC6Ow7lo8pNWfxM94F6nrX0LlUDefP6o3K5uOUE/gfbFkmvDzklbny2H6zQW5y2n5NYtCwR8+XWVBzRN7tksd8PWQCPiEKHTSw1bBH5lCB4onP6W/DIbWitclHXElakcCQEHFuP16VhgCjpoN9Lb2MwaxysihQBHEx/q8ZqUPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 178.63.196.36) smtp.rcpttodomain=vegabulk.com
+ smtp.mailfrom=unitedseascorp.gr; dmarc=bestguesspass action=none
+ header.from=unitedseascorp.gr; dkim=none (message not signed); arc=none (0)
+Received: from DXXP273CA0022.AREP273.PROD.OUTLOOK.COM (2603:1086:300:2::34) by
+ AUXP273MB0581.AREP273.PROD.OUTLOOK.COM (2603:1086:200:21::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19; Fri, 15 Apr 2022 14:56:13 +0000
+Received: from AU2ARE01FT006.eop-are01.prod.protection.outlook.com
+ (2603:1086:300:2:cafe::e3) by DXXP273CA0022.outlook.office365.com
+ (2603:1086:300:2::34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20 via Frontend
+ Transport; Fri, 15 Apr 2022 14:56:13 +0000
+Received-SPF: Pass (protection.outlook.com: domain of unitedseascorp.gr
+ designates 178.63.196.36 as permitted sender)
+ receiver=protection.outlook.com; client-ip=178.63.196.36;
+ helo=stella.akereon.net;
+Received: from stella.akereon.net (178.63.196.36) by
+ AU2ARE01FT006.mail.protection.outlook.com (10.233.246.132) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19 via Frontend Transport; Fri, 15 Apr 2022 14:56:12 +0000
+Received: from SERVER.USCSERVER.local (unit35.static.otenet.gr [62.103.240.203])
+	by stella.akereon.net (Postfix) with ESMTPA id C57C64406C7;
+	Fri, 15 Apr 2022 17:55:19 +0300 (EEST)
+From: chartering@unitedseascorp.gr
+To: "United Seas Corporation 1" <chartering@unitedseascorp.gr>
+Date: Fri, 15 Apr 2022 17:48:16 +0300
+Subject: AC BULK ASIA: SMX TCT ECI/WCI 19/21 APRIL
+Message-ID: <4409653_B7418EFD-93C8-47A6-BD43-DFA0BF165D2B@softway.gr>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_ST9210_0001_042C3658_08586CB0"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Softway Communicator Mailer 1.7.0.30, SOFTWAY LTD. Athens GREECE
+X-Priority: 3
+Custom-ID: 4409653
+Return-Path: chartering@unitedseascorp.gr
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 991c2946-9ecc-4fa9-b2af-7a0b64b41833:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: cc94da57-a3b1-4d9f-09bc-08da1ef0159d
+X-MS-TrafficTypeDiagnostic: AUXP273MB0581:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Transport-Rules-Loop: 1
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:2;
+X-Microsoft-Antispam-Message-Info:
+	9K4HgGc2MmFyOXf2r5fMa7VrioRVyifJmL6BK7knRFgE+74maBkKqng7G3U4+U98k26IUrh8fpJv4DGIxUuwN1wbAe3uBZKdCl32elHibXQ8XP0wo+PpW5WAx5j5HJgBvvPkgNNttvWrXCDsJL9/4lcYCkHBdo9tvM4BtezrB8Jby54KZtsiYe0b+04Z10vqg74l/mDobS0uJci+Y+TjcMIeO0+6nXm/QL5oXEKPZLcR+aqWbCbUCV2p9/xdG1HO5xSGnKs0NZTSFnOuzMqjv2B/91ktfLWUSAzNn4pmOgtrdbGZfhfPjcyO9DBhh6OWa5TxyIbbY/KV1FVuMI4MYa3sU57pxUwsus8jStBqMEEePgnaIM/1eO6aNmw9ZLb1iDd6xaVDUxzbn9xkPBzGrUE1tCYGw/tK2rO6iSKfa4svLnpzZ1AsBNEHE+WavpFf2QJNp1u5FPleplwpKTCIX0IQRBvawVNCZuQyvBoi6/upB8n+1z9dqEN4cEHOPMPX0HWIi7aLhN9NOmHVeif3Y7oOLji6GIaO4jOfLM2hUo3zfYSw7iNXWoEvgAuh1n+AA47e0G0tYAf2U6tTlHtJu9luJzWaM738SSMKPotG23MT8WUXASHtxvaqI8S1461Z2CMtq078aU022jFEK5Itxiagxn6yGGghnLEujaqma1KUmxDfYx2+8w8piUzrdw6wejbYb3CXJFViLnB32yiezqiuSlEcLTesfheK72qxIqoegKUW2MYe/0+UtzjCwyXY8o07SQimTLleAoXPI/o0xk029fmp6v8HOciviAK/9S4YZk53zrDC1qlDFNVBtUeyP1zyBgWyo9biSdi7N7EfgACYPrh3EZI/LrHYw2g3faY=
+X-Forefront-Antispam-Report:
+	CIP:178.63.196.36;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:stella.akereon.net;PTR:stella.akereon.net;CAT:NONE;SFS:(13230001)(4636009)(286005)(508600001)(956004)(7636003)(7596003)(356005)(2160300002)(2906002)(33656002)(15974865002)(36756003)(19627405001)(86362001)(70586007)(68406010)(6266002)(6862004)(26005)(336012)(83380400001)(6966003)(316002)(6666004)(9686003)(8676002)(18100200005);DIR:OUT;SFP:1101;
+X-ExternalRecipientOutboundConnectors: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-OriginatorOrg: vegabulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2022 14:56:12.7287
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc94da57-a3b1-4d9f-09bc-08da1ef0159d
+X-MS-Exchange-CrossTenant-Id: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-MS-Exchange-CrossTenant-AuthSource: AU2ARE01FT006.eop-are01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AUXP273MB0581
+
+This is a multipart message in MIME format.
+
+------=_ST9210_0001_042C3658_08586CB0
+Content-Type: text/plain; charset=iso-8859-7
+Content-Transfer-Encoding: 7bit
+
+
+
+Good day
+
+
+Please propose suitable vessel for fixing
+
+
+
+Acc Bulk asia
+SMX
+1 TCT WITH COAL
+DEL GANGAVARAM
+REDEL NEW MANGALORE
+LAYCAN 19-21 APR
+DURATION ABT 10-12 DAYS WOG
+5% TTL COMM
+
+
+
+ 
+ 
+Best regards / Stavros Tassios
+mob  : 0030 6973862967
+skype: staurostassios
+ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+United Seas Corp.
+Konitsis 5 & Kifisias ave,4th floor
+Marousi 151-25, greece
+Tel     : 0030 210 8064867/8066243
+Email   : chartering@unitedseascorp.gr
+          position@unitedseascorp.gr
+Web     : www.unitedseascorp.gr
+Members : Bimco reg.no.178704,Baltic Exchange,H.S.A
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ 
+ 
+
+
+------=_ST9210_0001_042C3658_08586CB0
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+
+<=21DOCTYPE html PUBLIC =22-//W3C//DTD XHTML 1.0 Transitional//EN=22 =22h=
+ttp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd=22>=0D=0A=09<head>=
+=0D=0A=09=09<meta http-equiv=3D=22Content-Type=22 content=3D=22text/html;=
+ charset=3Dwindows-1253=22><title>=0D=0A=09=09</title>=0D=0A=09=09<style =
+type=3D=22text/css=22>=0D=0A=09=09=09.cs95E872D0=7Btext-align:left;text-i=
+ndent:0pt;margin:0pt 0pt 0pt 0pt=7D=0D=0A=09=09=09.csBF16CDD6=7Bcolor:=23=
+000000;background-color:transparent;font-family:Tahoma;font-size:11pt;fon=
+t-weight:normal;font-style:normal;=7D=0D=0A=09=09=09.csEB0BB3D8=7Bcolor:=23=
+FFFFFF;background-color:transparent;font-family:Tahoma;font-size:11pt;fon=
+t-weight:normal;font-style:normal;=7D=0D=0A=09=09=09.cs9D249CCB=7Bcolor:=23=
+000000;background-color:transparent;font-family:'Times New Roman';font-si=
+ze:12pt;font-weight:normal;font-style:normal;=7D=0D=0A=09=09</style>=0D=0A=
+=09</head>=0D=0A=09<body>=0D=0A=09=09<p class=3D=22cs95E872D0=22><span cl=
+ass=3D=22csBF16CDD6=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span=
+ class=3D=22csBF16CDD6=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><s=
+pan class=3D=22csBF16CDD6=22>Good day</span></p><p class=3D=22cs95E872D0=22=
+><span class=3D=22csBF16CDD6=22>&nbsp;</span></p><p class=3D=22cs95E872D0=
+=22><span class=3D=22csBF16CDD6=22>&nbsp;</span></p><p class=3D=22cs95E87=
+2D0=22><span class=3D=22csBF16CDD6=22>Please propose suitable vessel for =
+fixing</span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22=
+>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=
+=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16C=
+DD6=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF=
+16CDD6=22>Acc Bulk asia</span></p><p class=3D=22cs95E872D0=22><span class=
+=3D=22csBF16CDD6=22>SMX</span></p><p class=3D=22cs95E872D0=22><span class=
+=3D=22csBF16CDD6=22>1 TCT WITH COAL</span></p><p class=3D=22cs95E872D0=22=
+><span class=3D=22csBF16CDD6=22>DEL GANGAVARAM</span></p><p class=3D=22cs=
+95E872D0=22><span class=3D=22csBF16CDD6=22>REDEL NEW MANGALORE</span></p>=
+<p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>LAYCAN 19-21 A=
+PR</span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>D=
+URATION ABT 10-12 DAYS WOG</span></p><p class=3D=22cs95E872D0=22><span cl=
+ass=3D=22csBF16CDD6=22>5% TTL COMM<br><br><br></span></p><p class=3D=22cs=
+95E872D0=22><span class=3D=22csEB0BB3D8=22 style=3D=22display:none;=22>st=
+art vcard</span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs9D249C=
+CB=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs9D2=
+49CCB=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs=
+9D249CCB=22>Best regards / Stavros Tassios</span></p><p class=3D=22cs95E8=
+72D0=22><span class=3D=22cs9D249CCB=22>mob &nbsp;: 0030 6973862967</span>=
+</p><p class=3D=22cs95E872D0=22><span class=3D=22cs9D249CCB=22>skype: sta=
+urostassios</span></p><p class=3D=22cs95E872D0=22><span class=3D=22csEB0B=
+B3D8=22 style=3D=22display:none;=22>end vcard</span></p></body>=0D=0A<=21=
+DOCTYPE html PUBLIC =22-//W3C//DTD XHTML 1.0 Transitional//EN=22 =22http:=
+//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd=22>=0D=0A=09<head>=0D=0A=
+=09=09<meta http-equiv=3D=22Content-Type=22 content=3D=22text/html; chars=
+et=3Dwindows-1253=22><title>=0D=0A=09=09</title>=0D=0A=09=09<style type=3D=
+=22text/css=22>=0D=0A=09=09=09.cs95E872D0=7Btext-align:left;text-indent:0=
+pt;margin:0pt 0pt 0pt 0pt=7D=0D=0A=09=09=09.cs9890051F=7Bcolor:=23000000;=
+background-color:transparent;font-family:'Courier New';font-size:10pt;fon=
+t-weight:normal;font-style:normal;=7D=0D=0A=09=09=09.cs1C9A32B7=7Bcolor:=23=
+000000;background-color:transparent;font-family:'Courier New';font-size:1=
+0pt;font-weight:normal;font-style:normal;text-decoration: none;=7D=0D=0A=09=
+=09=09.csBCEA5DBF=7Bcolor:=230000FF;background-color:transparent;font-fam=
+ily:'Courier New';font-size:10pt;font-weight:normal;font-style:normal;tex=
+t-decoration: underline;=7D=0D=0A=09=09=09.cs9D249CCB=7Bcolor:=23000000;b=
+ackground-color:transparent;font-family:'Times New Roman';font-size:12pt;=
+font-weight:normal;font-style:normal;=7D=0D=0A=09=09</style>=0D=0A=09</he=
+ad>=0D=0A=09<body>=0D=0A=09=09<p class=3D=22cs95E872D0=22><span class=3D=22=
+cs9890051F=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=
+=22cs9890051F=22>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</spa=
+n></p><p class=3D=22cs95E872D0=22><span class=3D=22cs9890051F=22>United S=
+eas Corp.</span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs989005=
+1F=22>Konitsis 5 &amp; Kifisias ave,4th floor</span></p><p class=3D=22cs9=
+5E872D0=22><span class=3D=22cs9890051F=22>Marousi 151-25, greece</span></=
+p><p class=3D=22cs95E872D0=22><span class=3D=22cs9890051F=22>Tel &nbsp; &=
+nbsp; : 0030 210 8064867/8066243</span></p><p class=3D=22cs95E872D0=22><s=
+pan class=3D=22cs9890051F=22>Email &nbsp; : <a class=3D=22cs1C9A32B7=22 h=
+ref=3D=22mailto:chartering=40unitedseascorp.gr=22><span class=3D=22csBCEA=
+5DBF=22>chartering=40unitedseascorp.gr</span></a></span></p><p class=3D=22=
+cs95E872D0=22><span class=3D=22cs9890051F=22>&nbsp; &nbsp;&nbsp;&nbsp;&nb=
+sp; &nbsp; &nbsp;<a class=3D=22cs1C9A32B7=22 href=3D=22mailto:position=40=
+unitedseascorp.gr=22><span class=3D=22csBCEA5DBF=22>position=40unitedseas=
+corp.gr</span></a></span></p><p class=3D=22cs95E872D0=22><span class=3D=22=
+cs9890051F=22>Web &nbsp; &nbsp; : <a class=3D=22cs1C9A32B7=22 href=3D=22w=
+ww.unitedseascorp.gr=22><span class=3D=22csBCEA5DBF=22>www.unitedseascorp=
+.gr</span></a></span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs9=
+890051F=22>Members : Bimco reg.no.178704,Baltic Exchange,H.S.A</span></p>=
+<p class=3D=22cs95E872D0=22><span class=3D=22cs9890051F=22>~~~~~~~~~~~~~~=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></p><p class=3D=22cs95E872D0=22=
+><span class=3D=22cs9890051F=22>&nbsp;</span></p><p class=3D=22cs95E872D0=
+=22><span class=3D=22cs9D249CCB=22>&nbsp;</span></p></body>=0D=0A<BR><sty=
+le>.cs95E872D0Via=7Btext-align:left;text-indent:0pt;margin:0pt 0pt 0pt 0p=
+t=7D.csCF353262Via =7Bcolor:=23000000;background-color:transparent;font-f=
+amily:=22Tahoma=22;font-size:=2211=22pt;=7D</style><p class=3D=22cs95E872=
+D0Via=22><span class=3D=22csCF353262Via=22><DIV><FONT size=3D2><EM><HR></=
+EM></FONT></DIV><DIV align=3Dcenter><FONT size=3D2><EM>=5BMessage sent vi=
+a SOFTWAY Communicator=5D</EM></FONT></DIV>&nbsp;</span></p>
+------=_ST9210_0001_042C3658_08586CB0--

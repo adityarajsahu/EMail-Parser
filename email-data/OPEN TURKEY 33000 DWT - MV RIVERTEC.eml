@@ -1,0 +1,248 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp628735pxb;
+        Fri, 15 Apr 2022 07:44:35 -0700 (PDT)
+X-Received: by 2002:a1c:43c6:0:b0:38e:bb4c:6e1a with SMTP id q189-20020a1c43c6000000b0038ebb4c6e1amr3630910wma.111.1650033874792;
+        Fri, 15 Apr 2022 07:44:34 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1650033874; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=joFLCc/buuYigTk6WVLiLKGzkII7SBUMnP02oEsYvfxQo3uQiyN8+mXvPEdpkFTRzX
+         grTTwYkoRPXwWybNF+wGmM4MGy261OTH988k24GVj38UqfVg4CHR21G7c907hiLEISwX
+         XQSa8X3UtA33gd1k+Z/xMKl1Rx/6UW3SN+ctNegBTMcih8zgxc7Zm/yncDe2wluKjEpH
+         /As8W1jIe5v7NGtaj+aaf+JpLFuc94GXCOHtswCmf74gZJNcf15XBDK77nxUQAipqYxP
+         QE68Z5YpSkd/285xdPYunNCaPbHIX+wDTAmPiTMsaWAfZb15kCOhm6cUk84HX/Mb7h6C
+         f2Eg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:date:subject:to:from
+         :message-id:reply-to:organization:list-unsubscribe:dkim-signature
+         :dkim-signature:delivered-to;
+        bh=ZEyCDhZUeDWf2mX5rIYre8Lt+BP6IdLKBhLLEnDhoxQ=;
+        b=ghJoCE5IHNNY1uClr0vikzVyrPRRDCLcrXR9PZlL3F8JS6ZJj26tCVcHA7XyUqyLKW
+         e7hD1FpwYDO4uYJGGJe/Bh8uCpqAbYhV0/1AE8mUaGsIOAVFi3RI0f4/6EBpnl5TOhcs
+         8cbCIeSLM+NM0yKZlP2GRt0SatRPmmhk0YlaDbzWS47ADyc4DxsmC9SmQNXs5pUtjopO
+         CZxr+4kb4PVuf6k6UIPiG6Bx48mAI+tzxBtbR3B3DAhltfSVwQu2FJGHYIQnQH6Yt4h9
+         E1ssIKfDvF8wUVl6rw76LocNUEiAMhiQRG+Dm5cr62q/JtksBk5sXX7K/r0jAxL1EiMy
+         i0HQ==
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=dryZ4bFJ;
+       dkim=pass header.i=@ewship.com header.s=default header.b=BSS3g6Ra;
+       arc=pass (i=2 dkim=pass dkdomain=allianzbulk.onmicrosoft.com dkim=pass dkdomain=ewship.com dmarc=pass fromdomain=ewship.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ewship.com
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id l20-20020a7bcf14000000b0038e4a9bad7fsor1683753wmg.43.2022.04.15.07.44.34
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 07:44:34 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=dryZ4bFJ;
+       dkim=pass header.i=@ewship.com header.s=default header.b=BSS3g6Ra;
+       arc=pass (i=2 dkim=pass dkdomain=allianzbulk.onmicrosoft.com dkim=pass dkdomain=ewship.com dmarc=pass fromdomain=ewship.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ewship.com
+Authentication-Results: spf=pass (sender IP is 74.208.37.28)
+ smtp.mailfrom=ewship.com; dkim=pass (signature was verified)
+ header.d=ewship.com;dmarc=pass action=none header.from=ewship.com;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:delivered-to:dkim-signature:dkim-signature
+         :list-unsubscribe:organization:reply-to:message-id:from:to:subject
+         :date:mime-version:content-transfer-encoding;
+        bh=ZEyCDhZUeDWf2mX5rIYre8Lt+BP6IdLKBhLLEnDhoxQ=;
+        b=av+MLvehBpdp6Ao8t1z+ZDSBUqTBsXvrdokxHsuSIEOGsgvlBAQBjodUdO0gft4s3n
+         Wr51hvgmzhriiJ7frjZtoS8exhvq/edTbBaePisz2tOA/TiX2u3SROLDdC4fIEt9gHfQ
+         YGVq5zW9ctTntwu6O4YXN/MX93iAyOm/VdE7e2nXyMpMrvsF1J6ZrQbtZfURviCVS5jW
+         poM/hMVfdRTj2/YYBcGi/JNVjHQQYys6QZqRcRhZsn9f+yd5DK/E7kPQG9Jx/A3YnHEk
+         QL9Iavscl0ZS2maM8ePir/Ar1MaQQAmGM2Sw4vkTCEi/ikzVDZbnDabTRbqarNdQaz9i
+         dH+Q==
+X-Gm-Message-State: AOAM531Lu8XjBAM0OUVUhpbw5JnJvEszvzVYmkbmicrtCcKjGsWBHDGN
+	STGc005IppMJq8xEsiSk57pEdtxTdWyQM+4cpd+S+pV4ptVtm09STanR8ZU=
+X-Received: by 2002:a1c:2744:0:b0:382:a9b7:1c8a with SMTP id n65-20020a1c2744000000b00382a9b71c8amr3508694wmn.187.1650033874325;
+        Fri, 15 Apr 2022 07:44:34 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:a5d:620f:0:0:0:0:0 with SMTP id y15csp146753wru;
+        Fri, 15 Apr 2022 07:44:32 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwfKmx52Ya2joR68clIGu53RsmztU5rlRJcitOqPEUeO1XjBGqpBydGpbT5Xf0ExoG/eHhV
+X-Received: by 2002:a17:907:209c:b0:6e8:807c:cdf0 with SMTP id pv28-20020a170907209c00b006e8807ccdf0mr6616782ejb.256.1650033872509;
+        Fri, 15 Apr 2022 07:44:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1650033872; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=1LxL17Rci8zTaEYL8JJ9Ln/ycErgYFo9HXh1qreHAZa6izfOWxlnTD/nfhs3clv0dr
+         HtpJJcNDjDBWZ14z1C1tlYxgJJKAnrwY/1jVXGWjnomyDJLkA4kDYy+Vk34V/50ZiKop
+         5ZL8zKaVnujdpigjro0ehjIrVReCjEzhnVYU+HRZoT9clGQ65kxvRiazeKKz05+H66xM
+         JQ19nzEM+Jgwp7s05cS/nxdBi9sxVJ5xEeplEfTlGAHGkg0CqoIR70m4bt8TNb/D6kTJ
+         uatkrxn/nR5NvvLRqpTgCMuDEHCtSMR9ZFCVRR2HX9tgiK3tSjJkT2UvH4l25St72cKA
+         TBPg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:date:subject:to:from
+         :message-id:reply-to:organization:list-unsubscribe:dkim-signature
+         :dkim-signature;
+        bh=ZEyCDhZUeDWf2mX5rIYre8Lt+BP6IdLKBhLLEnDhoxQ=;
+        b=uUmpW/1GCSh68rup2lGLlfXINuB/vvmqC9ZMxPzG9WMo9yqJoRhcP0t+0FY4JuDqOP
+         vIqi2Ie6fpyG80peOyvQFKfFfPxm3sMHEvTdgD99NeNFHlC5lzEp0FK8l911YYUGDdz5
+         ZU9wqJHTcZztVHf02voFd0rS5duXcjuSNZzJYE/V3/LYqwWetiCfHYVJ+R5zTWSJmEqB
+         UFgQwNHsyN5KJxBACm1dEDZNyFkYvdkCz57zrJIbnaRIrX5ic72dCCgscBAIhWEq+KVE
+         DorSrATMMLV0luaLvvKVP42zpI/Qa00M7LSsawBGwCIWTZwjs60RQRsA8vlHiyW+AogZ
+         Qj8Q==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=dryZ4bFJ;
+       dkim=pass header.i=@ewship.com header.s=default header.b=BSS3g6Ra;
+       arc=pass (i=1 spf=pass spfdomain=ewship.com dkim=pass dkdomain=ewship.com dmarc=pass fromdomain=ewship.com);
+       spf=softfail (google.com: domain of transitioning chartering@ewship.com does not designate 2a01:111:f400:7e1a::713 as permitted sender) smtp.mailfrom=chartering@ewship.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=ewship.com
+Return-Path: <chartering@ewship.com>
+Received: from EUR05-DB8-obe.outbound.protection.outlook.com (mail-db8eur05on20713.outbound.protection.outlook.com. [2a01:111:f400:7e1a::713])
+        by mx.google.com with ESMTPS id x6-20020a05640226c600b0041d709f5c58si1392884edd.329.2022.04.15.07.44.32
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 07:44:32 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning chartering@ewship.com does not designate 2a01:111:f400:7e1a::713 as permitted sender) client-ip=2a01:111:f400:7e1a::713;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=hTnrTocVFMjWuypQ1j1Ec7GHwq8pdSlzmtzMj0M9Tq6/JqhNf7YPCHM1Oh2qqwE2hvn7V3A1+sGwEMnbJsWAThWSfzTiAV0Xnh3xeLiDWiozuOYyQGkaPRcrSnihVttwKMIYCiwsXhNfnThl45Y3YvgeAguizo9lKIjLCATyT34VjYmYsIHtd5XMkmpnoiCd34o1REvuvONaPWcQWiCJE8QiCQs1EApoq2MSKQiq1jwVINc2mdLmF66UT/UgEyeb7yAgRdrnuGm59atQzLN0nMV7tjQgaQCNzdiVXvK/RMTCXJ9QFJ2M8l0WrmxdavfxgGKggbAi6gC4PIlAxNytLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZEyCDhZUeDWf2mX5rIYre8Lt+BP6IdLKBhLLEnDhoxQ=;
+ b=l6ei+CqZQHYXmhLbOMgzXTVLWsRGhcaCuYA9aIXs1ANdAiugamxHtGQ989EhhK2hnODD8EvZWWH3e+I3pXZFvVpcztVKiyn5JXkToc026vpNioy9NRT/+5gTOpCQVQlwG56jm7eHIug/YT9oiO8zzS2Llcwkb2UYkiw89D1es7nb5cyP7v3jp/6YqaA6O4NsDLRErMFgiv7Fue20pAhbZyZkKjcOkmMsV6ucDRaZbQhcLMuNRc9uC2YqOjX1MuPwMzgeSmBGc62DfLga0XuZADM2R1m9+krKR7Q9ngLfW2HMWybxpbVuy2PGU7is2Qe51rVBUIJ2bMdH9a6hoQhdkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 74.208.37.28) smtp.rcpttodomain=allianzbulk.com smtp.mailfrom=ewship.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=ewship.com; dkim=pass (signature was verified)
+ header.d=ewship.com; arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=allianzbulk.onmicrosoft.com; s=selector2-allianzbulk-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZEyCDhZUeDWf2mX5rIYre8Lt+BP6IdLKBhLLEnDhoxQ=;
+ b=dryZ4bFJG9m9f3khcFixebTQ0Oh602aoeRc09TFjsfERpFGbhlk3n0QJmZGAGSTzS9MJgpyvd0cLQjwCX11MeHCBj3wYg4kV5SRR6SVrpG3K9imPu+D93FT7e7soDLmB6SBNEnkagpQg+ZlLB1TnXsawsQ1SnddePGBMB0OjJbc=
+Received: from AS9PR0301CA0059.eurprd03.prod.outlook.com
+ (2603:10a6:20b:469::21) by AM9PR05MB8546.eurprd05.prod.outlook.com
+ (2603:10a6:20b:3a4::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20; Fri, 15 Apr
+ 2022 14:44:30 +0000
+Received: from VE1EUR01FT086.eop-EUR01.prod.protection.outlook.com
+ (2603:10a6:20b:469:cafe::1e) by AS9PR0301CA0059.outlook.office365.com
+ (2603:10a6:20b:469::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20 via Frontend
+ Transport; Fri, 15 Apr 2022 14:44:30 +0000
+Received-SPF: Pass (protection.outlook.com: domain of ewship.com designates
+ 74.208.37.28 as permitted sender) receiver=protection.outlook.com;
+ client-ip=74.208.37.28; helo=mail.ewship.com;
+Received: from mail.ewship.com (74.208.37.28) by
+ VE1EUR01FT086.mail.protection.outlook.com (10.152.2.143) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19 via Frontend Transport; Fri, 15 Apr 2022 14:44:29 +0000
+Received: from localhost.local (pool-96-231-180-182.washdc.fios.verizon.net [96.231.180.182])
+	by mail.ewship.com (Postfix) with ESMTPA id 4945A8D72D3
+	for <chartdxb@allianzbulk.com>; Fri, 15 Apr 2022 10:44:28 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ewship.com;
+	s=default; t=1650033868;
+	bh=ZEyCDhZUeDWf2mX5rIYre8Lt+BP6IdLKBhLLEnDhoxQ=; h=From:To:Subject;
+	b=BSS3g6RaPgbormVWqvPyIQS9HzVlc8ThXUCtd1rucvRG7GY6bel+T4v+DZ2g1CIcS
+	 C+D6qc8Kyu3VmJavh3gLW2aku2CxbAAkI8fbCFfKJ/ypYOlxno9FxUDXSx52TdO1LB
+	 Ob6Ydz2zss9NpTFwIDRUHbaEv/9JWN1UiVH0cBb8=
+List-Unsubscribe: remove@ewship.com
+Organization: EastWest Chartering
+Reply-To: chartering@ewship.com
+Message-ID: <3e07cfff9912a0f7a866f62100225f10@ewship.com>
+From: "EastWest Chartering" <chartering@ewship.com>
+To: <chartdxb@allianzbulk.com>
+Subject: OPEN TURKEY 33000 DWT - MV RIVERTEC
+Date: Fri, 15 Apr 2022 10:44:26 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+	charset="windows-1252"
+Content-Transfer-Encoding: 7bit
+X-PPP-Message-ID: <20220415144428.1603.66512@mail.ewship.com>
+X-PPP-Vhost: ewship.com
+Return-Path: chartering@ewship.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 58cb896f-7967-4de0-aa38-db684b7974dd:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 26b27191-7c4f-4d7c-15b3-08da1eee72a4
+X-MS-TrafficTypeDiagnostic: AM9PR05MB8546:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Transport-Rules-Loop: 1
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:1;
+X-Microsoft-Antispam-Message-Info:
+	/ThjagMpicioMe73n1kVNDa7KcHK9D+8AAlGo2B0hA6CjXxwFg6KxGbjkTyQK/NE95IFJ3jT3O67wpxyJHls5QBD9X8pewKoy6tv11BnSdTyytKFu6GrArtjI4N5Qav69KBMPn10P/kxEur6EGV2CNUOAKGA8kI4L0KlGnpQFf9iL40JquYUSuOpchZMPWE+VcvOM4NEJ9Wf8IdyodJY6zVWL2EfoFwn6c713IJpu69Km9hV6ZeKel4gMAxGyfI+pQCAe27mAkXpw9Wa2o67F162piMomLpUFX/gQVT1kR1Kt2skc2tudSin8ZF1OiqGbtIXRRvxcWJTyBpNWRYgsOhSfSx6VvCk0OGMBzsRzLoEw8WaAW489dBFMQg/3aAP8Ge1jsiCGxdzBZdMNQpMPz6vk2wXIYLv6sUME9dx6N52OYOTd0/0RmFEtL9iV+27CI9r1gxNT2/2vOsvwNbGH4I7SGVvZ7KGSW6o/wGr/bv8+TwyabcY609vOG1sunZxjJo5t8n0vDAz6bQyFTgIx7ZmJ7J7JIRx5FZL2AYvqeV/dZX3ToSNEcVYLehmtE9CrNGjn5rUKFFhABpNpsR1ZYBJkp8id3lXroYvlL7ASUfSlw6oy4K7MZE9k+1dVyo5rBl7mEoWA6yZ4/YhFJSs42ys4Jsb6SKpdlewLUKLZpupQwHNFiKWjFgu8VhFlVrvjtbv9rCv3HBqdBX+KJAaqg==
+X-Forefront-Antispam-Report:
+	CIP:74.208.37.28;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.ewship.com;PTR:mail.ewship.com;CAT:NONE;SFS:(13230001)(4636009)(286005)(7596003)(26005)(6266002)(36756003)(6862004)(7636003)(86362001)(2906002)(40140700001)(24736004)(108616005)(70586007)(508600001)(356005)(8676002)(68406010)(36916002)(3450700001)(6966003)(316002)(426003)(2616005)(336012)(956004);DIR:OUT;SFP:1102;
+X-ExternalRecipientOutboundConnectors: 58cb896f-7967-4de0-aa38-db684b7974dd
+X-OriginatorOrg: allianzbulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2022 14:44:29.7783
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26b27191-7c4f-4d7c-15b3-08da1eee72a4
+X-MS-Exchange-CrossTenant-Id: 58cb896f-7967-4de0-aa38-db684b7974dd
+X-MS-Exchange-CrossTenant-AuthSource: VE1EUR01FT086.eop-EUR01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR05MB8546
+
+
+EASTWEST CHARTERING - FAREAST DESK 
+Tel : 1 301 540 8631 
+Fax : 1 801 409 3572 
+Eml :chartering@ewship.com 
+Skp : ewship / Wechat: ewship 
+______________________________________
+
+
+MV RIVERTEC - 33000 DWT
+
+- OPEN DELISKELESI, TURKEY O/A 22-28 APR
+- VLSFO/LSMGO ABT 330/20MTS
+
+MV RIVERTEC 
+IMO #9473420
+SDBC fully fitted logger, Built 2010, Flag Hong Kong
+Class CCS, P&I: The West of England
+GT/NT: 20,763 / 11,627
+
+DWT abt. 32922mt on Summer Draught moulded abt. 10.15m
+LOA/LBP/BEAM: 179.90 / 171.50 / 28.40 M
+Moulded Depth: 14.10 M
+
+Ho/Ha: 5/5, Electrohydraulic folding hatch covers
+GR/BL Total abt. :42565.22 cbm abt. 40558.62 cbm
+
+Cranes: 4x30.5 mt
+CO2/A60/AHL/El. Vent
+
+Spd/Cons:
+Laden about 13.50 knots on about 28.00 MT VLSFO + 0.10 MT LSMGO
+Ballast about 13.50 knots on about 27.60 MT VLSFO + 0.10 MT LSMGO
+
+Eco spd/cons :(GIVEN IN GOOD FAITH BUT WOG)
+Laden:
+about 12.00 knots on about 21.00 MT VLSFO + 0.10 MT LSMGO
+about 11.00 knots on about 18.80 MT VLSFO + 0.10 MT LSMGO
+Ballast:
+about 12.00 knots on about 20.50 MT VLSFO + 0.10 MT LSMGO
+about 11.50 knots on about 17.80 MT VLSFO + 0.10 MT LSMGO
+
+At port : idle : abt. 2.2mt vlsfo plus 0.1mt lsmgo daily
+All Crane working : abt. 4.5mt vlsfo plus 0.1mt lsmgo daily
+SPEED AND CONSUMPTION FIGURES ARE BASIS UNDER GOOD WEATHER CONDITION AND 
+SMOOTH SEA AND NO
+NEGATIVE INFLUENCE BY CURRENTS, SWELL AND/OR TIDAL STREAMS, MAXIMUM 
+BEAUFORT 3 AND DOUGLAS 4
+AND EVEN KEEL IN DEEP WATER WITH CLEAN BOTTOM WITHOUT DECK CARGO, MAXIMUM 
+SEA TEMPERATURE 28 DEGREE CELSIUS,
+EXCEPT RESTRICTED AREAS, LIKE APPROACHES, SHALLOW WATERS, ETC.
+
+THE VESSEL IS BURNING SOME VLSFO/LSMGO WHEN ENTERING/LEAVING PORT AND 
+MANEUVERING AND BERTHING,
+MINIMAL AMOUNT OF VLSFO/LSMGO IS USED FOR STARTING/STOPPING ENGINE.
+THE VESSEL IS BURNING SOME VLSFO/LSMGO WHEN ENTERING/LEAVING PORT AND 
+MANEUVERING AND BERTHING,
+MINIMAL AMOUNT OF VLSFO/LSMGO IS USED FOR STARTING/STOPPING ENGINE.
+(All details about)
+
+Regards / Khalid 
+
+

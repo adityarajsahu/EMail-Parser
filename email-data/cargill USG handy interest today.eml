@@ -1,0 +1,263 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp605739pxb;
+        Fri, 15 Apr 2022 07:12:47 -0700 (PDT)
+X-Received: by 2002:a05:600c:35ca:b0:38e:c3cd:967d with SMTP id r10-20020a05600c35ca00b0038ec3cd967dmr3652720wmq.112.1650031965813;
+        Fri, 15 Apr 2022 07:12:45 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1650031965; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=sxubbRK0HK+/zp3CTXBrljHVjUwh9AROBZejGORfP8HHgdgZdx/mV2vhQG5yoITacV
+         PbK7bxGI27QKgz/Gi6Uw3cPDc98iG11avUQ9bsiY/yHjKl17GdejZtwaTEL8uwYYhNRI
+         vGhzIzE1tCrhGFFOHm/q9FYVcUKCb+funuKydFTbeIN9TPRYf/nuMEphuMlGJmf3818W
+         F/0Yd3Mp1fpcQXqKD0yY65mvuqfE0lbkBBsg6x7ZwkTOHIvqj0xb4KrgWeGqP/koEDco
+         WtgTrIFnHRhVxLDZo1G2l6/3KotYtgbDbVfXUm95MEUjKfCQEtEV2QeKpKlSdBlWKYgP
+         6wdg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:date:reply-to:subject:from:message-id:mime-version
+         :dkim-signature:delivered-to;
+        bh=NRN1DbFJa+HtJyUMk4Ma/IdQkPI0mphu8jz12mpIuIM=;
+        b=iy1/OXbmRnsnlWct1qBB8K5Got1w82+0efdcO21nKo+v5XkZZkcl7U9xvcBsfKUnZ2
+         5u2r7oQ0pArK6BeQSuyjspoThn+Ct2jKUCYs0JBu6X4RP6fCSAKeOvMccUZNnzKMfUOy
+         oRHYyZ6v5evDNUBohGTcEvIhDQq7hU+X7ivHJh8FUi73jEw7g5CWOGKW5YVycq5qgwrg
+         MsqZhZ67ASxjUxLMjMFmcivTvJsw23vbEEpNXR0GQhrooqXv/S8jbgKMP6sAuKsGfNIp
+         z0/EIyAyVo7E2CB1QFeQcELw03/V4DQ5+ZgwNc6LCk0v6INFMjTXCDNulJ3Z13eV5kmZ
+         yFrw==
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=FKeffsjH;
+       arc=pass (i=2 spf=pass spfdomain=peraco.com dkim=pass dkdomain=allianzbulk.onmicrosoft.com dmarc=pass fromdomain=peraco.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info";
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE arc=pass) header.from=peraco.com
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id o15-20020adfcf0f000000b00207abac1aabsor745259wrj.78.2022.04.15.07.12.45
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 07:12:45 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=FKeffsjH;
+       arc=pass (i=2 spf=pass spfdomain=peraco.com dkim=pass dkdomain=allianzbulk.onmicrosoft.com dmarc=pass fromdomain=peraco.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info";
+       dmarc=fail (p=QUARANTINE sp=QUARANTINE dis=NONE arc=pass) header.from=peraco.com
+Authentication-Results: spf=pass (sender IP is 74.208.210.73)
+ smtp.mailfrom=Peraco.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=Peraco.com;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:delivered-to:dkim-signature:mime-version
+         :message-id:from:subject:reply-to:date:to;
+        bh=NRN1DbFJa+HtJyUMk4Ma/IdQkPI0mphu8jz12mpIuIM=;
+        b=CzFbk9PKjPZWvETOZe/tOVJ5OPOG3Q4zaU65J55xMXQLGLUaRVFuYQw5oU+/5TpXWQ
+         NXXyJUEmJdMp1WdAaAbfiFOrDUcH30dnsOVqhF8hKNye7RqhjEwyPIR6L3gzsb+02ODW
+         EBGIypdxx6GDtGMAExXWeu19TC8Bcm53H4wmLQLv6IOo9XvXOmeaCFskuAB63wLH6UI5
+         cbQOO6HR3shPxepy2Z58fnj/vNlX4/f046H48Gc2GTmY2fs78nUAIn+T3f1nC9cPIHCp
+         ij4goIFouaxD0qvV5Ul9VlyK6DgCU/ypc6VtywgN6YOttfZShNzi/rFPYb3VM4jg3OBS
+         HJtQ==
+X-Gm-Message-State: AOAM533YXYn0J7sETWe1Ac2wC2Iie9Hczp02RzI9Q2yW3cpZWaz80WxW
+	O2vJEogN4YN8rXWCi5GL+pk3yf1E6QJRAOr++WcifU0N8L/H6l872tDLA6A=
+X-Received: by 2002:a05:6000:10cd:b0:207:9ac2:d020 with SMTP id b13-20020a05600010cd00b002079ac2d020mr5447840wrx.288.1650031965021;
+        Fri, 15 Apr 2022 07:12:45 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:a5d:620f:0:0:0:0:0 with SMTP id y15csp140083wru;
+        Fri, 15 Apr 2022 07:12:43 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxzcoixUteGII1ifLyTWg+ssA/EMMUjPOraxUmCMFQ6wsS+d2XGJxL6I+ammZlW1HJMT13e
+X-Received: by 2002:a17:907:980d:b0:6d6:f910:513a with SMTP id ji13-20020a170907980d00b006d6f910513amr6076532ejc.643.1650031962941;
+        Fri, 15 Apr 2022 07:12:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1650031962; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=sWhbTgcfmxMkRjae+r/WPocHVIyIietsOQ8w62KtU25uudP9QL8QjUVwSOZGMYvoJj
+         7TII2iAj1iVnjcjrRQ3Hy/srQfbNY0ZYSwS9ctUjiq3vVHksCyuUu4COoc+gceayeiGV
+         +51NlVskGJRdq0DPQ8Wn79xRVOX+XHsZKjRDcEcN9ONkomklL/4gClCo7bl5OkKJnwB3
+         GOJPyyZgHpWCcqzcn0W/dz57NY/bqaOG73KeX5UpNvthxrdEvz6h9smyQ1imXYsrYzCs
+         jkecz6UAMsUviEM+HF5nEF+2NKTxtuqTQTPjwVVCMg5jChr+7DVaiYh0ApuiLTGjmqYM
+         cShw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:date:reply-to:subject:from:message-id:mime-version
+         :dkim-signature;
+        bh=NRN1DbFJa+HtJyUMk4Ma/IdQkPI0mphu8jz12mpIuIM=;
+        b=wFTuQOE9uGAmdrPLgAe0jHUYZeGxrOsjq+3FgHS1Ssa+IyP9v635DBb2aXHp1zZF61
+         YOp8BGRasLVN7CsfdnqZ91n6XPB3Wg7TX8ZRofe5VYsfyCRQtfQICkOzGB54/8gdeCPd
+         YUZu6gI5kPn5i+40BpVmpbzLYHABAmmjp1LNe1wGYqk2+jE4zWkYi/QncM/WJdfu5jAI
+         9K25cDzbRvTfGseccrFZEn1ERe3W6M0bQD/E4lJuBQCxPWvocN7QMDwxZ1I5PET4fEkd
+         LfNTYiKQDfAcYdGIg/NhGkJU959+AAq0JX6hUlazvOdM9nt/1Qh1Bcj0XEDjoJ+vzIrr
+         hMtg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=FKeffsjH;
+       arc=pass (i=1 spf=pass spfdomain=peraco.com dmarc=pass fromdomain=peraco.com);
+       spf=pass (google.com: domain of peraco@peraco.com designates 2a01:111:f400:7d00::724 as permitted sender) smtp.mailfrom=Peraco@peraco.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=peraco.com
+Return-Path: <Peraco@peraco.com>
+Received: from EUR05-VI1-obe.outbound.protection.outlook.com (mail-vi1eur05on20724.outbound.protection.outlook.com. [2a01:111:f400:7d00::724])
+        by mx.google.com with ESMTPS id u7-20020a1709063b8700b006e093565393si1072585ejf.496.2022.04.15.07.12.42
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 07:12:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of peraco@peraco.com designates 2a01:111:f400:7d00::724 as permitted sender) client-ip=2a01:111:f400:7d00::724;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=PkcT8Ef4gSVnL7GFuUjujp16xdWCwtakWj911e1sauLqCOZ9SIBW0jMTcbvyS2HIuUnZn7XhYYpfkYkIQaOmPBIy7OhoD2JzF8VTqu7HmLRSBceswmQuIRZm2T0qy924GzARiBm/l8Nn5tXc+e9WRqQGRRjxD7OIcPhV3F0tV0GeNHEHq8jmVeNxNph5S/o+DTJ6K97SWMAVnjwqxxmYcTk7TDR0l7gc8XCdrhxDkvUfamRXEU/9EGTJMxeGccXTsibFQ5J5wzi8sP4XR06RvPrHjht/wZ8xqseMOp1T2dvaZV+lFsuXYdqsGLRh9gAVXIXOlb1hxPjbKJIWzCWF1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NRN1DbFJa+HtJyUMk4Ma/IdQkPI0mphu8jz12mpIuIM=;
+ b=S+Dqy8LFDbM2s7B25lS98yjvr28299OtgkqlYGpXaSmHKjK/DfRvtw4GZIi/VE6cLEqiEabv3PP+TPv9hVFvsCYP+f+1Brns0b82VPdZB17N2mqzzf59W0qvhrvCGYRRFmXjZ1aNQG2FLV2Pqelc/I4H+1tuGucsDLNgA9YOYIYzdvobqpec8/LGspnC+ckJbO5MA/kHTe1hsbj3IuMpSGIk64vCqtfYh6CS5K+fxGcmiQ82WF252NPKaQ9ZLg2N6Xa13+BPbVsGflpZUJMc1aClk7ft+PAi4pbkn6k7My8FHJjCQPvM4zwbPgKahnc4AaXIDxE5Bd4VMelMzCAR4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 74.208.210.73) smtp.rcpttodomain=allianzbulk.com smtp.mailfrom=peraco.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=peraco.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=allianzbulk.onmicrosoft.com; s=selector2-allianzbulk-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NRN1DbFJa+HtJyUMk4Ma/IdQkPI0mphu8jz12mpIuIM=;
+ b=FKeffsjH5k99W44WF/ipYjVS9kmQ4N1FK6nXAyFcNJ8cupqEuHXxRy2SKi9mVBSRS3XY2WpcMssgunqLsHGvEuMfHnnFx/lu7sBnwQuSBVYXJnC/dzoB0j0vpg3z41wq2zIQUy88LmAyRFJBxrkzSQ9Hw2mFJNtcQLxbeKnA9fQ=
+Received: from DB6PR0601CA0047.eurprd06.prod.outlook.com (2603:10a6:4:17::33)
+ by AM6PR05MB4469.eurprd05.prod.outlook.com (2603:10a6:209:4e::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20; Fri, 15 Apr
+ 2022 14:12:40 +0000
+Received: from DB5EUR01FT006.eop-EUR01.prod.protection.outlook.com
+ (2603:10a6:4:17:cafe::27) by DB6PR0601CA0047.outlook.office365.com
+ (2603:10a6:4:17::33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.18 via Frontend
+ Transport; Fri, 15 Apr 2022 14:12:40 +0000
+Received-SPF: Pass (protection.outlook.com: domain of Peraco.com designates
+ 74.208.210.73 as permitted sender) receiver=protection.outlook.com;
+ client-ip=74.208.210.73; helo=smtp.shinc24.com;
+Received: from smtp.shinc24.com (74.208.210.73) by
+ DB5EUR01FT006.mail.protection.outlook.com (10.152.4.134) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19 via Frontend Transport; Fri, 15 Apr 2022 14:12:40 +0000
+Received: from Peraco.com (6cb31522.cst.lightpath.net [108.179.21.34])
+	by smtp.shinc24.com with ESMTPSA
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-SHA384 bits=256)
+	; Fri, 15 Apr 2022 10:09:41 -0400
+MIME-Version: 1.0
+X-Mailer: MailBee.NET 11.2.0.605
+Message-ID: <707905.6b68d5db-0cfa-4920-9d00-3162a4748ba2_2@Mark5>
+X-MARK-MessageId: <707905.6b68d5db-0cfa-4920-9d00-3162a4748ba2@Mark5>
+From: "Peraco" <Peraco@Peraco.com>
+Subject: cargill USG handy interest today
+Reply-To: Peraco@Peraco.com
+Date: Fri, 15 Apr 2022 10:10:02 -0400
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_748D_4A794136.DE198881"
+To: Undisclosed recipients:;
+Return-Path: Peraco@Peraco.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 58cb896f-7967-4de0-aa38-db684b7974dd:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 58aca2b6-6834-473c-022c-08da1eea007e
+X-MS-TrafficTypeDiagnostic: AM6PR05MB4469:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Transport-Rules-Loop: 1
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:1;
+X-Microsoft-Antispam-Message-Info:
+	vZECUVKgAVXvf2VVFvpgDRbnUchVynrLg/3Phvx7cL+KRKTV3GviIwTmyNYvWKHFVa/qcBtKQn2wFjSn/21O9pb27OAnAPYgvi6asZWlazjrAhgilnslVYzjMV06KREuM+6X4qceG5La355Cen+r2abSMFIfbMyYHQSD+Bg03IpZhJkL/lGE74KLBrIA2/+ZJGIZZu+sq6qahthHtznp753zVsexhQKP8ZEqrFwoUOUR7647ZnoEBRu6UQHf8ah0/ktwp1/0CuSpZNOlavAlYwX+V5vP0ZahplOUNM/NMkj7rOu/tKKkl1nHLgnP4w0pnbKIpUhJsEt1YkL/RAKPHzwPMUR38bPsvBDXvL8us2WYvo6PJfcBfWV6QrA7b6nwzp8mhcwEsxzXFy56LNH/WRLLyP5KHlDF/tF/KXZ+GCduIIK/1x73Pcobrgsh687rblTuxM/zWgTChctrbu0T1Gy4IoiBoOS7lxBjbr+h+4G4MESPIyS5O+YmGfpFsq/5B8u8xM99C3GkvuWhfhyjSnICABf5TD+VqsMvvYDy/z92c8nK7bHDOZNUNrFa/HLVmk4I3qBxEtZraR2BhUDaQemhtCBQ0Y0oJznB3r4e8iXN3SjRQDaC6OFax81JwTSQLRvTIFUBbV00nIPvNTjbN5nJMaMfK2Z7qQMmXXy1EsoHHf9JKEYMqCC6zARMsj4oMmGSrgbGXK41zv4I/6r/Fv0+GJACimBRsv0p7LmBF8xP9WoKXAcSCfqL9sFzNmq7
+X-Forefront-Antispam-Report:
+	CIP:74.208.210.73;CTRY:RU;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.shinc24.com;PTR:smtp.shinc24.com;CAT:NONE;SFS:(13230001)(7916004)(4636009)(286005)(40140700001)(356005)(2906002)(3450700001)(7596003)(7636003)(9686003)(6966003)(26005)(956004)(6666004)(33964004)(508600001)(8676002)(70586007)(68406010)(109986005)(336012)(86362001)(33716001)(34256002);DIR:OUT;SFP:1102;
+X-ExternalRecipientOutboundConnectors: 58cb896f-7967-4de0-aa38-db684b7974dd
+X-OriginatorOrg: allianzbulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2022 14:12:40.1097
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58aca2b6-6834-473c-022c-08da1eea007e
+X-MS-Exchange-CrossTenant-Id: 58cb896f-7967-4de0-aa38-db684b7974dd
+X-MS-Exchange-CrossTenant-AuthSource: DB5EUR01FT006.eop-EUR01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM6PR05MB4469
+
+
+------=_NextPart_000_748D_4A794136.DE198881
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+
+Q2FyZ2lsbCBvcGVuIA0KwqANCkNhbiBkbyAxdGN0IG9yIGNvbnNpZGVyIHBlcmlvZCBvbiBiZWxv
+dyBoYW5keSByZXF1aXJlbWVudCANCsKgDQpNUi9SaW8gSGFpbmENCjMwayA1cGN0IHR3byBncmFk
+ZXMgYXMgYmVsb3cNCjc1MDBzc2hleC80MDAwc2F0cG1zaGV4IA0KQXByaWwgMjAtMjUgDQozLjc1
+IGFkYyArIDEuMjUgUGVyYWNvDQoyMWsgY29ybiAmIDlrIHNibSDigJMgNXBjdCBlYWNoIA0KwqAN
+CkJlc3QgUmVnYXJkcywNCg0KRWQgTHVuZGluDQpPZmZpY2U6IDIwMyA5NzcgNzYwMA0KRGlyZWN0
+OiAyMDMgOTc3IDc2MDMNCk1vYmlsZToyMDMgMjE5IDI1MDA=
+
+------=_NextPart_000_748D_4A794136.DE198881
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+
+PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFs
+Ly9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25h
+bC5kdGQiPg0KPGh0bWwgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiPg0KCTxo
+ZWFkPg0KCQk8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQvaHRt
+bDsgY2hhcnNldD11dGYtOCIgLz48dGl0bGU+DQoJCTwvdGl0bGU+DQoJPC9oZWFkPg0KCTxib2R5
+Pg0KCQk8cCBzdHlsZT0idGV4dC1hbGlnbjpsZWZ0O3RleHQtaW5kZW50OjBwdDttYXJnaW46MHB0
+IDBwdCAwcHQgMHB0OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xv
+cjp0cmFuc3BhcmVudDtmb250LWZhbWlseTpDYWxpYnJpO2ZvbnQtc2l6ZToxMXB0O2ZvbnQtd2Vp
+Z2h0Om5vcm1hbDtmb250LXN0eWxlOm5vcm1hbDsiPkNhcmdpbGwgb3BlbiA8L3NwYW4+PC9wPjxw
+IHN0eWxlPSJ0ZXh0LWFsaWduOmxlZnQ7dGV4dC1pbmRlbnQ6MHB0O21hcmdpbjowcHQgMHB0IDBw
+dCAwcHQ7Ij48c3BhbiBzdHlsZT0iY29sb3I6IzAwMDAwMDtiYWNrZ3JvdW5kLWNvbG9yOnRyYW5z
+cGFyZW50O2ZvbnQtZmFtaWx5OkNhbGlicmk7Zm9udC1zaXplOjExcHQ7Zm9udC13ZWlnaHQ6bm9y
+bWFsO2ZvbnQtc3R5bGU6bm9ybWFsOyI+Jm5ic3A7PC9zcGFuPjwvcD48cCBzdHlsZT0idGV4dC1h
+bGlnbjpsZWZ0O3RleHQtaW5kZW50OjBwdDttYXJnaW46MHB0IDBwdCAwcHQgMHB0OyI+PHNwYW4g
+c3R5bGU9ImNvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjp0cmFuc3BhcmVudDtmb250LWZh
+bWlseTpDYWxpYnJpO2ZvbnQtc2l6ZToxMXB0O2ZvbnQtd2VpZ2h0Om5vcm1hbDtmb250LXN0eWxl
+Om5vcm1hbDsiPkNhbiBkbyAxdGN0IG9yIGNvbnNpZGVyIHBlcmlvZCBvbiBiZWxvdyBoYW5keSBy
+ZXF1aXJlbWVudCA8L3NwYW4+PC9wPjxwIHN0eWxlPSJ0ZXh0LWFsaWduOmxlZnQ7dGV4dC1pbmRl
+bnQ6MHB0O21hcmdpbjowcHQgMHB0IDBwdCAwcHQ7Ij48c3BhbiBzdHlsZT0iY29sb3I6IzAwMDAw
+MDtiYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50O2ZvbnQtZmFtaWx5OkNhbGlicmk7Zm9udC1z
+aXplOjExcHQ7Zm9udC13ZWlnaHQ6bm9ybWFsO2ZvbnQtc3R5bGU6bm9ybWFsOyI+Jm5ic3A7PC9z
+cGFuPjwvcD48cCBzdHlsZT0idGV4dC1hbGlnbjpsZWZ0O3RleHQtaW5kZW50OjBwdDttYXJnaW46
+MHB0IDBwdCAwcHQgMHB0OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1j
+b2xvcjp0cmFuc3BhcmVudDtmb250LWZhbWlseTpDYWxpYnJpO2ZvbnQtc2l6ZToxMXB0O2ZvbnQt
+d2VpZ2h0Om5vcm1hbDtmb250LXN0eWxlOm5vcm1hbDsiPk1SL1JpbyBIYWluYTwvc3Bhbj48L3A+
+PHAgc3R5bGU9InRleHQtYWxpZ246bGVmdDt0ZXh0LWluZGVudDowcHQ7bWFyZ2luOjBwdCAwcHQg
+MHB0IDBwdDsiPjxzcGFuIHN0eWxlPSJjb2xvcjojMDAwMDAwO2JhY2tncm91bmQtY29sb3I6dHJh
+bnNwYXJlbnQ7Zm9udC1mYW1pbHk6Q2FsaWJyaTtmb250LXNpemU6MTFwdDtmb250LXdlaWdodDpu
+b3JtYWw7Zm9udC1zdHlsZTpub3JtYWw7Ij4zMGsgNXBjdCB0d28gZ3JhZGVzIGFzIGJlbG93PC9z
+cGFuPjwvcD48cCBzdHlsZT0idGV4dC1hbGlnbjpsZWZ0O3RleHQtaW5kZW50OjBwdDttYXJnaW46
+MHB0IDBwdCAwcHQgMHB0OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1j
+b2xvcjp0cmFuc3BhcmVudDtmb250LWZhbWlseTpDYWxpYnJpO2ZvbnQtc2l6ZToxMXB0O2ZvbnQt
+d2VpZ2h0Om5vcm1hbDtmb250LXN0eWxlOm5vcm1hbDsiPjc1MDBzc2hleC80MDAwc2F0cG1zaGV4
+IDwvc3Bhbj48L3A+PHAgc3R5bGU9InRleHQtYWxpZ246bGVmdDt0ZXh0LWluZGVudDowcHQ7bWFy
+Z2luOjBwdCAwcHQgMHB0IDBwdDsiPjxzcGFuIHN0eWxlPSJjb2xvcjojMDAwMDAwO2JhY2tncm91
+bmQtY29sb3I6dHJhbnNwYXJlbnQ7Zm9udC1mYW1pbHk6Q2FsaWJyaTtmb250LXNpemU6MTFwdDtm
+b250LXdlaWdodDpub3JtYWw7Zm9udC1zdHlsZTpub3JtYWw7Ij5BcHJpbCAyMC0yNSA8L3NwYW4+
+PC9wPjxwIHN0eWxlPSJ0ZXh0LWFsaWduOmxlZnQ7dGV4dC1pbmRlbnQ6MHB0O21hcmdpbjowcHQg
+MHB0IDBwdCAwcHQ7Ij48c3BhbiBzdHlsZT0iY29sb3I6IzAwMDAwMDtiYWNrZ3JvdW5kLWNvbG9y
+OnRyYW5zcGFyZW50O2ZvbnQtZmFtaWx5OkNhbGlicmk7Zm9udC1zaXplOjExcHQ7Zm9udC13ZWln
+aHQ6bm9ybWFsO2ZvbnQtc3R5bGU6bm9ybWFsOyI+My43NSBhZGMgKyAxLjI1IFBlcmFjbzwvc3Bh
+bj48L3A+PHAgc3R5bGU9InRleHQtYWxpZ246bGVmdDt0ZXh0LWluZGVudDowcHQ7bWFyZ2luOjBw
+dCAwcHQgMHB0IDBwdDsiPjxzcGFuIHN0eWxlPSJjb2xvcjojMDAwMDAwO2JhY2tncm91bmQtY29s
+b3I6dHJhbnNwYXJlbnQ7Zm9udC1mYW1pbHk6Q2FsaWJyaTtmb250LXNpemU6MTFwdDtmb250LXdl
+aWdodDpub3JtYWw7Zm9udC1zdHlsZTpub3JtYWw7Ij4yMWsgY29ybiAmYW1wOyA5ayBzYm0gJm5k
+YXNoOyA1cGN0IGVhY2ggPC9zcGFuPjwvcD48cCBzdHlsZT0idGV4dC1hbGlnbjpsZWZ0O3RleHQt
+aW5kZW50OjBwdDttYXJnaW46MHB0IDBwdCAwcHQgMHB0OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiMw
+MDAwMDA7YmFja2dyb3VuZC1jb2xvcjp0cmFuc3BhcmVudDtmb250LWZhbWlseTpDYWxpYnJpO2Zv
+bnQtc2l6ZToxMXB0O2ZvbnQtd2VpZ2h0Om5vcm1hbDtmb250LXN0eWxlOm5vcm1hbDsiPiZuYnNw
+Ozwvc3Bhbj48L3A+PHAgc3R5bGU9InRleHQtYWxpZ246bGVmdDt0ZXh0LWluZGVudDowcHQ7bWFy
+Z2luOjBwdCAwcHQgMHB0IDBwdDsiPjxzcGFuIHN0eWxlPSJjb2xvcjojMDAwMDAwO2JhY2tncm91
+bmQtY29sb3I6I0ZGRkZGRjtmb250LWZhbWlseTpBcmlhbDtmb250LXNpemU6MTFwdDtmb250LXdl
+aWdodDpub3JtYWw7Zm9udC1zdHlsZTpub3JtYWw7Ij5CZXN0IFJlZ2FyZHMsPC9zcGFuPjwvcD48
+cCBzdHlsZT0idGV4dC1hbGlnbjpsZWZ0O3RleHQtaW5kZW50OjBwdDttYXJnaW46MHB0IDBwdCAw
+cHQgMHB0OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjp0cmFu
+c3BhcmVudDtmb250LWZhbWlseTpBcmlhbDtmb250LXNpemU6MTFwdDtmb250LXdlaWdodDpub3Jt
+YWw7Zm9udC1zdHlsZTpub3JtYWw7Ij4mbmJzcDs8L3NwYW4+PC9wPjxwIHN0eWxlPSJ0ZXh0LWFs
+aWduOmxlZnQ7dGV4dC1pbmRlbnQ6MHB0O21hcmdpbjowcHQgMHB0IDBwdCAwcHQ7Ij48c3BhbiBz
+dHlsZT0iY29sb3I6IzAwMDAwMDtiYWNrZ3JvdW5kLWNvbG9yOiNGRkZGRkY7Zm9udC1mYW1pbHk6
+QXJpYWw7Zm9udC1zaXplOjExcHQ7Zm9udC13ZWlnaHQ6bm9ybWFsO2ZvbnQtc3R5bGU6bm9ybWFs
+OyI+RWQgTHVuZGluPC9zcGFuPjwvcD48cCBzdHlsZT0idGV4dC1hbGlnbjpsZWZ0O3RleHQtaW5k
+ZW50OjBwdDttYXJnaW46MHB0IDBwdCAwcHQgMHB0OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiMwMDAw
+MDA7YmFja2dyb3VuZC1jb2xvcjojRkZGRkZGO2ZvbnQtZmFtaWx5OkFyaWFsO2ZvbnQtc2l6ZTox
+MXB0O2ZvbnQtd2VpZ2h0Om5vcm1hbDtmb250LXN0eWxlOm5vcm1hbDsiPk9mZmljZTogMjAzIDk3
+NyA3NjAwPC9zcGFuPjwvcD48cCBzdHlsZT0idGV4dC1hbGlnbjpsZWZ0O3RleHQtaW5kZW50OjBw
+dDttYXJnaW46MHB0IDBwdCAwcHQgMHB0OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiMwMDAwMDA7YmFj
+a2dyb3VuZC1jb2xvcjojRkZGRkZGO2ZvbnQtZmFtaWx5OkFyaWFsO2ZvbnQtc2l6ZToxMXB0O2Zv
+bnQtd2VpZ2h0Om5vcm1hbDtmb250LXN0eWxlOm5vcm1hbDsiPkRpcmVjdDogMjAzIDk3NyA3NjAz
+PC9zcGFuPjwvcD48cCBzdHlsZT0idGV4dC1hbGlnbjpsZWZ0O3RleHQtaW5kZW50OjBwdDttYXJn
+aW46MHB0IDBwdCAwcHQgMHB0OyI+PHNwYW4gc3R5bGU9ImNvbG9yOiMwMDAwMDA7YmFja2dyb3Vu
+ZC1jb2xvcjojRkZGRkZGO2ZvbnQtZmFtaWx5OkFyaWFsO2ZvbnQtc2l6ZToxMXB0O2ZvbnQtd2Vp
+Z2h0Om5vcm1hbDtmb250LXN0eWxlOm5vcm1hbDsiPk1vYmlsZToyMDMgMjE5IDI1MDA8L3NwYW4+
+PC9wPjwvYm9keT4NCjwvaHRtbD4NCg==
+
+------=_NextPart_000_748D_4A794136.DE198881--

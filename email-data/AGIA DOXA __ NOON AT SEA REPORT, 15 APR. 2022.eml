@@ -1,0 +1,1746 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp805506pxb;
+        Fri, 15 Apr 2022 11:46:26 -0700 (PDT)
+X-Received: by 2002:a5d:5141:0:b0:207:ba28:a96a with SMTP id u1-20020a5d5141000000b00207ba28a96amr332659wrt.522.1650048385826;
+        Fri, 15 Apr 2022 11:46:25 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1650048385; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=QPC+v2j/K2bMQBgxVj3wt2TEe/bdMCvinpQ/z3/qDq4erN9wCM8FwJQYjX9QuYpk2f
+         9RGEKSUY+thoumsJC/8ZECMr0SMTMDJbLhLEV/HmkxOwWh5sAqAgCd4QCvFNMnxrzuQj
+         msQVJsU3jC7Z3M2GcSs/rkldAnmNp5YRT6s72WKgGoIOk8h24eGbxMEcrAU7RSiHam/7
+         hgkZO9iVFwjpegcknFVzpkLm8WkIlJ0raVYtga72DzuAozRUz/TQ6yLldTIwrrvbBkWp
+         wvMorKcKI532YPUTqBTGA+t4eurM5dG1tmPfWm9CLC1z2nKZEdSvDWKp7C5oGD82/7D4
+         xKlQ==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :cc:to:from:delivered-to;
+        bh=iETIiiqcp1KLIYNMoND//ewUyPPija7Pg7rP5x6TNh8=;
+        b=rEIdXT+AsZnnwn8Jw0/AzNpjDOIAXNP2cAKP6Wh/DHSzEdVrfhqFA/b9SjmUAPN1CI
+         yDWl8UC1w1lV+K/4rKSjnB+I6PG7CrzPGd3FE0gr0eoxLn9ZijTalDyHkoJCxymPXSoC
+         gQQ4qoaQEsDswE3bB0I3rKDRNvXZXCc7/GsDnIn2XnK7eEqkMDrJRFhshqPQQoAD3LPb
+         YFysCzj7xqJjtDGaOrXCxDVBoQiMGIlyCqWKC2fSHeb37j4ZVXJS7CLv6WuOeMaFMhGa
+         FZbMFjzXfHwRsY862ZeX7Xdqx/JBIZK2txy24Qzk8ZJrw0/DaUPEIjicBCbqd4Jb9TAR
+         owYA==
+ARC-Authentication-Results: i=3; mx.google.com;
+       arc=pass (i=2);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id o23-20020a05600c511700b0038eb82a9ac6sor768030wms.44.2022.04.15.11.46.19
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 11:46:25 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       arc=pass (i=2);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Authentication-Results: spf=pass (sender IP is 185.35.187.92)
+ smtp.mailfrom=agiadoxa.samiosfleet.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none
+ header.from=agiadoxa.samiosfleet.com;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-original-authentication-results:x-gm-message-state:delivered-to
+         :from:to:cc:subject:date:message-id:mime-version:thread-index
+         :content-language;
+        bh=iETIiiqcp1KLIYNMoND//ewUyPPija7Pg7rP5x6TNh8=;
+        b=ixGGjYwFiiBemNaiVdjoZdV6IvbRVS17ozI9ErVcSn/JhUyfmRubHH2sVIDpgIOhui
+         7hI9OwxGZkm5KqsOQ3heVfXIBFgfHdjEAXg3vBPjZ3L5dr1clA2lo9r/j0Iyv1JLDXXA
+         bssFo8gwZ/FaWOwdEPY34gbCavpEVvDn6pGtv71qFseR6IJhJma2iNMNfbAdiTHAH9Uj
+         LGZOHlSUvWBJLGKPuuF9Z3C5Hzm1WnNgePLLi3M4EgcDS1dVnFOivvIAVfdVkdFyQvgk
+         ECuSsDn4AndEBG4rplQawX8N4KKgZ8E+FEdeKLgCIHmnH4ApO6x+YOCjTm6YnRoK6844
+         /tQw==
+X-Original-Authentication-Results: mx.google.com;       arc=pass (i=1 spf=pass spfdomain=agiadoxa.samiosfleet.com);       spf=permerror (google.com: permanent error in processing during lookup of master@agiadoxa.samiosfleet.com: samios.commbox.com not found) smtp.mailfrom=master@agiadoxa.samiosfleet.com
+X-Gm-Message-State: AOAM531Wj46UoDwFBwsv9/1eYXJIUs59CI4wKCjz9MY/crffDm2ymTJx
+	wS+m8Y5tdtOWltza4ul6ZmdFc3si2FusqLl/OLZih0TPpmJRbP+7i0QZorc=
+X-Received: by 2002:a05:600c:3493:b0:38e:bbbb:26f7 with SMTP id a19-20020a05600c349300b0038ebbbb26f7mr260070wmq.114.1650048379338;
+        Fri, 15 Apr 2022 11:46:19 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:a5d:620f:0:0:0:0:0 with SMTP id y15csp194387wru;
+        Fri, 15 Apr 2022 11:46:17 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyo819dU8jdchHpQIkM9ii8HICiiZD5y0ghsJxfJO41qI+GdO4JADoe8Nae1zQlb+rY+lz8
+X-Received: by 2002:a05:6402:3589:b0:41d:938c:2560 with SMTP id y9-20020a056402358900b0041d938c2560mr554088edc.402.1650048377159;
+        Fri, 15 Apr 2022 11:46:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1650048377; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=ZOCxMKz6aYBUC/gtnqDyvAh9/f8awE7ffCdf8sAWCim4w63RGtxj4jm9c/Omekj5W2
+         vQ3kHf7vj9VDk0xzNZOEcDaT/03nCd/1DaMXZey08biRBHU2Ad04QDvzjjSPK9J9DAiS
+         sbH06PINysP/4srzY7GFFJtMln94qe4vU4y053R3dAFyPm/mLvZzcNGVVeUPmQIK0bl4
+         1qSIRXJIXZGjPWxwqSLo6yUifNNAGz3UmHAnBwC42rcSxV40gbS2AK0ToYTb2/K+uxMo
+         TduINsaGSilHbesCGDG7wc0lwXYd1XSUUl0HQrCYJszLycpui0bJTkN6JzndsVwmh5DC
+         1rdQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :cc:to:from;
+        bh=iETIiiqcp1KLIYNMoND//ewUyPPija7Pg7rP5x6TNh8=;
+        b=yJ9fQVjt+Q+MDJ9Vylv3XoYzt3QVwCq6mpLi4yJhg7fBN9Upci7291sEgVp3Z78f64
+         GzG/tV5VFu1salNvIwMgIw/pkVClviV73A5IM0FKpSS4pxWHKb3O66CEPjOYiBC3KGfl
+         bFbS5gMJp/rS6OQeNBRBBRsHX7Lssscp6ykOW+iY8fzSOJ+ntRAU8wbO+Il/1U/ftqsY
+         dyRz0OCeLkFkSPJPKpmS7wEWunAm9cokWEK1fz1bkY5OMuD8lZumBMGGpkzkcZJa8hBa
+         69ZqHUIbzFi27lgFP0vCcqKjSqR4fJoqCviEPdZxhxKXlkdhXQhAHbF1g3IrMO5kysgU
+         Ixkg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       arc=pass (i=1 spf=pass spfdomain=agiadoxa.samiosfleet.com);
+       spf=permerror (google.com: permanent error in processing during lookup of master@agiadoxa.samiosfleet.com: samios.commbox.com not found) smtp.mailfrom=master@agiadoxa.samiosfleet.com
+Return-Path: <master@agiadoxa.samiosfleet.com>
+Received: from ARE01-AU2-obe.outbound.protection.outlook.com (mail-au2are01on20616.outbound.protection.outlook.com. [2a01:111:f400:7ea6::616])
+        by mx.google.com with ESMTPS id t7-20020a1709063e4700b006df76385ca9si1384610eji.329.2022.04.15.11.46.16
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 11:46:16 -0700 (PDT)
+Received-SPF: permerror (google.com: permanent error in processing during lookup of master@agiadoxa.samiosfleet.com: samios.commbox.com not found) client-ip=2a01:111:f400:7ea6::616;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=BFisdETTKQ6HiicethWKqGdhVh8i6a2dEP6v8l54FDwWk3wq1KnsiBiaHBXThNAWQIALCHdj+K81kuF6G4kx8QkTDWx9ecUC/CE0WPg+cyWAmRWz0QNosiT1hQooRSmp9yremoiiH0a2ID5vayOlcJdXdJaSsRgZg3hlORfBNv1ppiNSTIjG16dA+JEXLcx3AqZDfY3H84GVL1z+lY61zsurfapc3ThasdejWnzziW4Kba3MoS2UzI2af/2T+QQkINk4+ozq6lLq6Hd57JsJA5HH6R9LH8RbE5SD4L/81TDRBfwB73MlFzJunQUBfQPOeEgB1VXICEiqbjxRTleUTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iETIiiqcp1KLIYNMoND//ewUyPPija7Pg7rP5x6TNh8=;
+ b=GXhlHVsh1Hfgt/w3OaYflUt9e7YFEhY9ka4rxT0XFustnloy6zNdor5LmcCl5LXRPhVkJDYqMPcr2dM20GoG5amWwVN2lAOeprKJRzcftpO/JMS80hfd8WjU8DjPkb/FTquMEprXopcjgHzhwPhROyvt97fzBOdu7OUO7OtNh+UdghlRl5octnEv6H/cBLpcbP9GhvS1MRaTP6WIYaJnDP3XM+w1WaxQYYXjhe/mcMuavSb3/fUs87tEXu3KJpnUplsyrvxHu8G+KpwRTR6GVXqqPLJT5k/S1a8I1TxzIrgu0AxfCBpfb3prFPjYSZjAdSc341Ng1haHBNXPhHGqGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 185.35.187.92) smtp.rcpttodomain=vegabulk.com
+ smtp.mailfrom=agiadoxa.samiosfleet.com; dmarc=bestguesspass action=none
+ header.from=agiadoxa.samiosfleet.com; dkim=none (message not signed);
+ arc=none (0)
+Received: from DX1P273MB0522.AREP273.PROD.OUTLOOK.COM (2603:1086:300:16::13)
+ by DX1P273MB0249.AREP273.PROD.OUTLOOK.COM (2603:1086:300:14::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.19; Fri, 15 Apr
+ 2022 18:44:43 +0000
+Received: from AUXP273CA0005.AREP273.PROD.OUTLOOK.COM (2603:1086:200:2::17) by
+ DX1P273MB0522.AREP273.PROD.OUTLOOK.COM (2603:1086:300:16::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.20; Fri, 15 Apr 2022 18:44:42 +0000
+Received: from AU2ARE01FT007.eop-are01.prod.protection.outlook.com
+ (2603:1086:200:2:cafe::8b) by AUXP273CA0005.outlook.office365.com
+ (2603:1086:200:2::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.18 via Frontend
+ Transport; Fri, 15 Apr 2022 18:44:42 +0000
+Received-SPF: Pass (protection.outlook.com: domain of agiadoxa.samiosfleet.com
+ designates 185.35.187.92 as permitted sender)
+ receiver=protection.outlook.com; client-ip=185.35.187.92;
+ helo=cbxhub.samios.commbox.com;
+Received: from cbxhub.samios.commbox.com (185.35.187.92) by
+ AU2ARE01FT007.mail.protection.outlook.com (10.233.246.111) with Microsoft
+ SMTP Server id 15.20.5164.19 via Frontend Transport; Fri, 15 Apr 2022
+ 18:44:41 +0000
+Received: by cbxhub.samios.commbox.com (Postfix, from userid 0)
+	id CB50F20640; Fri, 15 Apr 2022 18:46:29 +0000 (UTC)
+Received: from SkipperSrv (unknown [192.168.89.20])
+	by cbxacu.agiadoxa.samiosfleet.com (Postfix) with ESMTP id 96D56A34;
+	Fri, 15 Apr 2022 18:23:53 +0000 (UTC)
+From: "Master | M/V Agia Doxa" <master@agiadoxa.samiosfleet.com>
+To: "'OPS | Vegabulk'" <ops@vegabulk.com>,
+	"'Oslo | Vegabulk'" <oslo@vegabulk.com>
+Cc: "Samios Operations" <operation@samiosshipping.com>
+Subject: AGIA DOXA // NOON AT SEA REPORT, 15 APR. 2022
+Date: Fri, 15 Apr 2022 21:27:38 +0300
+Message-ID: <01ea01d850f6$7cda0730$768e1590$@agiadoxa.samiosfleet.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_01EB_01D8510F.A22BFA20"
+X-Mailer: Microsoft Outlook 14.0
+Thread-Index: AdhQ9nwbqyvDb24fTfib2ZJPiNZq3g==
+Content-Language: en-us
+Return-Path: master@agiadoxa.samiosfleet.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 991c2946-9ecc-4fa9-b2af-7a0b64b41833:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 5989976e-8b5a-4532-3130-08da1f10008c
+X-MS-TrafficTypeDiagnostic: DX1P273MB0522:EE_|DX1P273MB0249:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	YSPFuf23E4zmBrVgIKsJLyAod8GDvg1qvMkeIXW3J5Ln6S8HL/9MIzK753hrPpBJDJxiA0rF9PqWphaTvgfDyEY7pKOjpccP2Gq9DOaZ7Ow7ko9+XqmGgQlR+EkH8XY/gYTkBL3/0uoG0TFAL2VFmASbe4NGf7hWFH33VgGMO7vtJtq1EvXHb4yuSZelRdUCan/bsVYzBOJlZKzUDHQChvoJAJtjX6C8iKxJJXYV4uf0+4MqbjjI37/HhPyeOvfh7NmMW1LQ2E966017pr4k665PrcgpNQM6lVQFyuj3ES5rRUsz7ct8jy/UwznTrk7C9ipgT/vHr8Xws6xIY38t31sN9BtVsMQxtVIPJg7im1nXI0PFWfaXcSMfaZB1Y0ENUUfIGCJ68FekkaRG/6j46OmdVSEXJo9R/elMuPm2b9t3yudFiuejPxRDoUraTVwbdKDO6aA++tL2xDuGoVgu0GHv72h4yYU7le+3rCG/8NGUzQObYOzXEVRerKAobhSI2UO24n+HlBxVoHTrj8B+n3xoS8Gp4q/uZ8pB4LzOTo7Kl546KW+LaicC+BexvZR7JpRGNF1Ua+8nIBOmD0UeQhD6QFQUjDuEPaAhxOxGuR8=
+X-Forefront-Antispam-Report:
+	CIP:185.35.187.92;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:cbxhub.samios.commbox.com;PTR:cbxhub.samios.commbox.com;CAT:NONE;SFS:(13230001)(4636009)(356005)(316002)(2906002)(107886003)(70586007)(2616005)(1420700001)(7636003)(235185007)(68406010)(6266002)(508600001)(44736005)(86362001)(110136005)(6666004)(2160300002)(7596003)(19627235002)(8676002)(5660300002)(26005)(4326008)(83380400001)(426003)(28220400002)(21480400003)(336012);DIR:OUT;SFP:1101;
+X-ExternalRecipientOutboundConnectors: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-OriginatorOrg: vegabulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2022 18:44:41.0628
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5989976e-8b5a-4532-3130-08da1f10008c
+X-MS-Exchange-CrossTenant-Id: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-AuthSource: AU2ARE01FT007.eop-are01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DX1P273MB0249
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_01EB_01D8510F.A22BFA20
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_01EC_01D8510F.A22BFA20"
+
+------=_NextPart_001_01EC_01D8510F.A22BFA20
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+To: Vega Bulk Carriers AS
+
+Cc: As addressed
+
+Fm: Master MV Agia Doxa
+
+ 
+
+ 
+
+Dear Sir,
+
+ 
+
+Please find attached Noon at Sea report with thanks.
+
+ 
+
+ 
+
+Best Regards,
+
+ 
+
+Capt. Vicente Almerol
+
+Master | MV Agia Doxa
+
+SAT.Phone (Master): +30 211 1986 260
+
+SAT.Phone (Bridge): +30 211 1985 472
+
+Mob.+306947566433
+
+INM-C (1/2): 463722361 / 463727341
+
+E-mail:  <mailto:master@agiadoxa.samiosfleet.com>
+master@agiadoxa.samiosfleet.com
+
+ -------------------------------------------
+
+P Acting together for a better environment
+
+
+------=_NextPart_001_01EC_01D8510F.A22BFA20
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><META =
+HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 14 =
+(filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Webdings;
+	panose-1:5 3 1 2 1 5 9 6 7 3;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-language:EN-US;}
+span.Char
+	{mso-style-name:"\666E\901A\(\7F51\7AD9\) Char\,\666E\901A \(Web\) =
+Char\,\666E\901A\(Web\) Char";
+	mso-style-priority:99;
+	mso-style-link:wordsection1;}
+p.wordsection1, li.wordsection1, div.wordsection1
+	{mso-style-name:wordsection1;
+	mso-style-priority:99;
+	mso-style-link:"\666E\901A\(\7F51\7AD9\) Char\,\666E\901A \(Web\) =
+Char\,\666E\901A\(Web\) Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+span.EmailStyle20
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle21
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle22
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle23
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle24
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle25
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle26
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle27
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle28
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle29
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle30
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle31
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle32
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle33
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle34
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle35
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle36
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle37
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle38
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle39
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle40
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle41
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle42
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle43
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle44
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle45
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle46
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle47
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle48
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle49
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle50
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle51
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle52
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle53
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle54
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle55
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle56
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle57
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle58
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle59
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle60
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle61
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle62
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle63
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle64
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle65
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle66
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle67
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle68
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle69
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle70
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle71
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle72
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle73
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle74
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle75
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle76
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle77
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle78
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle79
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle80
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle81
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle82
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle83
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle84
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle85
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle86
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle87
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle88
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle89
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle90
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle91
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle92
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle93
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle94
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle95
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle96
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle97
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle98
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle99
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle100
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle101
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle102
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle103
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle104
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle105
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle106
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle107
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle108
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle109
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle110
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle111
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle112
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle113
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle114
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle115
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle116
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle117
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle118
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle119
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle120
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle121
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle122
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle123
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle124
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle125
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle126
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle127
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle128
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle129
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle130
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle131
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle132
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle133
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle134
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle135
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle136
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle137
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle138
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle139
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle140
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle141
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle142
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle143
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle144
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle145
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle146
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle147
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle148
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle149
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle150
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle151
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle152
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle153
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle154
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle155
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle156
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle157
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle158
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle159
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle160
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle161
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle162
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle163
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle164
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle165
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle166
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle167
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle168
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle169
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle170
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle171
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle172
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle173
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle174
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle175
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle176
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle177
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle178
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle179
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle180
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle181
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle182
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle183
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle184
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle185
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle186
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle187
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle188
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle189
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle190
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle191
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle192
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle193
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle194
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle195
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle196
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle197
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle198
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle199
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle200
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle201
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle202
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle203
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle204
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle205
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle206
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle207
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle208
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle209
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle210
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle211
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle212
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle213
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle214
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle215
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle216
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle217
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle218
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle219
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle220
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle221
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle222
+	{mso-style-type:personal-reply;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEL link=3Dblue =
+vlink=3Dpurple><div class=3DWordSection1><p class=3Dwordsection1><span =
+lang=3DEN-US style=3D'font-family:"Tahoma","sans-serif";color:black'>To: =
+Vega Bulk Carriers AS<o:p></o:p></span></p><p class=3Dwordsection1><span =
+lang=3DEN-US style=3D'font-family:"Tahoma","sans-serif";color:black'>Cc: =
+As addressed<o:p></o:p></span></p><p class=3Dwordsection1><span =
+lang=3DEN-US style=3D'font-family:"Tahoma","sans-serif";color:black'>Fm: =
+Master MV Agia Doxa<o:p></o:p></span></p><p class=3Dwordsection1><span =
+lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'><o:p>&nbsp;</o:p>=
+</span></p><p class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'><o:p>&nbsp;</o:p>=
+</span></p><p class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>Dear =
+Sir,<o:p></o:p></span></p><p class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'><o:p>&nbsp;</o:p></span></p><=
+p class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'>Please find attached Noon at =
+Sea report with thanks.<o:p></o:p></span></p><p =
+class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'><o:p>&nbsp;</o:p></span></p><=
+p class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif"'><o:p>&nbsp;=
+</o:p></span></p><p class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>Best =
+Regards,<o:p></o:p></span></p><p class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'><o:p>&nbsp;</o:p>=
+</span></p><p class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>Capt. =
+</span><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'>Vicente Almerol<b><span =
+style=3D'color:black'><o:p></o:p></span></b></span></p><p =
+class=3Dwordsection1><b><i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:#365F91'>Master =
+</span></i></b><b><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:#365F91'>| <i>MV Agia =
+Doxa</i></span></b><i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'><o:p></o:p></span></i></p><p =
+class=3Dwordsection1><i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>SAT.Phone =
+</span></i><i><span lang=3DEN-US =
+style=3D'font-size:8.0pt;font-family:"Tahoma","sans-serif";color:black'>(=
+Master)</span></i><i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>: +30 211 1986 =
+260<o:p></o:p></span></i></p><p class=3Dwordsection1><i><span =
+lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>SAT.Phone =
+</span></i><i><span lang=3DEN-US =
+style=3D'font-size:8.0pt;font-family:"Tahoma","sans-serif";color:black'>(=
+Bridge)</span></i><i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>: +30 211 1985 =
+472</span></i><span lang=3DEN-US =
+style=3D'font-size:12.0pt;font-family:"Tahoma","sans-serif"'><o:p></o:p><=
+/span></p><p class=3Dwordsection1><i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>Mob.+306947566433=
+</span></i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p><p =
+class=3Dwordsection1><i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>INM-C (1/2): =
+463722361 / 463727341</span></i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p><p =
+class=3Dwordsection1><i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:black'>E-mail: =
+</span></i><a href=3D"mailto:master@agiadoxa.samiosfleet.com"><span =
+lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'>master@agiadoxa.samiosfleet.c=
+om</span></a><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p><p =
+class=3Dwordsection1><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:#00B050'>&nbsp;---------=
+----------------------------------</span><span lang=3DEN-US =
+style=3D'font-size:12.0pt'><o:p></o:p></span></p><p =
+class=3Dwordsection1><i><span =
+style=3D'font-size:8.0pt;font-family:Webdings;color:#008A3E'>P</span></i>=
+<i><span lang=3DEN-US =
+style=3D'font-family:"Tahoma","sans-serif";color:#008A3E'> Acting =
+together for a better environment</span></i><span lang=3DEN-US =
+style=3D'font-size:12.0pt'><o:p></o:p></span></p></div></body></html>
+------=_NextPart_001_01EC_01D8510F.A22BFA20--
+
+------=_NextPart_000_01EB_01D8510F.A22BFA20
+Content-Type: application/vnd.ms-excel;
+	name="15 APR - Noon Report.xls"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="15 APR - Noon Report.xls"
+
+0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAOwAAAAAAAAAA
+EAAA/v///wAAAAD+////AAAAADoAAAD/////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////8J
+CBAAAAYFAGcyzQfJAAIABgYAAOEAAgCwBMEAAgAAAOIAAABcAHAABAAAdXNlciAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEIAAgCwBGEBAgAAAMABAAA9AQIA
+DACcAAIAEQAZAAIAAAASAAIAAAATAAIAAACvAQIAAAC8AQIAAAA9ABIA+H/4f4Bw8C04AAAAAAAB
+AFgCQAACAAAAjQACAAAAIgACAAAADgACAAEAtwECAAAA2gACAAAAMQAaAMgAAAD/f5ABAAAAAABC
+BQFBAHIAaQBhAGwAMQAaAMgAAAD/f5ABAAAAAABCBQFBAHIAaQBhAGwAMQAaAMgAAAD/f5ABAAAA
+AABCBQFBAHIAaQBhAGwAMQAaAMgAAAD/f5ABAAAAAABCBQFBAHIAaQBhAGwAMQAaAMgAAQD/f7wC
+AAAAAgBCBQFBAHIAaQBhAGwAMQAaAPAAAQD/f7wCAAAAAgBCBQFBAHIAaQBhAGwAMQAaABgBAQD/
+f7wCAAAAAgBCBQFBAHIAaQBhAGwAMQAaAMgAAAD/f5ABAAAAAgBCBQFBAHIAaQBhAGwAMQAaAMgA
+AAD/f5ABAAAAAgBCBQFBAHIAaQBhAGwAMQAaAMgAAAAKAJABAAAAAgBCBQFBAHIAaQBhAGwAMQAa
+AMgAAQAKALwCAAAAAgBCBQFBAHIAaQBhAGwAMQAeANwAAAAIAJABAAAAAgDSBwFDAGEAbABpAGIA
+cgBpADEAHgDcAAAACQCQAQAAAAIA0gcBQwBhAGwAaQBiAHIAaQAxAB4A3AAAABQAkAEAAAACANIH
+AUMAYQBsAGkAYgByAGkAMQAeANwAAQA0ALwCAAAAAgDSBwFDAGEAbABpAGIAcgBpADEAHgDcAAEA
+CQC8AgAAAAIA0gcBQwBhAGwAaQBiAHIAaQAxAB4A3AACABcAkAEAAAACANIHAUMAYQBsAGkAYgBy
+AGkAMQAeANwAAAARAJABAAAAAgDSBwFDAGEAbABpAGIAcgBpADEAHgAsAQEAOAC8AgAAAAIA0gcB
+QwBhAGwAaQBiAHIAaQAxAB4ABAEBADgAvAIAAAACANIHAUMAYQBsAGkAYgByAGkAMQAeANwAAQA4
+ALwCAAAAAgDSBwFDAGEAbABpAGIAcgBpADEAHgDcAAAAPgCQAQAAAAIA0gcBQwBhAGwAaQBiAHIA
+aQAxAB4A3AAAADQAkAEAAAACANIHAUMAYQBsAGkAYgByAGkAMQAeANwAAAA8AJABAAAAAgDSBwFD
+AGEAbABpAGIAcgBpADEAHgDcAAEAPwC8AgAAAAIA0gcBQwBhAGwAaQBiAHIAaQAxAB4AaAEBADgA
+vAIAAAACANIHAUMAYQBtAGIAcgBpAGEAMQAeANwAAQAIALwCAAAAAgDSBwFDAGEAbABpAGIAcgBp
+ADEAHgDcAAAACgCQAQAAAAIA0gcBQwBhAGwAaQBiAHIAaQAxABoAyAAAAAoAkAEAAAACANIFAUEA
+cgBpAGEAbAAxABoAyAAAAAkAkAEAAAACANIFAUEAcgBpAGEAbAAxABoAyAAAAAgAkAEAAAACANIF
+AUEAcgBpAGEAbAAeBBwABQAXAAAiJCIjLCMjMF8pO1woIiQiIywjIzBcKR4EIQAGABwAACIkIiMs
+IyMwXyk7W1JlZF1cKCIkIiMsIyMwXCkeBCIABwAdAAAiJCIjLCMjMC4wMF8pO1woIiQiIywjIzAu
+MDBcKR4EJwAIACIAACIkIiMsIyMwLjAwXyk7W1JlZF1cKCIkIiMsIyMwLjAwXCkeBDcAKgAyAABf
+KCIkIiogIywjIzBfKTtfKCIkIiogXCgjLCMjMFwpO18oIiQiKiAiLSJfKTtfKEBfKR4ELgApACkA
+AF8oKiAjLCMjMF8pO18oKiBcKCMsIyMwXCk7XygqICItIl8pO18oQF8pHgQ/ACwAOgAAXygiJCIq
+ICMsIyMwLjAwXyk7XygiJCIqIFwoIywjIzAuMDBcKTtfKCIkIiogIi0iPz9fKTtfKEBfKR4ENgAr
+ADEAAF8oKiAjLCMjMC4wMF8pO18oKiBcKCMsIyMwLjAwXCk7XygqICItIj8/Xyk7XyhAXykeBBgA
+pAATAAAiJCIjLCMjMDtcLSIkIiMsIyMwHgQdAKUAGAAAIiQiIywjIzA7W1JlZF1cLSIkIiMsIyMw
+HgQeAKYAGQAAIiQiIywjIzAuMDA7XC0iJCIjLCMjMC4wMB4EIwCnAB4AACIkIiMsIyMwLjAwO1tS
+ZWRdXC0iJCIjLCMjMC4wMB4ENQCoADAAAF8tIiQiKiAjLCMjMF8tO1wtIiQiKiAjLCMjMF8tO18t
+IiQiKiAiLSJfLTtfLUBfLR4ELACpACcAAF8tKiAjLCMjMF8tO1wtKiAjLCMjMF8tO18tKiAiLSJf
+LTtfLUBfLR4EPQCqADgAAF8tIiQiKiAjLCMjMC4wMF8tO1wtIiQiKiAjLCMjMC4wMF8tO18tIiQi
+KiAiLSI/P18tO18tQF8tHgQ0AKsALwAAXy0qICMsIyMwLjAwXy07XC0qICMsIyMwLjAwXy07Xy0q
+ICItIj8/Xy07Xy1AXy0eBDMArAAXAAEiALkgIgBcACAAIwAsACMAIwAwADsAIgC5ICIAXAAgAFwA
+LQAjACwAIwAjADAAHgQ9AK0AHAABIgC5ICIAXAAgACMALAAjACMAMAA7AFsAUgBlAGQAXQAiALkg
+IgBcACAAXAAtACMALAAjACMAMAAeBD8ArgAdAAEiALkgIgBcACAAIwAsACMAIwAwAC4AMAAwADsA
+IgC5ICIAXAAgAFwALQAjACwAIwAjADAALgAwADAAHgRJAK8AIgABIgC5ICIAXAAgACMALAAjACMA
+MAAuADAAMAA7AFsAUgBlAGQAXQAiALkgIgBcACAAXAAtACMALAAjACMAMAAuADAAMAAeBHUAsAA4
+AAFfACAAIgC5ICIAXAAgACoAIAAjACwAIwAjADAAXwAgADsAXwAgACIAuSAiAFwAIAAqACAAXAAt
+ACMALAAjACMAMABfACAAOwBfACAAIgC5ICIAXAAgACoAIAAiAC0AIgBfACAAOwBfACAAQABfACAA
+HgQuALEAKQAAXyAqICMsIyMwXyA7XyAqIFwtIywjIzBfIDtfICogIi0iXyA7XyBAXyAeBIUAsgBA
+AAFfACAAIgC5ICIAXAAgACoAIAAjACwAIwAjADAALgAwADAAXwAgADsAXwAgACIAuSAiAFwAIAAq
+ACAAXAAtACMALAAjACMAMAAuADAAMABfACAAOwBfACAAIgC5ICIAXAAgACoAIAAiAC0AIgA/AD8A
+XwAgADsAXwAgAEAAXwAgAB4ENgCzADEAAF8gKiAjLCMjMC4wMF8gO18gKiBcLSMsIyMwLjAwXyA7
+XyAqICItIj8/XyA7XyBAXyAeBAwAtAAHAAAwLjAwMDAwHgQLALUABgAAMC4wMDAwHgQKALYABQAA
+MC4wMDAeBAgAtwADAAAwLjAeBBUAuAAQAAAiWWVzIjsiWWVzIjsiTm8iHgQaALkAFQAAIlRydWUi
+OyJUcnVlIjsiRmFsc2UiHgQUALoADwAAIk9uIjsiT24iOyJPZmYiHgRdALsALAABWwAkAKwgLQAy
+AF0AXAAgACMALAAjACMAMAAuADAAMABfACkAOwBbAFIAZQBkAF0AXAAoAFsAJACsIC0AMgBdAFwA
+IAAjACwAIwAjADAALgAwADAAXAApAB4ECQC8AAQAADAwMDAeBBEAvQAMAAAwLjAwMDAwMDAwMDAe
+BBAAvgALAAAwLjAwMDAwMDAwMB4EDwC/AAoAADAuMDAwMDAwMDAeBA4AwAAJAAAwLjAwMDAwMDAe
+BA0AwQAIAAAwLjAwMDAwMB4ECwDCAAYAADAwMDAuMOAAFAAAAAAA9f8gAAAAAAAAAAAAAADAIOAA
+FAABAAAA9f8gAAD0AAAAAAAAAADAIOAAFAABAAAA9f8gAAD0AAAAAAAAAADAIOAAFAACAAAA9f8g
+AAD0AAAAAAAAAADAIOAAFAACAAAA9f8gAAD0AAAAAAAAAADAIOAAFAAAAAAA9f8gAAD0AAAAAAAA
+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
+AAAAAQAAAAAwADAAXwApDgAFAAIEABQAAwBlZgcAAABbACQArCAtAH0IQQB9CAAAAAAAAAAAAAAA
+ABQAAAADAA0AFAADAAAAAQAAAAAwADAAXwApDgAFAAIEABQAAwBlZggAAABbACQArCAtAH0IQQB9
+CAAAAAAAAAAAAAAAABUAAAADAA0AFAADAAAAAQAAAAAwADAAXwApDgAFAAIEABQAAwBlZgkAAABb
+ACQArCAtAH0IQQB9CAAAAAAAAAAAAAAAABYAAAADAA0AFAADAAAAAQAAAAAwADAAXwApDgAFAAIE
+ABQAAwDMTAQAAABbACQArCAtAH0IQQB9CAAAAAAAAAAAAAAAABcAAAADAA0AFAADAAAAAQAAAAAw
+ADAAXwApDgAFAAIEABQAAwDMTAUAAABbACQArCAtAH0IQQB9CAAAAAAAAAAAAAAAABgAAAADAA0A
+FAADAAAAAQAAAAAwADAAXwApDgAFAAIEABQAAwDMTAYAAABbACQArCAtAH0IQQB9CAAAAAAAAAAA
+AAAAABkAAAADAA0AFAADAAAAAQAAAAAwADAAXwApDgAFAAIEABQAAwDMTAcAAABbACQArCAtAH0I
+QQB9CAAAAAAAAAAAAAAAABoAAAADAA0AFAADAAAAAQAAAAAwADAAXwApDgAFAAIEABQAAwDMTAgA
+AABbACQArCAtAH0IQQB9CAAAAAAAAAAAAAAAABsAAAADAA0AFAADAAAAAQAAAAAwADAAXwApDgAF
+AAIEABQAAwDMTAkAAABbACQArCAtAH0IQQB9CAAAAAAAAAAAAAAAABwAAAADAA0AFAADAAAAAAAA
+AAAwADAAXwApDgAFAAIEABQAAwAyMwQAAABbACQArCAtAH0IQQB9CAAAAAAAAAAAAAAAAB0AAAAD
+AA0AFAADAAAAAAAAAAAwADAAXwApDgAFAAIEABQAAwAyMwUAAABbACQArCAtAH0IQQB9CAAAAAAA
+AAAAAAAAAB4AAAADAA0AFAADAAAAAAAAAAAwADAAXwApDgAFAAIEABQAAwAyMwYAAABbACQArCAt
+AH0IQQB9CAAAAAAAAAAAAAAAAB8AAAADAA0AFAADAAAAAAAAAAAwADAAXwApDgAFAAIEABQAAwAy
+MwcAAABbACQArCAtAH0IQQB9CAAAAAAAAAAAAAAAACAAAAADAA0AFAADAAAAAAAAAAAwADAAXwAp
+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
+cnQUAABSZWFzb25zIGZvciBzdG9wcGFnZQUAACAgU01HBQAAICBETUcFAAAgIERURwsAACAgVG90
+YWwgRE1HEgAAICBUb3RhbCBzdG1nICB0aW1lDgAAICBBdmVyYWdlICBTTUcSAAAgIFN0b3BwYWdl
+cyBhdCBzZWEEAAAgIFd4BQAAICBFVEEJAAAgIFJlbWFya3MKAAAgIFBvc2l0aW9uDQAAICBTdG1u
+ZyAgdGltZTkAAChlbnRlciBhcyAyNC4zIGFuZCBub3QgYXMgMjRoMThtLW5vIGFscGhhYmV0cyB0
+byBiZSB1c2VkKQgAAGNwIHRlcm1zBQAAc3BlZWQDAABpZm8DAABtZG8FAAAgIFJwbQYAACAgU2xp
+cE4AAGlmIEVUQSBjaGFuZ2VzIGJ5IG1vcmUgdGhhbiAxIGhvdXIsIHBsZWFzZSBpbmRpY2F0ZSBy
+ZWFzb25zIGluIHJlbWFya3MgY29sdW1uLgYAACAgSFNGTwYAACAgTFNGTwUAACAgTUdPBwAAICBM
+U01HTx4AACAgQ2xvY2tzICAoYWR2YW5jZWQgL3JldGFyZGVkKRYAAE5PT04gUkVQT1JUICggTGFk
+ZW4gKSAeAAgCAChlbnRlciBhcyAyNC4wIGFuZCBub3QgYXMgMjRoKQoACwAOAAoACQAAQWdpYSBE
+b3hhAwAATklMBgAAMC4wIE1UBgAAQXQgU2VhDgAAQ09SUFVTIENIUklTVEkIAAAxNzQuMCBNVAoA
+ADE1LjA0LjIwMjILAAAgMTkuMDQuMjAyMg8AACAgIFBNIC0gVEJDIEFHVwgAACAyMS00MCBOCQAA
+IDA3NS0zNiBXPwAAV2luZDogRS82LCBTZWE6IEUvMi4wIG0sIEN1cnJlbnQ6IFNTVy8wLjUga24s
+IFN3ZWxsOiBORS8yLjAgbSAgBwAAMjYuOSBNVAkAACA2MTIuNiBNVG4AAFJvdWdoIHNlYXMsIG1v
+ZGVyYXRlIHN3ZWxsIC0gdmVzc2VsIHJvbGxpbmcgYW5kIHBpdGNoaW5nIGVhc2lseSB0byBtb2Rl
+cmF0ZSBhdCB0aW1lcy4gQ3VycmVudCBzbGlnaHRseSBhZHZlcnNl/wA6AAgAwzYAAAwAAAD7NgAA
+RAAAAGU3AACuAAAA+TcAAEIBAACBOAAAygEAABM5AABcAgAAfDkAAMUCAABjCBYAYwgAAAAAAAAA
+AAAAFgAAAAAAAAACAJYIEACWCAAAAAAAAAAAAABC5QEAmwgQAJsIAAAAAAAAAAAAAAEAAACMCBAA
+jAgAAAAAAAAAAAAAAAAAAAoAAAAJCBAAAAYQAGcyzQfJAAIABgYAAAsCGAAAAAAAAAAAACMAAADV
+QgAA0U4AAKlPAAANAAIAAQAMAAIAZAAPAAIAAQARAAIAAAAQAAgA/Knx0k1iUD9fAAIAAQAqAAIA
+AAArAAIAAACCAAIAAQCAAAgAAAAAAAAAAAAlAgQAAAD/AIEAAgDBBBQAAAAVAAAAgwACAAEAhAAC
+AAAAJgAIAAAAAAAAAOg/JwAIAAAAAAAAAOg/KAAIAAAAAAAAAOA/KQAIAAAAAAAAAOA/TQDCBgAA
+SABQACAATABhAHMAZQByAEoAZQB0ACAAUAByAG8AIABNAEYAUAAgAE0AMQAyADUALQBNADEAMgA2
+ACAAAAAAAAEEAAbcAOQFQ7cAAgIACQDqCm8IZAABAA8AWAIBAAEAWAIDAAEATABlAHQAdABlAHIA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAQAAAAAAAAABAAAAAgAAABIBAAD/////AAAAAAAAAAAAAAAAAAAAAERJTlUiAGgD
+pAVAAOJgl2kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHgAAAAAAAAAAAAAAAAAAAAAAAAAB
+AAAAAAAAAAAABAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAaAMAAFNN
+VEoAAAAAEABYA0gAUAAgAEwAYQBzAGUAcgBKAGUAdAAgAFAAcgBvACAATQBGAFAAIABNADEAMgA1
+AC0ATQAxADIANgAgAFAAQwBMAG0AUwAAAElucHV0QmluAEZPUk1TT1VSQ0UAUkVTRExMAFVuaXJl
+c0RMTABEZXZpY2VMYW5ndWFnZQBQQ0xtUwBNb2RlbE5hbWUAU3RhcnMASFBCb29rbGV0R3V0dGVy
+ADg0ODQAaHBGZWVkVHlwZQBocENzZWN0aW9uRmVlZABDb2xvck1vZGUAT2ZmAFJldmVyc2VPcmRl
+clByaW50aW5nAEZyb250VG9CYWNrAFBhZ2VPdXRwdXRRdWFsaXR5AE5vcm1hbABEb2N1bWVudE5V
+cAAxAERvY3VtZW50QmluZGluZwBOb25lAFByZXNlbnRhdGlvbkRpcmVjdGlvbgBSaWdodEJvdHRv
+bQBEdXBsZXgATk9ORQBQYXBlclNpemUAQTQAT3JpZW50YXRpb24AUE9SVFJBSVQAUmVzb2x1dGlv
+bgA2MDB4NjAwAE1lZGlhVHlwZQBVTlNQRUNJRklFRABEcmF3Qm9yZGVycwBPZmYASFBQcmludE9u
+Qm90aFNpZGVzTWFudWFsbHkAT04AUHJpbnRpbmdTaG9ydGN1dABQU19HZW5lcmFsAFBTX0dlbmVy
+YWwATWVkaWFUeXBlAFBTX0VudmVsb3BlAE1lZGlhVHlwZQBQU19DYXJkU3RvY2sATWVkaWFUeXBl
+AFBTX0xhYmxlcwBNZWRpYVR5cGUAUFNfVHJhbnNwYXJpZXMATWVkaWFUeXBlAFBTX0ZhY3RvcnlE
+ZWZhdWx0AE1lZGlhVHlwZQBQU19FQ09TTUFSVF9TRVRUSU5HUwBNZWRpYVR5cGUAQWxsU2V0dGlu
+Z3Nmb3JfUFMATWVkaWFUeXBlAFNob3J0Y3V0Qml0bWFwcwBQU19HZW5lcmFsAENvbGxhdGUAT04A
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAABAAAAATVNEWAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtAcoAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAoQAiAAkAZAABAAEAAQAAACwBLAEAAAAAAAAAAAAAAAAAAAAAAQCc
+CCYAnAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAASAAIAAQDdAAIAAQBjAAIA
+AQATAAIAwuZVAAIACAB9AAwAAAAAACQbDwAGAAAAfQAMAAEAAQCSCQ8AAgAAAH0ADAACAAIAABgP
+AAIAAAB9AAwAAwAAAW0LDwAAAAAAAAIOAAAAAAAjAAAAAAAUAAAACAIQAAAAAAAUAO8BAAAAAEAB
+DwAIAhAAAQAAABQAswEAAAAAQAEPAAgCEAACAAAAFACzAQAAAABAAQ8ACAIQAAMAAAAUAHcBAAAA
+AEABDwAIAhAABAAAABQAdwEAAAAAQAEPAAgCEAAFAAAAFAB3AQAAAABAAQ8ACAIQAAYAAAAUAHcB
+AAAAAEABDwAIAhAABwAAABQAdwEAAAAAQAEPAAgCEAAIAAAAFAB3AQAAAABAAQ8ACAIQAAkAAAAU
+AHcBAAAAAEABDwAIAhAACgAAABQAdwEAAAAAQAEPAAgCEAALAAAAFAB3AQAAAABAAQ8ACAIQAAwA
+AAAUAHcBAAAAAEABDwAIAhAADQAAABQAdwEAAAAAQAEPAAgCEAAOAAAAFAB3AQAAAABAAQ8ACAIQ
+AA8AAAAUAHcBAAAAAEABDwAIAhAAEAAAABQAdwEAAAAAQAEPAAgCEAARAAAAFAB3AQAAAABAAQ8A
+CAIQABIAAAAUAHcBAAAAAEABDwAIAhAAEwAAABQAdwEAAAAAQAEPAAgCEAAUAAAAFAB3AQAAAABA
+AQ8ACAIQABUAAAAUAHcBAAAAAEABDwAIAhAAFgAAABQAdwEAAAAAQAEPAAgCEAAXAAAAFAB3AQAA
+AABAAQ8ACAIQABgAAAAUAHcBAAAAAEABDwAIAhAAGQAAABQAdwEAAAAAQAEPAAgCEAAaAAAAFAB3
+AQAAAABAAQ8ACAIQABsAAAAUAHcBAAAAAEABDwAIAhAAHAAAABQAdwEAAAAAQAEPAAgCEAAdAAAA
+FAB3AQAAAABAAQ8ACAIQAB4AAAAUAHcBAAAAAEABDwAIAhAAHwAAABQAdwEAAAAAQAEPAP0ACgAA
+AAAAYAAjAAAAvgAsAAAAAQBgAGAASwBLAEsAUgBSAFIAUgBSAFIAUgBSAFIASwBLAEsASwBMABMA
+/QAKAAEAAABCAAQAAAD9AAoAAQABAFsAJQAAAL4AKgABAAIAWwBLAE8ATwBRAFEAUQBRAFIAUgBS
+AFIAUgBLAEsASwBLAEwAEwD9AAoAAgAAAEIACAAAAP0ACgACAAEAWwAoAAAAvgAOAAIAAgBbAEsA
+TwBOAAUA/QAKAAIABgBYABcAAAC+ACAAAgAHAFgATgBOAFIAUgBSAFIAUgBLAEsASwBLAEwAEwD9
+AAoAAwAAAEkAAQAAAP0ACgADAAEAXAArAAAAvgAOAAMAAgBdAEsATwBOAAUA/QAKAAMABgBOABgA
+AAB+AgoAAwAHAFAAAAArQL4AHgADAAgATgBOAFIAUgBSAFIAUgBLAEsASwBLAEwAEwC+ABIABAAA
+AEMAQwBDAEsATwBOAAUA/QAKAAQABgBOABkAAAB+AgoABAAHAFAAAAA7QL4AHgAEAAgATgBOAFIA
+UgBSAFIAUgBLAEsASwBLAEwAEwD9AAoABQAAAGMAFAAAAP0ACgAFAAEARQACAAAA/QAKAAUAAgBU
+AC4AAAC+AAwABQADAEsATwBOAAUA/QAKAAUABgBOABoAAAB+AgoABQAHAFAAAAAAAL4AHgAFAAgA
+TgBOAFIAUgBSAFIAUgBLAEsASwBLAEwAEwABAgYABgAAAGQA/QAKAAYAAQBFAAUAAAD9AAoABgAC
+AFQALwAAAL4AKAAGAAMASwBPAE4ATgBOAE4ATgBSAFIAUgBSAFIASwBLAEsASwBMABMA/QAKAAcA
+AABZAAsAAAABAgYABwABAFoAfgIKAAcAAgBVAADgc0C+ACgABwADAEsATwBOAE4ATgBOAE4AUgBS
+AFIAUgBSAEsASwBLAEsATAATAP0ACgAIAAAAYQAVAAAAAQIGAAgAAQBiAH4CCgAIAAIAQAAAADhA
+/QAKAAgAAwBLABYAAAC+ACYACAAEAEsAUwBTAFMAUwBTAFIAUgBSAFIAUgBLAEsASwBLAEwAEwD9
+AAoACQAAAEYAIgAAAAECBgAJAAEASAB+AgoACQACAEAAAAAAAL4AKAAJAAMASwBLAEsAUgBSAFIA
+UgBSAFIAUgBSAFIASwBLAEsASwBMABMA/QAKAAoAAABZAAoAAAABAgYACgABAFoABgA+AAoAAgBK
+AAAAAAAAgCpAIAAQAAL+KABEBwACwB4AAA0ZAg8ARAcAAsBECAACwAYZCAsAFwEAIBkIAwBCAwEA
+vgAoAAoAAwBLAEsASwBSAFIAUgBSAFIAUgBSAFIAUgBLAEsASwBLAEwAEwD9AAoACwAAAFkADAAA
+AAECBgALAAEAWgB+AgoACwACAFUAAGyTQL4AKAALAAMASwBLAEsAUgBSAFIAUgBSAFIAUgBSAFIA
+SwBLAEsASwBMABMA/QAKAAwAAABZAA0AAAABAgYADAABAFoAfgIKAAwAAgBVAAA6rEC+ACgADAAD
+AEsASwBLAFIAUgBSAFIAUgBSAFIAUgBSAEsASwBLAEsATAATAP0ACgANAAAAWQAOAAAAAQIGAA0A
+AQBaAH4CCgANAAIAQACBQNxA/QAKAA0AAwBLACQAAAC+ACYADQAEAEsASwBSAFIAUgBSAFIAUgBS
+AFIAUgBLAEsASwBLAEwAEwD9AAoADgAAAEYAGwAAAAECBgAOAAEARwB+AgoADgACAFUAAazHQL4A
+KAAOAAMASwBLAEsAUgBSAFIAUgBSAFIAUgBSAFIASwBLAEsASwBMABMA/QAKAA8AAABGABwAAAAB
+AgYADwABAEcAfgIKAA8AAgBVAAHwhEC+ACgADwADAEsASwBLAEsASwBLAEsASwBLAEsASwBLAEsA
+SwBLAEsATAATAP0ACgAQAAAAWQAPAAAAAQIGABAAAQBaAAYAPgAQAAIASgCe9hGJP/ooQCAABiAA
+/SgARAwAAsAeAAANGQIPAEQMAALARA0AAsAGGQgLABcBACAZCAMAQgMBAL4AKAAQAAMASwBLAEsA
+SwBLAEsASwBLAEsASwBLAEsASwBLAEsASwBMABMA/QAKABEAAABEABAAAAD9AAoAEQABAEUAAwAA
+AH4CCgARAAIAPgAAAAAAvgAoABEAAwBLAEsASwBLAEsASwBLAEsASwBLAEsASwBLAEsASwBLAEwA
+EwD9AAoAEgAAAGsACQAAAP0ACgASAAEAZwAmAAAAvgAqABIAAgBoAEwATABMAEwATABMAEwATABM
+AEwATABMAEwATABMAEwATAATAL4ALgATAAAAbABpAGoATABMAEwATABMAEwATABMAEwATABMAEwA
+TABMAEwATABMABMA/QAKABQAAABZABEAAAABAgYAFAABAFoA/QAKABQAAgBUADAAAAC+ACgAFAAD
+AEwATABMAEwATABMAEwATABMAEwATABMAEwATABMAEwATAATAP0ACgAVAAAAXgAeAAAA/QAKABUA
+AQBFAAcAAAD9AAoAFQACAD4AJgAAAL4AKAAVAAMATQBNAE0ATQBNAE0ATQBNAE0ATQBNAE0ATQBN
+AE0ATQBNABMAAQIGABYAAABfAP0ACgAWAAEARQAGAAAAAQIGABYAAgA+AP0ACgAXAAAAXgAfAAAA
+/QAKABcAAQBFAAcAAAD9AAoAFwACAFcAMQAAAAECBgAYAAAAXwD9AAoAGAABAEUABgAAAP0ACgAY
+AAIAVwAyAAAA/QAKABkAAABeACAAAAD9AAoAGQABAEUABwAAAP0ACgAZAAIAPgAnAAAAAQIGABoA
+AABfAP0ACgAaAAEARQAGAAAA/QAKABoAAgA+ACoAAAD9AAoAGwAAAF4AIQAAAP0ACgAbAAEARQAH
+AAAA/QAKABsAAgA+ACYAAAABAgYAHAAAAF8A/QAKABwAAQBFAAYAAAABAgYAHAACAD4A/QAKAB0A
+AABjABIAAAD9AAoAHQABAEUACAAAAP0ACgAdAAIAPwApAAAAAQIGAB4AAABjAP0ACgAeAAEARQAB
+AAAA/QAKAB4AAgA/ACwAAAABAgYAHwAAAGMA/QAKAB8AAQBFAAAAAAD9AAoAHwACAFYALQAAANcA
+RACkCwAAbAI+AEoAYABsAFQAeABSAFIAXgBSAIYAUgBSAF4AUgBSAIYAVgBKADIAUgBWACIAKgAm
+ACoAJgAqACIAKgAmAAgCEAAgAAAABAB3AQAAAABAAQ8ACAIQACEAAAAEAHcBAAAAAEABDwAIAhAA
+IgAAAAQAdwEAAAAAQAEPAP0ACgAgAAAAYwATAAAA/QAKACAAAQBlADMAAAABAgYAIAACAGYAvgAM
+ACEAAABjAGYAZgACAP0ACgAhAAMAQQAdAAAAvgAMACIAAABjAGYAZgACANcACgCQAAAAKAAmAB4A
+PgISALQGAAAAAEAAAAAAAAAAIgAAAIsIEACLCAAAAAAAAAAAAAAAACIAHQAPAAMgAAEAAAABACAA
+IgABApkAAgBtC+UAugAXACAAIgAAAAAAIAAiAAEAAgALAAsAAAABAAwADAAAAAEADQANAAAAAQAd
+AB8AAAAAABIAEwABAAIAEgATAAAAAAAZABoAAAAAABsAHAAAAAAAAAAAAAAAAgAHAAcAAAABAAgA
+CAAAAAEACgAKAAAAAQAFAAYAAAAAABAAEAAAAAEAAQABAAEAAgACAAIABgAHABQAFAAAAAEAAgAC
+AAEAAgADAAMAAQACABUAFgAAAAAAFwAYAAAAAADvAAYAAAA3AAAAsAEeAAEAAwAKABAAAgACAAIA
+CgAKAAIAAgAQABAAAgACALEBkgABBhAAAAD//z+EAoAAAAoACgACAAIAEAAQAAIAAgAAAAEADQAN
+AAAAAQAdAB8AAAAAABIAEwABAAIAEgATAAAAAAAZABoAAAAAABsA/////wAAAAC8Av///wAAAAoA
+AAAAAAAAnP///wEAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAEARAMABwAfAAAAAAAA4D8EFbABFgAB
+AAUAGwAcAAIAAgABABsAHAACAAIAsQGIAAEFBgAAAP//P4QCgAAAGwAcAAIAAgAQABAAAgACAAAA
+AQANAA0AAAABAB0AHwAAAAAAEgATAAEAAgASABMAAAAAABkAGgAAAAAAGwD/////AAAAALwC////
+AAAACgAAAAAAAACc////AQAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAQBEBAAHABV7CCsAewgBAAoA
+EAACAAIAAAAAAAEAAAAGAAEAAwAQAAAAAAAAAAAAAAAAAAAAAHsIKwB7CAEAGwAcAAIAAgAAAAAA
+AgAAAAUAAgADABAAAAAAAAAAAAAAAAAAAAAAZwgXAGcIAAAAAAAAAAAAAAIAAf////8AQAAACgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAD+/wAABgECAAAAAAAAAAAAAAAAAAAAAAABAAAA4IWf8vlPaBCrkQgAKyez
+2TAAAAC0AAAACAAAAAEAAABIAAAABAAAAFAAAAAIAAAAYAAAABIAAABwAAAACwAAAIgAAAAMAAAA
+lAAAAA0AAACgAAAAEwAAAKwAAAACAAAA5AQAAB4AAAAIAAAAYmFidQAAAAAeAAAACAAAAHVzZXIA
+AAAAHgAAABAAAABNaWNyb3NvZnQgRXhjZWwAQAAAAADNYAQgPMUBQAAAAIBJ9cTXZcQBQAAAAACJ
+idzqUNgBAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAA/v8AAAYBAgAAAAAAAAAAAAAAAAAAAAAAAQAAAALVzdWcLhsQk5cIACss+a4wAAAAvAAA
+AAgAAAABAAAASAAAABcAAABQAAAACwAAAFgAAAAQAAAAYAAAABMAAABoAAAAFgAAAHAAAAANAAAA
+eAAAAAwAAACYAAAAAgAAAOQEAAADAAAAAAAOAAsAAAAAAAAACwAAAAAAAAALAAAAAAAAAAsAAAAA
+AAAAHhAAAAEAAAAUAAAATm9vbiBSZXBvcnQgLSBMYWRlbgAMEAAAAgAAAB4AAAALAAAAV29ya3No
+ZWV0cwADAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
+AAACAAAAAwAAAAQAAAAFAAAABgAAAAcAAAAIAAAACQAAAAoAAAALAAAADAAAAA0AAAAOAAAADwAA
+ABAAAAARAAAAEgAAABMAAAAUAAAAFQAAABYAAAAXAAAAGAAAABkAAAAaAAAAGwAAABwAAAAdAAAA
+HgAAAB8AAAAgAAAAIQAAACIAAAAjAAAAJAAAACUAAAAmAAAAJwAAACgAAAApAAAA/v///ysAAAAs
+AAAALQAAAC4AAAAvAAAAMAAAADEAAAD+////MwAAADQAAAA1AAAANgAAADcAAAA4AAAAOQAAAP7/
+///9/////v//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////UgBv
+AG8AdAAgAEUAbgB0AHIAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAABYABQH//////////wIAAAAgCAIAAAAAAMAAAAAAAABGAAAAAAAAAAAAAAAAAAAAAAAAAAD+
+////AAAAAAAAAABXAG8AcgBrAGIAbwBvAGsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAEgACAf///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAACdUgAAAAAAAAUAUwB1AG0AbQBhAHIAeQBJAG4AZgBvAHIAbQBhAHQA
+aQBvAG4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAIBAQAAAAMAAAD/////AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKgAAAAAQAAAAAAAABQBEAG8AYwB1AG0AZQBuAHQA
+UwB1AG0AbQBhAHIAeQBJAG4AZgBvAHIAbQBhAHQAaQBvAG4AAAAAAAAAAAAAADgAAgH/////////
+//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAAABAAAAAAAAA=
+
+------=_NextPart_000_01EB_01D8510F.A22BFA20--

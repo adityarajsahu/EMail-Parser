@@ -1,0 +1,182 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp623458pxb;
+        Fri, 15 Apr 2022 07:36:48 -0700 (PDT)
+X-Received: by 2002:a05:6000:10d1:b0:207:ad8b:5dee with SMTP id b17-20020a05600010d100b00207ad8b5deemr5682777wrx.686.1650033408099;
+        Fri, 15 Apr 2022 07:36:48 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1650033408; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=RLMejvCCBfoKM2TsOVr4qS9zkyhlaaB+80DsCo6u+trnc+2KWrvqItYCTs+lDl3nta
+         Qxt6AoqIDlocVRrIj5woWb6fjIAZcd9AtUEFrWdsiXL5pQeYBqKO4Sl4exCisYslfppV
+         8YgTOUtBCpClJS9LBOMX5hfQkbqL4Fh6F5IPHpfrBO2T2nO340JijMCOajBA1P4Cm+pO
+         7l0IZ1+rU9zoxvbjen5zA7AZXeV6hmosqQmAJ11f5wpr39pDZnA/5uwSLTfyPLQDom9p
+         RZOpJTiCOZWNRNtkW/qiIqJ22kvtPfJfoL6+6DwnJ0/eMqVs6vO998BAQj94LEadtcQo
+         +L0A==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:message-id:in-reply-to:to:from:subject
+         :date:mime-version:delivered-to;
+        bh=RAWSlQOrxMKMXXMn9+Pkf0TZ6VJAfdeMOh2MtUA/nVM=;
+        b=io3LJP8y5XRfOcxkm5/r5d/B5TS1iR+eUwB3g8SPu+EVU9FVzFO2SozhqBeJKyzxPR
+         2gA4ei/Z2R6ypoX3ImCyX3B4xncylZ767u6aK0+T7YELL1EUKr2zppigkKZjtfeVysEO
+         IbL3J21crWsp9SzfixmbpbnyICcRfCyfwmCWSNPmAAzVQMbyv26bVlkzVnpOgHroKoKJ
+         BPrEcHwrGOx7tuyLl+hADsxmEa6vZgiQKnEYgJTIUMQGnCmGOO2ZpsppOwRv0yLo3kUA
+         vJ9IeyzzzbT4jhqs/Gj1SegJgMRWxqGfJD9NX+Txyrbq2criIYZYKqOGeLf2lcLtAXW3
+         u0hQ==
+ARC-Authentication-Results: i=3; mx.google.com;
+       arc=pass (i=2 spf=pass spfdomain=kakoulidis.gr);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id s13-20020a5d510d000000b001f046abd2b9sor853930wrt.11.2022.04.15.07.36.47
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 07:36:48 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       arc=pass (i=2 spf=pass spfdomain=kakoulidis.gr);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Authentication-Results: spf=pass (sender IP is 95.216.45.134)
+ smtp.mailfrom=kakoulidis.gr; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=kakoulidis.gr;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-original-authentication-results:x-gm-message-state:delivered-to
+         :mime-version:date:subject:from:to:in-reply-to:message-id
+         :content-transfer-encoding;
+        bh=RAWSlQOrxMKMXXMn9+Pkf0TZ6VJAfdeMOh2MtUA/nVM=;
+        b=kAX7//FpMMrCKFgycXkrnSqwoVCpaGslX5v9hUnZPqE+/AMpJSZeFlWU60fwF0Tnoe
+         HjV2b6/Kk6rTOcJxYtQtm3bug/ctAXKSAiCJPXMB0o7woHb3u86MQxUQ3Ny33MtKch/V
+         kcZ2NkFi6A2zCFuwB8GTz5h8fFIZBTjHkT6KuqX3mwtILIpVKshgJ+zJ8vxJTpLka7oe
+         fogN/mHhSB9nHcGu3VBm5is6J0O1uFEjwRxpC+NCuQDOKiPBAYEYXd73/WVtBEazD2Yq
+         PZIqUVoyd/7AEWiP3TmTnce77/n3tXIaVU/u+G9ChKCWSqotrR/170vzKH3ej692R87m
+         0Vew==
+X-Original-Authentication-Results: mx.google.com;       arc=pass (i=1 spf=pass spfdomain=kakoulidis.gr);       spf=pass (google.com: domain of oino@kakoulidis.gr designates 2a01:111:f400:7ea6::60e as permitted sender) smtp.mailfrom=oino@kakoulidis.gr
+X-Gm-Message-State: AOAM531SksgQRMXVd0C2sC+vy7jlsTZ7ADxk83VhoQYsCR7MteMbcp5P
+	YV0v9Qz0RTv8uoGNPeWLcDMSjnwm52Nfjx34XRdvmsT+XaoIgHHVoOy1paA=
+X-Received: by 2002:adf:e410:0:b0:207:9a14:b76e with SMTP id g16-20020adfe410000000b002079a14b76emr5614539wrm.392.1650033407227;
+        Fri, 15 Apr 2022 07:36:47 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:a5d:620f:0:0:0:0:0 with SMTP id y15csp145235wru;
+        Fri, 15 Apr 2022 07:36:45 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxfWBJ3QCYe4FF4whoMfGtRkbnkicN+8pMJsLp1n3O4jsZ1jGiLr4gokHViEOcOP4pfqxbS
+X-Received: by 2002:a17:907:1611:b0:6ef:5d92:5941 with SMTP id hb17-20020a170907161100b006ef5d925941mr1913131ejc.10.1650033405525;
+        Fri, 15 Apr 2022 07:36:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1650033405; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=XnG0wBg6+LT0I7wfa4v5MgFT91hYHfzEwlc2MyUgZNrheOcwnfcalDQtmRXPuL0Ivq
+         exPT6ZYr43FeCd2y//SiHBNIWyeqc/SAIpQYmWRUF/ITf3lc7IN2OIirWBEZoBXJ6si8
+         t3gioZAvIuQnQ2Z4OE1+FFTUrGIj8vPOJn1zjRR9gq0qkh/8pmq1lHm6FDXLxV83ad3t
+         vNI8iQsswI/2FOzavuIjUuIZCIwjGMD8aiPU/u7LnWCMUY0xg+bvPYbFdF5dONnvBksq
+         iooTzUa59PPjlRHkIN+zZoPVRIdPuGPd4nZjkj1tyyOiC0LW9XFx6KQ7UzA7I8ZSpXWR
+         +BHw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:message-id:in-reply-to:to:from:subject
+         :date:mime-version;
+        bh=RAWSlQOrxMKMXXMn9+Pkf0TZ6VJAfdeMOh2MtUA/nVM=;
+        b=YjHOuXgdZJvc/vjnMnA1B7p8zXnv78iN6KpwrqVXTl3VCoCe7jTrQFKOz4J3Gyhc4g
+         btjurpbBqVR5QdRywKonf2fGoWKbkJnj6rskpD2Zoq8uQEGgiDlZM48cLtniAXirF10+
+         /d7wxM1tADDtscA2je6HElnjHKYyhR/qAZvSxWxcLGhF/deLqHLeR9yQoy9FkYeH8XyB
+         xuIq1O502l9yru/3jkVay9eJCAmywNrbddaBUm6fmohfIpFKQpX78/V424XfIkE7ld9E
+         SSDKTy6oqnbqivFsqs6hIkXOPPJfb9DzJetMNTQYJHUKLqj+JZ+XJ2TU0Xq6swcYQaJg
+         inFw==
+ARC-Authentication-Results: i=2; mx.google.com;
+       arc=pass (i=1 spf=pass spfdomain=kakoulidis.gr);
+       spf=pass (google.com: domain of oino@kakoulidis.gr designates 2a01:111:f400:7ea6::60e as permitted sender) smtp.mailfrom=oino@kakoulidis.gr
+Return-Path: <oino@kakoulidis.gr>
+Received: from ARE01-AU2-obe.outbound.protection.outlook.com (mail-au2are01on2060e.outbound.protection.outlook.com. [2a01:111:f400:7ea6::60e])
+        by mx.google.com with ESMTPS id v24-20020a170906565800b006e897f33865si893704ejr.685.2022.04.15.07.36.45
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 07:36:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of oino@kakoulidis.gr designates 2a01:111:f400:7ea6::60e as permitted sender) client-ip=2a01:111:f400:7ea6::60e;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=H6KemzZIowpnQKJD3o7s3qBSNGxkF1bphP1VzKciK0S1Ta7FbyI+THhEVBHw3HDgLpnShfV/+G1NApHHKEWahQWYQctjrqFe/tNFvkHDZgR8qYYMLIPic2fVrk7HOZW2pBVinlrChiPPBx3122TJIzbnNvV3s/q24kpRNqfkTuml0uiC0RHKoofX9J/IgqFo4uKOlD/HcRQ+oJV/Yxpiu4aDLWwzyqVwON7nMfkz1NRuBr/j61o49nxE1yr9B27J+539C14MJqQez+p65/ZBT86OdvKMwGbV64pRgE2z8MI3giUlJvVIluwt4ABQhpLyIba/xaXd+0oC7fVFuGk/tQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RAWSlQOrxMKMXXMn9+Pkf0TZ6VJAfdeMOh2MtUA/nVM=;
+ b=Uy9INNGGXmVSaXdIGqicBeu9qvxzAbvAp8+fe63sw+yJ3b4qSKwfsNdw6l4n+jQ/X/iFh1gBcL/j5AFRXDoi3AHjJhD72s0E7fsq3u9MF3MP0Dc3vk5902/NoPi0Uo+d3PzZ2KqGjVVHLs3GQgCWjRUn9n3lXdc/Z1/0c5R9mX7KxOBr0bbo8Lk3k02UWl0LW6+YVLl0oL38UeA5lzWMprMEAbTAatg85KHpra3TsLZHT7A4ZptIWRu4IJm8IF7RGqhzHkO5mb4iLoVSW7G7TO2H0SUgAXovJTdXYAkT5RPtoiJhNKxwbN2+o/Pa8yT3cE2UIcBovuz7B0rXpiwpkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 95.216.45.134) smtp.rcpttodomain=vegabulk.com smtp.mailfrom=kakoulidis.gr;
+ dmarc=bestguesspass action=none header.from=kakoulidis.gr; dkim=none (message
+ not signed); arc=none (0)
+Received: from DXXP273CA0013.AREP273.PROD.OUTLOOK.COM (2603:1086:300:2::25) by
+ DXZP273MB0819.AREP273.PROD.OUTLOOK.COM (2603:1086:300:2e::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.20; Fri, 15 Apr 2022 14:36:41 +0000
+Received: from DX2ARE01FT007.eop-are01.prod.protection.outlook.com
+ (2603:1086:300:2:cafe::94) by DXXP273CA0013.outlook.office365.com
+ (2603:1086:300:2::25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.18 via Frontend
+ Transport; Fri, 15 Apr 2022 14:36:41 +0000
+Received-SPF: Pass (protection.outlook.com: domain of kakoulidis.gr designates
+ 95.216.45.134 as permitted sender) receiver=protection.outlook.com;
+ client-ip=95.216.45.134; helo=creusa.akereon.net;
+Received: from creusa.akereon.net (95.216.45.134) by
+ DX2ARE01FT007.mail.protection.outlook.com (10.233.248.152) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19 via Frontend Transport; Fri, 15 Apr 2022 14:36:40 +0000
+Received: from [192.168.100.113] (unknown [62.1.162.114])
+	by creusa.akereon.net (Postfix) with ESMTPA id ECDBA56105A
+	for <oslo@vegabulk.com>; Fri, 15 Apr 2022 17:36:38 +0300 (EEST)
+MIME-Version: 1.0
+Date: Fri, 15 Apr 2022 17:37:16 +0300
+Subject: Ref : 60000 dwt  - open  vietnam 24apr
+X-Priority: 3 (Normal)
+From: "Oino Shipbrokers Co. Ltd." <oino@kakoulidis.gr>
+To: "VEGA BULK CARRIERS AS" <oslo@vegabulk.com>
+X-Mailer: ThinkCompass ORCA Dispatcher v2
+In-Reply-To: <1.497a86fb3fe8b1c73aa5@kakoulidis.gr>
+Message-ID: <1.0278cacb68049eb804fb@kakoulidis.gr>
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Return-Path: oino@kakoulidis.gr
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 991c2946-9ecc-4fa9-b2af-7a0b64b41833:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 504449b8-be77-4ac9-4517-08da1eed5afa
+X-MS-TrafficTypeDiagnostic: DXZP273MB0819:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Transport-Rules-Loop: 1
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:2;
+X-Microsoft-Antispam-Message-Info:
+	Y3wAPQ4WhfjYgS9Jd8pvIajkKVndSEgHFFVx50yKR2ts444vW42gyVi5UOO24cdm1KwWBd5ga8wCxByAR9a6PP4RYj951Scb88Cu0O7+F5yKlBKel9kS8JmGEecjzZfBFwV5XQSMKmpDfb1XNS9RaySCjT8ms9vuFd80BQK2oW/ffhd46ZOS68I2QWPwFMW7XIfninuYj+aOLGcUHSxZvn/267Tkj+w/5I96Avb7RiBAL96W0x3x2LPY3T6NYny7LPUAVv1zssxKId5o6yWdSJJxro/qkN26MSLcTIJISKBzsQsl3GqOnP9GeJvlIiYkeeOJB7pQ/h1Apy9t/58LHxYNl+mjOAceM4MxnDW4mhm6kYLgxlMPIY2dqPBoFzjoxwMCI3bfJfl5t/oHxA95s79j51Ldp7POxMXYS5kgaPgUUDOWqHJNiL1x0XZeb/4MQBiMSCk1tTupG1lNkhui78Ah/pV3PvpgkptlfO/kMfGoCsCtf30HmqXdrQtEHibfaLHznDjOfzUqT+Gai5l/m3H3Z1eX/qug/0A1C8MiXlkLCRtj6sZAlP5t+gYUC9R9G1I4EaHVwKg73moKwC2dud4CNWzdX3wWuiQFNwOAPmmZBWzOCXZuXaeZgKttNf9zIJltiPr/6A9LaMOLjTgzjbQ4VrL+tQR5/kbnu9ZBIsnLezNodbPlm/CG2lQQM/vwq/SCThRvcJk6++3OvVhMrOXvBYzD20If8CGQqy5vi19TRF6k/D9cC+bOhCr+Knp6Hvb81sWe901kBNFAhAHv93s4EKsDjhs63HPT2gqKwMc=
+X-Forefront-Antispam-Report:
+	CIP:95.216.45.134;CTRY:FI;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:creusa.akereon.net;PTR:creusa.akereon.net;CAT:NONE;SFS:(13230001)(4636009)(286005)(26005)(6266002)(86362001)(7636003)(356005)(7596003)(336012)(956004)(2616005)(83380400001)(6862004)(8676002)(6666004)(15974865002)(508600001)(36906005)(316002)(6966003)(68406010)(2906002)(36756003)(70586007);DIR:OUT;SFP:1101;
+X-ExternalRecipientOutboundConnectors: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-OriginatorOrg: vegabulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2022 14:36:40.5655
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 504449b8-be77-4ac9-4517-08da1eed5afa
+X-MS-Exchange-CrossTenant-Id: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-MS-Exchange-CrossTenant-AuthSource: DX2ARE01FT007.eop-are01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DXZP273MB0819
+
+T0lOTyBTSElQQlJPS0VSUyBDTy5MVEQuDQpBVEhFTlMgLSBTSU5HQVBPUkUgLSBTRU9VTCAtIE1F
+TEJPVVJORQ0KMTQsIEtpZmlzaWFzIEF2LiAmIEhhbGVwYSAxNTEgMjUgTWFyb3VzaSwgR3JlZWNl
+IC0gVGVsICszMC0yMTAgNDI5MDYxMA0KRS1NYWlsIG9pbm9Aa2Frb3VsaWRpcy5nciB8IHd3dy5v
+aW5vc2hpcGJyb2tlcnMuY29tDQoNCkRhdGU6IDE1LzQvMjAyMiAxNzozNjowOCBHTVQrMDI6MDAg
+IE91ciBSZWY6IDI0MjQ1ODcwLUdLDQoNCg0KDQoNClRPIDogVkVHQSBCVUxLIENBUlJJRVJTIEFT
+L0dlb3JnZSANCg0KR2QgZGF5IA0KDQpvdXIgY2xvc2UgaGVhZCBvd3MgDQoNCnRyeSBhbnkgYXVz
+c2llL3NlYXNpYSBjZ28vdHJpcCBpbmNsIGNvYWwgDQoNCg0KbXYgU2FuZCBUb3BpYyAtIChPbm9t
+aWNoaSA2MGsgZHd0KSDigJMgRHVuZyBRdWF0LCBWaWV0bmFtIDI0IEFwci4gDQoNCkJvZCBhYnQg
+MSwwNTAgbXRzIHZsc2ZvIHJtL2FidCAyOTAgbXRzIHVsc2ZvIGRtIChsc21nby4pDQoNCl9fX19f
+DQpmdWxsIHNwZWNzL3BsYW5zL2NlcnRzIGF2YWlsIGhlcmUgDQoNCg0KQmVzdCByZWdhcmRzLA0K
+TW9iaWxlL1doYXRzQXBwIDogKzMwIDY5NDggNTI5MDIwIC8gUyA6IGdpb3Jnb3Mua291cm91bmlz
+DQoNCg0KKioqKioqKioqKioqKioqKioqKg0KIA0KRElTQ0xBSU1FUiA6IA0KVGhpcyBlLW1haWwg
+bWVzc2FnZSBhbmQgaXRzIGF0dGFjaG1lbnRzIGFyZSBmb3IgdGhlIHNvbGUgdXNlIG9mIHRoZSBp
+bnRlbmRlZCByZWNpcGllbnRzIGFuZCBtYXkgY29udGFpbiBpbmZvcm1hdGlvbiBzdWJqZWN0IHRv
+IGxlZ2FsIHJlc3RyaWN0aW9ucy4gSWYgeW91IGFyZSBub3QgdGhlIGludGVuZGVkIHJlY2lwaWVu
+dCB5b3UgYXJlIGhlcmVieSBub3RpZmllZCB0aGF0IGFueSB1bmF1dGhvcml6ZWQgcmVhZGluZywg
+dXNlLCBkaXN0cmlidXRpb24sIHByaW50aW5nLCBjb3B5aW5nIG9yIHRha2luZyBhbnkgYWN0aW9u
+IGluIHJlZ2FyZCBvZiB0aGUgY29udGVudHMgb2YgdGhpcyBlLW1haWwgbWVzc2FnZSBhbmQvb3Ig
+YXR0YWNobWVudHMgdG8gaXQgYXJlIHN0cmljdGx5IHByb2hpYml0ZWQuIFBsZWFzZSBub3RpZnkg
+dGhlIHNlbmRlciBpbW1lZGlhdGVseSBhbmQgZGVzdHJveSBhbGwgY29waWVzIG9mIHRoaXMgbWVz
+c2FnZSBhbmQgYW55IGF0dGFjaG1lbnRzLg0K
+

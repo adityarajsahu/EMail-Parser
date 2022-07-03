@@ -1,0 +1,404 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp1012496pxb;
+        Fri, 15 Apr 2022 18:29:52 -0700 (PDT)
+X-Received: by 2002:a7b:c5d5:0:b0:37b:fda9:a5e2 with SMTP id n21-20020a7bc5d5000000b0037bfda9a5e2mr1164211wmk.62.1650072591929;
+        Fri, 15 Apr 2022 18:29:51 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1650072591; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=LYwUeGL2c9Q5324SKFudS6p6uU/mCPAPaSrAdMlAQFqp3XFacx7iletmmMHtFbnzkh
+         vv3h37nKI+6gqfK1Z3zVqykAdxfM75nyvc9PekQW5WnXvbjczWotCRJI/85Kx82q71Te
+         mPwkAnCaxSVFxegnxvZcVB7x9+6eKdm2LNRoG5xhYNyP++9GfMujrMXr3OeGg+J3DpJn
+         cD+V5Rlb0n91o2dTugaP+rEpcWlHzHOyWg0hzeSqbyG9guPIV4La02viuwTC8Eg5BCJU
+         jdLisv9tgyX/GBKQvAJ1PhWfko368texkCVdFS5yKixgQeP7xihf1mcOMuf50l0MkuHG
+         nzFg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:dkim-signature:delivered-to;
+        bh=XS3zdcc+4Z9pLCR3jnzB5lUIYoFXe8W8ALmihvlxmfU=;
+        b=kM5wuhP+1AtBQ+XLavkZbhOJJZKpNeDQT4mPYNDiUynO4e0h1sdckw9+k5Ttc7gAH7
+         qnXGP3WSQoK3R6ZedJeRf7Wbq0fSsWFRQfK+D+Ls660WYlQ9D6fYFvaynEByS3YUieKA
+         X0eRfsXHmOYGoifeIu+bzF0T7kSp89qEgDW2kg83EyLjmIe6iPjAQYQxfEMXlssaZ4ZH
+         6toRm1l5qgTxl5eHAn8yBpKHUlPHRRx+zDx4jN/KHKP5PpXE6V+6aze799IPLXCLr3hG
+         js2aO5XrwwzzlW6YkFakfudmEPS8mJzuT8gBxyvWxG79C5Gu+1XXc89v5n+F2kYuEtGo
+         uLBA==
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=kFjHIoi0;
+       arc=pass (i=2 dkim=pass dkdomain=allianzbulk.onmicrosoft.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id i18-20020a05600c355200b00389f5a1b50dsor955858wmq.27.2022.04.15.18.29.51
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 18:29:51 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=kFjHIoi0;
+       arc=pass (i=2 dkim=pass dkdomain=allianzbulk.onmicrosoft.com);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Authentication-Results: spf=none (sender IP is 94.130.208.82)
+ smtp.mailfrom=exoduschartering.info; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=exoduschartering.info;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:delivered-to:dkim-signature:from:to:subject:date
+         :message-id:mime-version:thread-index:content-language;
+        bh=XS3zdcc+4Z9pLCR3jnzB5lUIYoFXe8W8ALmihvlxmfU=;
+        b=g9ZRBcIIJI3HukTG9zuPOeXhyXcItC3+F199Nofw7zUAAXMEYwRf3fb1RekxeoymNN
+         2OMKGyrzMGcVMUCqIBRJ2XCqpuTAD3LZaRcs9P6u1gaDUxcTVoWqe7r9ou4S/vLpByNT
+         gR+8SRemzVYwpDLGC+dnqrpTNrTvKVANLTxckoGdkgIIyddgHFP8wGSF3kHuj4c2xAqh
+         UPt8NqaxY0Xv95mF6fUnYMrWBo/g28hqJ6l4K8/R8PIzTmYi6WZxQLQzK8ogLmmV2y4/
+         CWqKoIv1ACf7TJkA+L7QmogxqaIrNjHV3373y3fEw35UyxFSF/LTph6kI1n/GMgodvT+
+         T4ZQ==
+X-Gm-Message-State: AOAM532guKqSgJbBJUjga3aMi2ACku6oh4Id0YsgaETyLYXSHUkM1Nr1
+	bjlM9iudyeiUIiz92NJ8o5ajltfbdeCYdZtoqaYTsDn1h7ffHFlYaT4/pXQ=
+X-Received: by 2002:a1c:3bd6:0:b0:38f:4e30:6c2f with SMTP id i205-20020a1c3bd6000000b0038f4e306c2fmr1213906wma.66.1650072591396;
+        Fri, 15 Apr 2022 18:29:51 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:a5d:620f:0:0:0:0:0 with SMTP id y15csp243238wru;
+        Fri, 15 Apr 2022 18:29:49 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxA3QkIOnbwUQWxrYRe50m4NZRKAqK7O+AosBnVytJOiw7ziEwDgOwKrOuxsZjcNNvpRMRy
+X-Received: by 2002:aa7:c789:0:b0:413:605d:8d17 with SMTP id n9-20020aa7c789000000b00413605d8d17mr1740543eds.100.1650072589422;
+        Fri, 15 Apr 2022 18:29:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1650072589; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=XWak1oDz1HAK83Uzh7zBO9snKs1QB5WPeILLQc+qsLc/ir7WmWd6jcIqZgLG/4+PlW
+         rn2pbJAahbywRBk9BZkY2EOuBocdtJmoJ7BFgqVXYnzQMRycCmxMFKfUuQ18x+e7kaGo
+         io2QOaizSDW95Xw80QB2c7GryYtr+hGR2oxBQKdpL45viuJJHlxiJCyrTKTw5cMHfQYH
+         cKenyH9++11lrOVES/4unYXpuC0rqU9L2awu2o5SxYiuzKk1cz3ybbAQOg4+xDdnUY0k
+         uvmDu7BOzCw9algfBvWiclgwjwip6jgOjjxDGCyEEGIAwO+PpwJvRwSPZy06tWLDsNQm
+         7IlQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :to:from:dkim-signature;
+        bh=XS3zdcc+4Z9pLCR3jnzB5lUIYoFXe8W8ALmihvlxmfU=;
+        b=y7uTHgJLbt8VVnZe4Xaw9Zo9ScEzuka77ITXI0d7d0GhEB+2fXWFfLyn4LSLUJnQSY
+         YkNs736RlVSo3Jb2N/utRa/eFRkbqgQ9hwFfrFUORuKGvpQCvoPr73fYj6XCmpwgBOS5
+         5Cs1lz/aWCslDpDVRtOX5z/mtwsZdkyHxhEr3mgWG+W96tUoL7rV8/E9/vcMnJl1H7oi
+         Tnf+/13u1lIVbgdnPZIdF55RmvSiFYI6u94h4mmmoqHWE9ZT8dmBFHk4FqdDz0OxSlkA
+         NcWRiZVNAjqLnjJCFP+ZNGWvnFrgMRek/oq8h0iCP4FqYk6xWuXHgYDpIADZxoxYj0LC
+         YCwg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@allianzbulk.onmicrosoft.com header.s=selector2-allianzbulk-onmicrosoft-com header.b=kFjHIoi0;
+       arc=pass (i=1);
+       spf=neutral (google.com: 2a01:111:f400:fe0d::721 is neither permitted nor denied by best guess record for domain of chartering@exoduschartering.info) smtp.mailfrom=chartering@exoduschartering.info
+Return-Path: <chartering@exoduschartering.info>
+Received: from EUR04-HE1-obe.outbound.protection.outlook.com (mail-he1eur04on0721.outbound.protection.outlook.com. [2a01:111:f400:fe0d::721])
+        by mx.google.com with ESMTPS id sb13-20020a1709076d8d00b006e87d190628si2091536ejc.192.2022.04.15.18.29.49
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 18:29:49 -0700 (PDT)
+Received-SPF: neutral (google.com: 2a01:111:f400:fe0d::721 is neither permitted nor denied by best guess record for domain of chartering@exoduschartering.info) client-ip=2a01:111:f400:fe0d::721;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Sbv8zegD24vsl4yL2Bz4FHmXEAn2csDLXlz/IsL8eghKcUxn1Am8nSzTaWSw9WwOBqLiqWofdLV7q7FShmJlbzpYTP+ThwrnE+YSIF+BowecKt9NEPz6OOudoTXGvoSh2Y8FYFkflkLFHLYBXe3srOczA5dAzTsKryaww/pNlDslCJYyS0ShXzg/OxSfOTsE1k8M0Ln5Hd1Y/x9k6MEhUgUl0KGVVFhSLVRVjn41JuzF30fEklmggqDYb9aJEe9taOcR8mZ5JvE1Fb62jNSxvV6DRSWbXKZ01aU22ijjuVs4eV8DMZRvkVeEWaJIf8a0J9NdmjTlmj9wLO2n7iEXww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XS3zdcc+4Z9pLCR3jnzB5lUIYoFXe8W8ALmihvlxmfU=;
+ b=ilhzw/cGyNjLqoqw1gWLp1ruImphxGD0LsTQilv/37HcLtVb0NCZzw2o4QB1Fd0KhvIKq4KlWKl+u5JljAf4iBrXE8ih2YuLWCQgfL9A8h60vRv4adrWB1n2rfSIKFVnqmEBjka8eTEcIRWveOckfa8eURGh/hFRttNbc7BdCzqPZBPWbOg/u3+2vimIFMEqyU/X1CXaSl50g7RjDgvol97xycz7+7C/vB41r54H25Rj0VkoySfJepiypNX7ga7oleKg1tkrkfWh3l/FkqCSvcdd278vkGuv2RKNsGZlrz3030UwGP+/yAQr8gyUZIqOY5Xl9GCWl8WwhiKG0fVsWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none (sender ip is
+ 94.130.208.82) smtp.rcpttodomain=allianzbulk.com
+ smtp.mailfrom=exoduschartering.info; dmarc=none action=none
+ header.from=exoduschartering.info; dkim=none (message not signed); arc=none
+ (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=allianzbulk.onmicrosoft.com; s=selector2-allianzbulk-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XS3zdcc+4Z9pLCR3jnzB5lUIYoFXe8W8ALmihvlxmfU=;
+ b=kFjHIoi0HsWJwfQwWZNQ1vcSnYi0ltIqIwDnHdTFLGZTg7R37C6kLOos8XUYg6XU7Fjr8Hh9nX0yr4HEL/dnTprY8rHPhwrVh2TsyJ1lBtg4+Ywa0zT6+RImQKjBcFpmc5CHPmeUxrVhYvqpZiJHJ/XoUxDfnr8XujthkIJfl0Y=
+Received: from DB7PR05CA0050.eurprd05.prod.outlook.com (2603:10a6:10:2e::27)
+ by AM4PR05MB3124.eurprd05.prod.outlook.com (2603:10a6:205:3::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5144.28; Sat, 16 Apr
+ 2022 01:29:47 +0000
+Received: from DB5EUR01FT044.eop-EUR01.prod.protection.outlook.com
+ (2603:10a6:10:2e:cafe::8) by DB7PR05CA0050.outlook.office365.com
+ (2603:10a6:10:2e::27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.20 via Frontend
+ Transport; Sat, 16 Apr 2022 01:29:47 +0000
+Received-SPF: None (protection.outlook.com: exoduschartering.info does not
+ designate permitted sender hosts)
+Received: from hestia.akereon.net (94.130.208.82) by
+ DB5EUR01FT044.mail.protection.outlook.com (10.152.4.182) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19 via Frontend Transport; Sat, 16 Apr 2022 01:29:47 +0000
+Received: from adminPC (unknown [117.193.2.45])
+	by hestia.akereon.net (Postfix) with ESMTPA id 056695C10A4;
+	Fri, 15 Apr 2022 17:25:51 +0300 (EEST)
+From: "Exodus Chartering Services., India" <chartering@exoduschartering.info>
+To: "'Exodus Chartering Services., India'" <chartering@exoduschartering.info>
+Subject: 5000MT BGD RICE ANGRE /  MERSIN
+Date: Fri, 15 Apr 2022 19:39:36 +0530
+Message-ID: <2e8f01d850d5$1dd760a0$598621e0$@exoduschartering.info>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_2E90_01D85103.37931F10"
+X-Mailer: Microsoft Outlook 14.0
+Thread-Index: AdhQ0mfnst9IyLryQom1k9+8iFBRwg==
+Content-Language: en-us
+Return-Path: chartering@exoduschartering.info
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 58cb896f-7967-4de0-aa38-db684b7974dd:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 00b93a40-3740-458a-bdfb-08da1f4897db
+X-MS-TrafficTypeDiagnostic: AM4PR05MB3124:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Transport-Rules-Loop: 1
+X-MS-Exchange-SenderADCheck: 2
+X-MS-Exchange-AntiSpam-Relay: 1
+X-Microsoft-Antispam: BCL:1;
+X-Microsoft-Antispam-Message-Info:
+	M7B1w8E2qJGRBP041vJZqEKuiu/BLpEP/OklahP8Axh9Ju5B4UHB0DM++E8AXczOld2N2lartlMlqCKaNmMHdFiD6oSyCsC1gu4HOCZn3818a4oci2AacRxK1BEiW6EiyhmGyfCXTMltWFq/sY1HZEUCCcHUYlaCOmiETJ7PpHpEmeqT9cYiqLCQgVUyLsTDK8GbY7Tj+1UgJrs9uxrBwrKZAru4M6i3sAqvgsg2wKQEY6kMcW8xD2Y0LANOQICq3s5AztTE/kTpEWxGwnkBOCZxfzhSixwMlnekDkJWO7eTEkpGSNqTZ9TEmwGyonHnpdTOaLG9iPoBsVnD384kH0QOdepYELirF5ZES5zFvi8zk9qlxXX/iMHqbrqj9SrZJU7nWR0T/0egJRoDVRRNwZjy6zEq0k0NqwMEXR4gSI03pQv0jhsTZHxUVRERHbfLp8M+IERDPU2ykojFpGqQYYCcrA52fH0j8Gt4nDqxbepwY9u7YjOnmU1KUc4OEtlsmJeSEr+OPLPHyMe1QXZ05aXLlb6zrn1ZpmgPgz1jtElWirneiC5wh7coIBVVlAotMy6ROLXm77Bz5FUNbzsQOXSoxZJKy6mnopeKxheFstJSnC9kDATlIEm5y0Yll9otDIUCmnnIclraOoebnAtpUFkppsmH3zdLmWzZsCOqfKdS7YHwDQUsBNDXQqsiWL37MEF8tCzzuc5nKsJkis0WrnJRC4kiwK5VeI0CqgxYekWTUQ+/Ux+kvyeBo/SyN4s6SB1Uxr/xA8LePOj4KYIgPA==
+X-Forefront-Antispam-Report:
+	CIP:94.130.208.82;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:hestia.akereon.net;PTR:hestia.akereon.net;CAT:NONE;SFS:(13230001)(4636009)(286005)(2906002)(44736005)(37006003)(6862004)(7596003)(956004)(6200100001)(6966003)(86362001)(26005)(336012)(7636003)(2616005)(36756003)(316002)(8676002)(6266002)(70586007)(68406010)(1420700001)(356005)(508600001)(6666004)(19956002);DIR:OUT;SFP:1102;
+X-ExternalRecipientOutboundConnectors: 58cb896f-7967-4de0-aa38-db684b7974dd
+X-OriginatorOrg: allianzbulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Apr 2022 01:29:47.1276
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 00b93a40-3740-458a-bdfb-08da1f4897db
+X-MS-Exchange-CrossTenant-Id: 58cb896f-7967-4de0-aa38-db684b7974dd
+X-MS-Exchange-CrossTenant-AuthSource: DB5EUR01FT044.eop-EUR01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM4PR05MB3124
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_2E90_01D85103.37931F10
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+ 
+
+ 
+
+EXODUS CHARTERING SERVICES., INDIA
+
+TEL: 0091-44-26542962
+
+EMAIL: chartering@exoduschartering.info
+
+---------------------------------------------------------------
+
+ 
+
+GOOD DAY
+
+ 
+
+ 
+
+5000MT BGD RICE 
+
+ 
+
+PART CARGO OK / SEPARATE HATCH
+
+ 
+
+ANGRE / MERSIN
+
+ 
+
+1500 / 1500
+
+ 
+
+PROMPT
+
+ 
+
+COMM 2.5 PCT 
+
+ 
+
+ 
+
+B.RGDS / MANUEL
+
+MOB: 91-9840446665,
+
+AS BROKERS ONLY
+
+E. & O. E.
+
+All details about and given in good faith.
+
+ 
+
+SKYPE: manuel13291
+
+ 
+
+==================================================
+
+This is email broadcast to shipbroking & shipping community and not spam. If
+
+you are not interested please notify us in return with subject "remove us"
+
+==================================================
+
+*Treat hyperlinks and attachments if any in this email with caution.*
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+------=_NextPart_000_2E90_01D85103.37931F10
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 14 =
+(filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calisto MT";
+	panose-1:2 4 6 3 5 5 5 3 3 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.EmailStyle18
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle19
+	{mso-style-type:personal;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+span.EmailStyle20
+	{mso-style-type:personal-reply;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US link=3Dblue =
+vlink=3Dpurple><div class=3DWordSection1><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>EXODUS =
+CHARTERING SERVICES., INDIA<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'>TEL: 0091-44-26542962<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'>EMAIL: <a =
+href=3D"mailto:chartering@exoduschartering.info">chartering@exoduscharter=
+ing.info</a><o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'>------------------------------------------------------------=
+---<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>GOOD =
+DAY<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>5000MT BGD =
+RICE <o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>PART CARGO =
+OK / SEPARATE HATCH<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>ANGRE / =
+MERSIN<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>1500 / =
+1500<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'>PROMPT<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>COMM 2.5 PCT =
+<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>B.RGDS / =
+MANUEL<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>MOB: =
+91-9840446665,<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>AS BROKERS =
+ONLY<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>E. &amp; O. =
+E.<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>All details =
+about and given in good faith.<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>SKYPE: =
+manuel13291<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>This is =
+email broadcast to shipbroking &amp; shipping community and not spam. =
+If<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>you are not =
+interested please notify us in return with subject &quot;remove =
+us&quot;<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto =
+MT","serif"'>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:12.0pt;font-family:"Calisto MT","serif"'>*Treat =
+hyperlinks and attachments if any in this email with =
+caution.*<o:p></o:p></span></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div></body></html>
+------=_NextPart_000_2E90_01D85103.37931F10--

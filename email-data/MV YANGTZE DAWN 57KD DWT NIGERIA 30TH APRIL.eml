@@ -1,0 +1,285 @@
+Delivered-To: shippingapp@tatwa.info
+Received: by 2002:a05:6a10:1d0f:0:0:0:0 with SMTP id pp15csp664071pxb;
+        Fri, 15 Apr 2022 08:30:32 -0700 (PDT)
+X-Received: by 2002:a7b:c105:0:b0:38e:b992:a035 with SMTP id w5-20020a7bc105000000b0038eb992a035mr3804225wmi.106.1650036632032;
+        Fri, 15 Apr 2022 08:30:32 -0700 (PDT)
+Return-Path: <shipping+caf_=shippingapp=tatwa.info@tatwa.info>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id e16-20020a05600c2dd000b0038e6bb914b8sor1704498wmh.36.2022.04.15.08.30.31
+        for <shippingapp@tatwa.info>
+        (Google Transport Security);
+        Fri, 15 Apr 2022 08:30:32 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       arc=fail (body hash mismatch);
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of shipping+caf_=shippingapp=tatwa.info@tatwa.info) smtp.mailfrom="shipping+caf_=shippingapp=tatwa.info@tatwa.info"
+Authentication-Results: spf=pass (sender IP is 178.63.196.36)
+ smtp.mailfrom=unitedseascorp.gr; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=unitedseascorp.gr;
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-original-authentication-results:x-gm-message-state:delivered-to
+         :from:to:date:subject:message-id:mime-version
+         :content-transfer-encoding:custom-id;
+        bh=RGp5FxHYDd9AQwGE1Q7HFNJelbZZ9h42+Cj8/0Ophag=;
+        b=f/+ccWVx4o31Gz3IDpWilqbvOysuVo1fnQoL0Mv4dOtAhwiJgPezDQhcEz7u3itAIg
+         jzH4IaLRV2URZ1UniR6nd7gJRZVIa59SrTL7wquUA9t5hxt7JCVt61k/SQi4fBi1rB6A
+         57WNPGME74KS8Cs0Sofsv23hhY4pOwCIn+lGSBb9mKrvT+/cRZyA87e6iANWKXvCHXQu
+         qKzNaa/RPZELitwo3ZlT4aij1v/j5JICvXir5tEdntNq/3FhVmoLztS8jK2w+ZrTiQRF
+         wn1X4knQCPeyZ7POAruiM+JvzVqfxIQWMaNn0QcXLzyvFHR2gjhSj964ltKbUW87ezAh
+         Nyow==
+X-Original-Authentication-Results: mx.google.com;       arc=fail (body hash mismatch);       spf=fail (google.com: domain of chartering@unitedseascorp.gr does not designate 2a01:111:f400:7ea7::60f as permitted sender) smtp.mailfrom=chartering@unitedseascorp.gr
+X-Gm-Message-State: AOAM533nqX1eyOiji9uRnDGhkGFK2u42dKz+cPjGuszW5cusHazadY7E
+	sbrQKonMoxq4HwVa6wW1kiqlDUKFeQOF7gAX+zjMGJy8nuHpYVX6s5HjAJU=
+X-Received: by 2002:a05:600c:5c9:b0:38e:d44a:4cc1 with SMTP id p9-20020a05600c05c900b0038ed44a4cc1mr3678006wmd.124.1650036630949;
+        Fri, 15 Apr 2022 08:30:30 -0700 (PDT)
+X-Forwarded-To: shippingapp@tatwa.info
+X-Forwarded-For: shipping@tatwa.info shippingapp@tatwa.info
+Delivered-To: shipping@tatwa.info
+Received: by 2002:a5d:620f:0:0:0:0:0 with SMTP id y15csp157527wru;
+        Fri, 15 Apr 2022 08:30:29 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJw1bmeyBpFP1EI+ErJ8GGKlxPqkGAB1uzNJZVEURH4CcQdkP/sSyg4iiISA+sw+Pi+6YH0B
+X-Received: by 2002:a05:6402:1e8a:b0:41d:af82:613e with SMTP id f10-20020a0564021e8a00b0041daf82613emr8739758edf.18.1650036629162;
+        Fri, 15 Apr 2022 08:30:29 -0700 (PDT)
+Return-Path: <chartering@unitedseascorp.gr>
+Received: from ARE01-DX2-obe.outbound.protection.outlook.com (mail-dx2are01on2060f.outbound.protection.outlook.com. [2a01:111:f400:7ea7::60f])
+        by mx.google.com with ESMTPS id z24-20020a1709063a1800b006e8747fd555si1147784eje.550.2022.04.15.08.30.28
+        for <shipping@tatwa.info>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 15 Apr 2022 08:30:29 -0700 (PDT)
+Received-SPF: fail (google.com: domain of chartering@unitedseascorp.gr does not designate 2a01:111:f400:7ea7::60f as permitted sender) client-ip=2a01:111:f400:7ea7::60f;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=O/sgHU6JYHBTx4IOdpNfPCG8Tw/hsX1HULFAbwl7KZgkfLB4/m5dGTFzaPFcxt6vq0QdpDfyeaTCPhyaaC7G/b897tiVWY+5PtMI8D3q8e0syuXkwjdA+Rblmj8gp7AbpO5gM40KsyE5LI2PZL/NsEhmloTQ02Z8mNBBeRLu86htbHBT47uoqtoshNR1fHoZ7LzqMEytorRywT/o6yWWlzYHPg0pvLEFo9PSC01FOoWZPJRjqulHcnja7oySYSoZse9gTGZcn72iJSWG1o75LqveqhKgex/wKFE1xidHfKwwQ5s8IlQDj7EMcxbsLwLGEIu/sUif5U6gYs8XWT8rHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vJ6OouOxrsGxJru3b11/EFqwQnOPe+x6xoTul4qesJ8=;
+ b=YsA7YA5LRcX4uhO6SrURfPfIS9OocpnnNKTqk9CGWepoJ+LW1mG9DwK8mB1ad5XEmqWeqKQtLxEc1BONxuEq+qYoPXI8sCMI4CmBy88rumpQ+C1E5X7tjz7ufXW23m9LwJOTB1zR5wpv98hNalvgwA9/9CqQZKeWww3H/hyIMl+tV7UNfCeu0aLituO4HDf9u5ERgk8BL+AwJ0sqzaOuAZsOpskLggTfG0rtbfq//CypFdqJPtvAWOMGFe7iAjBZ2fAycs/O0Sg/V4nrZQviu+EAqoKNbB5YbN2SKWheDZ98vrsndbuPqQTTMkAP5djCC4eC3MikaCt3qTqYE1fAdg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 178.63.196.36) smtp.rcpttodomain=vegabulk.com
+ smtp.mailfrom=unitedseascorp.gr; dmarc=bestguesspass action=none
+ header.from=unitedseascorp.gr; dkim=none (message not signed); arc=none (0)
+Received: from DXXP273CA0020.AREP273.PROD.OUTLOOK.COM (2603:1086:300:2::32) by
+ AU2P273MB0858.AREP273.PROD.OUTLOOK.COM (2603:1086:200:3f::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.18; Fri, 15 Apr 2022 15:30:25 +0000
+Received: from AU2ARE01FT003.eop-are01.prod.protection.outlook.com
+ (2603:1086:300:2:cafe::18) by DXXP273CA0020.outlook.office365.com
+ (2603:1086:300:2::32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5164.18 via Frontend
+ Transport; Fri, 15 Apr 2022 15:30:25 +0000
+Received-SPF: Pass (protection.outlook.com: domain of unitedseascorp.gr
+ designates 178.63.196.36 as permitted sender)
+ receiver=protection.outlook.com; client-ip=178.63.196.36;
+ helo=stella.akereon.net;
+Received: from stella.akereon.net (178.63.196.36) by
+ AU2ARE01FT003.mail.protection.outlook.com (10.233.246.103) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5164.19 via Frontend Transport; Fri, 15 Apr 2022 15:30:23 +0000
+Received: from SERVER.USCSERVER.local (unit35.static.otenet.gr [62.103.240.203])
+	by stella.akereon.net (Postfix) with ESMTPA id 1987A44074C;
+	Fri, 15 Apr 2022 18:29:20 +0300 (EEST)
+From: chartering@unitedseascorp.gr
+To: "United Seas Corporation 1" <chartering@unitedseascorp.gr>
+Date: Fri, 15 Apr 2022 18:22:16 +0300
+Subject: MV YANGTZE DAWN 57KD DWT NIGERIA 30TH APRIL
+Message-ID: <4409680_07B9782F-2692-4569-9861-F1D49A4CF828@softway.gr>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_ST9210_0001_044B5831_0896B062"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Softway Communicator Mailer 1.7.0.30, SOFTWAY LTD. Athens GREECE
+X-Priority: 3
+Custom-ID: 4409680
+Return-Path: chartering@unitedseascorp.gr
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 991c2946-9ecc-4fa9-b2af-7a0b64b41833:0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: a41a619b-0bc9-46c2-cf1a-08da1ef4dc0b
+X-MS-TrafficTypeDiagnostic: AU2P273MB0858:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Transport-Rules-Loop: 1
+X-MS-Exchange-SenderADCheck: 0
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:2;
+X-Microsoft-Antispam-Message-Info:
+	MapnD3WOS/bpIaE4RA61O/HqBjHAA24qgI/J2rfIMfMUrlVrONts+uW1JC7dlbCBO44u8HZPbm6HVZBdMy4jYFMv2ZIVgS6oAAmDZpQ9te2/U6C9ICYPAzH3bxC46Le+PjVFXlK57PY4SlMfkWanZo6DsrEQyO2Z5+Ilg/QZrqN8teX3TkBDRvWuTIwnpLL14jSxir6A7PrN2pjTlpz3JfOzr4PYCplIXJHp6AQaBeVfGxoaaZubZq7wzTUipSPzSpZ4NdoTP3SuPeDR4PiqI5bgzRhEVTr0bmt7D42AKM4sXimDDauNVn/1xSwlQrgUZ5JfGUiu9CvYe817X55rThtv6HeFTL43uceSRPKefy71lxN1ZkJc/zSuo+lDqxZ4M5SxKs67NGdlcgu6SZGnlT+ZbUaftIr99+Aq5St+Jme8aGfLOL6XtFrhsKghNlm3zAqmAPhfU4+VIf/fa7R+OS9qxJ88WaFC9shkdg+AzWWNAwNErlB9BaRNfXl5v18sRW2thVkewYQCtDDgGeKyAafBwCfkVbb9glU2E6FmXJ2zo6/d9WSfcjwvO8MNr0jtiXo8GG2Yei9XGQlR3Sw1zFkxYpAUgKkmQBiRmip1lUaQrqzN0V1eGQo7JEHRmeeblM8i/NPG6OtkD9cTbjKZh633l8QDYOm00KusLRdKzqrvxcxh+617fh/SZ+i4cPjeEKAmit//OI3HIpYp/0AY9DNeKopL0BHhRS33Ous440ZFYTwIAkiY8EDklF6u7tL+JsL61gMYUKbVauvxeOF04UHSuWLMGbnlWGLIFmET5ZMmMVmyR05ul3EVRcb+x4Nb1yZw9SRJjMprGv4zY5LZVivjyBO718Llos2izSDOSp0=
+X-Forefront-Antispam-Report:
+	CIP:178.63.196.36;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:stella.akereon.net;PTR:stella.akereon.net;CAT:NONE;SFS:(13230001)(4636009)(286005)(26005)(83380400001)(36756003)(6862004)(956004)(8676002)(9686003)(6266002)(336012)(33656002)(7596003)(7636003)(68406010)(15974865002)(356005)(2906002)(70586007)(316002)(6666004)(86362001)(2160300002)(6966003)(508600001)(18100200005);DIR:OUT;SFP:1101;
+X-ExternalRecipientOutboundConnectors: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-OriginatorOrg: vegabulk.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2022 15:30:23.4274
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a41a619b-0bc9-46c2-cf1a-08da1ef4dc0b
+X-MS-Exchange-CrossTenant-Id: 991c2946-9ecc-4fa9-b2af-7a0b64b41833
+X-MS-Exchange-CrossTenant-AuthSource: AU2ARE01FT003.eop-are01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AU2P273MB0858
+
+This is a multipart message in MIME format.
+
+------=_ST9210_0001_044B5831_0896B062
+Content-Type: text/plain; charset=iso-8859-7
+Content-Transfer-Encoding: 7bit
+
+DIRECT/PLS PPS
+
+OPEN WARRI/NIGERIA O/A 30TH APRIL
+
+TCT ONLY
+
+GRAIN CLEAN // ALL DIR OKAY
+
+MV YANGTZE DAWN
+BULK CARRIER FLAG : MARSHALL ISLANDS
+CLASS : LR BULT: 2010 BY HANTONG
+DWAT/DRAFT/TPC: SSW ABT. 56700 MT ON 12.8 M/ 58.8 
+LOA/BEAM/DEP: 189.99 M / 32.26M/18M 
+GT/NT: 32987/19231 
+HOLDS/HATCHES: 5 / 5 HATCH COVER : HYDRAULIC FOLDING TYPE 
+HATCH DIMENSIONS: NO.1 : 18.86M X 18.26M NO. 2+3+4+5 : 21.32M X 18.26M 
+CARGO CAPACITIES: GRAIN/M3 : 71634 BALE: 68200 
+CRANES 4 X 35.0T GRAB 4 X 12CBM 
+SPEED/CONSUMPTION AS VESSEL TRADING AT OPEN SEA FOR 24 HOURS: 
+BALLAST : ABT 13.5KN ON ABT30.2MT VLSFO + 0.1MT LSMGO
+LADEN : ABT 13KN ON ABT30.2MT VLSFO + 0.1MT LSMGO
+ECO SPD/CONS BALLAST : ABT 12.25KN ON ABT 25MT VLSFO + 0.1MT LSMGO
+LADEN : ABT 12.0KN ON ABT 25MT VLSFO + 0.1MT LSMGO
+IN PORT : ABT 3.5 MT VLSFO +0.1MT LSMGO IDLE ABT 6.0MT VLSFO +0.1MT LSMGO BSS CRANE WORKING 
+
+ADA 
+ 
+BRGDS  / ALEXANDROS TSADILAS
+MOB    : 0030 6974855161
+DIR    : 0030 2108064867
+SKYPE  : GREEKALEX94
+ 
+
+ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+United Seas Corp.
+Konitsis 5 & Kifisias ave,4th floor
+Marousi 151-25, greece
+Tel     : 0030 210 8064867/8066243
+Email   : chartering@unitedseascorp.gr
+          position@unitedseascorp.gr
+Web     : www.unitedseascorp.gr
+Members : Bimco reg.no.178704,Baltic Exchange,H.S.A
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+ 
+ 
+
+
+------=_ST9210_0001_044B5831_0896B062
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+
+<=21DOCTYPE html PUBLIC =22-//W3C//DTD XHTML 1.0 Transitional//EN=22 =22h=
+ttp://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd=22>=0D=0A=09<head>=
+=0D=0A=09=09<meta http-equiv=3D=22Content-Type=22 content=3D=22text/html;=
+ charset=3Dwindows-1253=22><title>=0D=0A=09=09</title>=0D=0A=09=09<style =
+type=3D=22text/css=22>=0D=0A=09=09=09.cs95E872D0=7Btext-align:left;text-i=
+ndent:0pt;margin:0pt 0pt 0pt 0pt=7D=0D=0A=09=09=09.csBF16CDD6=7Bcolor:=23=
+000000;background-color:transparent;font-family:Tahoma;font-size:11pt;fon=
+t-weight:normal;font-style:normal;=7D=0D=0A=09=09</style>=0D=0A=09</head>=
+=0D=0A=09<body>=0D=0A=09=09<p class=3D=22cs95E872D0=22><span class=3D=22c=
+sBF16CDD6=22>DIRECT/PLS PPS</span></p><p class=3D=22cs95E872D0=22><span c=
+lass=3D=22csBF16CDD6=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><spa=
+n class=3D=22csBF16CDD6=22>OPEN WARRI/NIGERIA O/A 30TH APRIL</span></p><p=
+ class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>&nbsp;</span></p=
+><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>TCT ONLY</spa=
+n></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>&nbsp;</=
+span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>GRAIN=
+ CLEAN // ALL DIR OKAY</span></p><p class=3D=22cs95E872D0=22><span class=3D=
+=22csBF16CDD6=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=
+=3D=22csBF16CDD6=22>MV YANGTZE DAWN</span></p><p class=3D=22cs95E872D0=22=
+><span class=3D=22csBF16CDD6=22>BULK CARRIER FLAG : MARSHALL ISLANDS</spa=
+n></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>CLASS : =
+LR BULT: 2010 BY HANTONG</span></p><p class=3D=22cs95E872D0=22><span clas=
+s=3D=22csBF16CDD6=22>DWAT/DRAFT/TPC: SSW ABT. 56700 MT ON 12.8 M/ 58.8 </=
+span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>LOA/B=
+EAM/DEP: 189.99 M / 32.26M/18M </span></p><p class=3D=22cs95E872D0=22><sp=
+an class=3D=22csBF16CDD6=22>GT/NT: 32987/19231 </span></p><p class=3D=22c=
+s95E872D0=22><span class=3D=22csBF16CDD6=22>HOLDS/HATCHES: 5 / 5 HATCH CO=
+VER : HYDRAULIC FOLDING TYPE </span></p><p class=3D=22cs95E872D0=22><span=
+ class=3D=22csBF16CDD6=22>HATCH DIMENSIONS: NO.1 : 18.86M X 18.26M NO. 2+=
+3+4+5 : 21.32M X 18.26M </span></p><p class=3D=22cs95E872D0=22><span clas=
+s=3D=22csBF16CDD6=22>CARGO CAPACITIES: GRAIN/M3 : 71634 BALE: 68200 </spa=
+n></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>CRANES 4=
+ X 35.0T GRAB 4 X 12CBM </span></p><p class=3D=22cs95E872D0=22><span clas=
+s=3D=22csBF16CDD6=22>SPEED/CONSUMPTION AS VESSEL TRADING AT OPEN SEA FOR =
+24 HOURS: </span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16C=
+DD6=22>BALLAST : ABT 13.5KN ON ABT30.2MT VLSFO + 0.1MT LSMGO</span></p><p=
+ class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>LADEN : ABT 13KN=
+ ON ABT30.2MT VLSFO + 0.1MT LSMGO</span></p><p class=3D=22cs95E872D0=22><=
+span class=3D=22csBF16CDD6=22>ECO SPD/CONS BALLAST : ABT 12.25KN ON ABT 2=
+5MT VLSFO + 0.1MT LSMGO</span></p><p class=3D=22cs95E872D0=22><span class=
+=3D=22csBF16CDD6=22>LADEN : ABT 12.0KN ON ABT 25MT VLSFO + 0.1MT LSMGO</s=
+pan></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF16CDD6=22>IN POR=
+T : ABT 3.5 MT VLSFO +0.1MT LSMGO IDLE ABT 6.0MT VLSFO +0.1MT LSMGO BSS C=
+RANE WORKING </span></p><p class=3D=22cs95E872D0=22><span class=3D=22csBF=
+16CDD6=22>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=22c=
+sBF16CDD6=22>ADA </span></p></body>=0D=0A<=21DOCTYPE html PUBLIC =22-//W3=
+C//DTD XHTML 1.0 Transitional//EN=22 =22http://www.w3.org/TR/xhtml1/DTD/x=
+html1-transitional.dtd=22>=0D=0A=09<head>=0D=0A=09=09<meta http-equiv=3D=22=
+Content-Type=22 content=3D=22text/html; charset=3Dwindows-1253=22><title>=
+=0D=0A=09=09</title>=0D=0A=09=09<style type=3D=22text/css=22>=0D=0A=09=09=
+=09.cs95E872D0=7Btext-align:left;text-indent:0pt;margin:0pt 0pt 0pt 0pt=7D=
+=0D=0A=09=09=09.cs9D249CCB=7Bcolor:=23000000;background-color:transparent=
+;font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-sty=
+le:normal;=7D=0D=0A=09=09=09.cs263FB1E7=7Bcolor:=23000000;background-colo=
+r:transparent;font-family:'Courier New';font-size:11pt;font-weight:normal=
+;font-style:normal;=7D=0D=0A=09=09</style>=0D=0A=09</head>=0D=0A=09<body>=
+=0D=0A=09=09<p class=3D=22cs95E872D0=22><span class=3D=22cs9D249CCB=22>&n=
+bsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs9D249CCB=22=
+>&nbsp;</span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs263FB1E7=
+=22>BRGDS &nbsp;/ ALEXANDROS TSADILAS</span></p><p class=3D=22cs95E872D0=22=
+><span class=3D=22cs263FB1E7=22>MOB &nbsp;&nbsp; : 0030 6974855161</span>=
+</p><p class=3D=22cs95E872D0=22><span class=3D=22cs263FB1E7=22>DIR &nbsp;=
+&nbsp;&nbsp;: 0030 2108064867<br>SKYPE &nbsp;: GREEKALEX94</span></p><p c=
+lass=3D=22cs95E872D0=22><span class=3D=22cs9D249CCB=22>&nbsp;</span></p><=
+p class=3D=22cs95E872D0=22><span class=3D=22cs9D249CCB=22>&nbsp;</span></=
+p></body>=0D=0A<BR><=21DOCTYPE html PUBLIC =22-//W3C//DTD XHTML 1.0 Trans=
+itional//EN=22 =22http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd=
+=22>=0D=0A=09<head>=0D=0A=09=09<meta http-equiv=3D=22Content-Type=22 cont=
+ent=3D=22text/html; charset=3Dwindows-1253=22><title>=0D=0A=09=09</title>=
+=0D=0A=09=09<style type=3D=22text/css=22>=0D=0A=09=09=09.cs95E872D0=7Btex=
+t-align:left;text-indent:0pt;margin:0pt 0pt 0pt 0pt=7D=0D=0A=09=09=09.cs9=
+890051F=7Bcolor:=23000000;background-color:transparent;font-family:'Couri=
+er New';font-size:10pt;font-weight:normal;font-style:normal;=7D=0D=0A=09=09=
+=09.cs1C9A32B7=7Bcolor:=23000000;background-color:transparent;font-family=
+:'Courier New';font-size:10pt;font-weight:normal;font-style:normal;text-d=
+ecoration: none;=7D=0D=0A=09=09=09.csBCEA5DBF=7Bcolor:=230000FF;backgroun=
+d-color:transparent;font-family:'Courier New';font-size:10pt;font-weight:=
+normal;font-style:normal;text-decoration: underline;=7D=0D=0A=09=09=09.cs=
+9D249CCB=7Bcolor:=23000000;background-color:transparent;font-family:'Time=
+s New Roman';font-size:12pt;font-weight:normal;font-style:normal;=7D=0D=0A=
+=09=09</style>=0D=0A=09</head>=0D=0A=09<body>=0D=0A=09=09<p class=3D=22cs=
+95E872D0=22><span class=3D=22cs9890051F=22>&nbsp;</span></p><p class=3D=22=
+cs95E872D0=22><span class=3D=22cs9890051F=22>~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~~~~~~~~~~~~~~~~~~~~~~</span></p><p class=3D=22cs95E872D0=22><span class=
+=3D=22cs9890051F=22>United Seas Corp.</span></p><p class=3D=22cs95E872D0=22=
+><span class=3D=22cs9890051F=22>Konitsis 5 &amp; Kifisias ave,4th floor</=
+span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs9890051F=22>Marou=
+si 151-25, greece</span></p><p class=3D=22cs95E872D0=22><span class=3D=22=
+cs9890051F=22>Tel &nbsp; &nbsp; : 0030 210 8064867/8066243</span></p><p c=
+lass=3D=22cs95E872D0=22><span class=3D=22cs9890051F=22>Email &nbsp; : <a =
+class=3D=22cs1C9A32B7=22 href=3D=22mailto:chartering=40unitedseascorp.gr=22=
+><span class=3D=22csBCEA5DBF=22>chartering=40unitedseascorp.gr</span></a>=
+</span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs9890051F=22>&nb=
+sp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<a class=3D=22cs1C9A32B7=22 hre=
+f=3D=22mailto:position=40unitedseascorp.gr=22><span class=3D=22csBCEA5DBF=
+=22>position=40unitedseascorp.gr</span></a></span></p><p class=3D=22cs95E=
+872D0=22><span class=3D=22cs9890051F=22>Web &nbsp; &nbsp; : <a class=3D=22=
+cs1C9A32B7=22 href=3D=22www.unitedseascorp.gr=22><span class=3D=22csBCEA5=
+DBF=22>www.unitedseascorp.gr</span></a></span></p><p class=3D=22cs95E872D=
+0=22><span class=3D=22cs9890051F=22>Members : Bimco reg.no.178704,Baltic =
+Exchange,H.S.A</span></p><p class=3D=22cs95E872D0=22><span class=3D=22cs9=
+890051F=22>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></p>=
+<p class=3D=22cs95E872D0=22><span class=3D=22cs9890051F=22>&nbsp;</span><=
+/p><p class=3D=22cs95E872D0=22><span class=3D=22cs9D249CCB=22>&nbsp;</spa=
+n></p></body>=0D=0A<BR><DIV><FONT size=3D2><EM><HR></EM></FONT></DIV><DIV=
+ align=3Dcenter><FONT size=3D2><EM>=5BMessage sent via SOFTWAY Communicat=
+or=5D</EM></FONT></DIV><DIV>&nbsp;</DIV>
+------=_ST9210_0001_044B5831_0896B062--
