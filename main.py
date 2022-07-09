@@ -5,7 +5,7 @@ import html2text
 import locationtagger
 import spacy
 
-nlp = spacy.load('en_core_web_lg')
+nlp = spacy.load('en_core_web_sm')
 
 filepath = 'email-data/FW_ Mundra _ Dammam - 10,000 MT Bagged FlyAsh+++OTHERS (1).eml'
 
